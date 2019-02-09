@@ -56,7 +56,7 @@ return;
 	public function index()
 	{
 
-		$this->view('guest/contact');
+		$this->view('guest/contact-us');
 	}
 
 

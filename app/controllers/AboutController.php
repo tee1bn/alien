@@ -44,7 +44,7 @@ public function meet_the_ceo()
 	public function index()
 	{
 
-		$this->view('guest/about');
+		$this->view('guest/about-us');
 	}
 
 

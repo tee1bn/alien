@@ -6,7 +6,8 @@
                         <div class="footer-widget">
                             <div class="textwidget">
                                 <a href="index.html" class="footer-logo">
-                                    <img src="assets/img/logo/logo.svg" alt="Logo">
+                                    <!-- <img src="<?=asset;?>/assets/img/logo/logo.svg" alt="Logo"> -->
+                                    <h2><?=project_name;?></h2>
                                 </a>
                             </div>
                         </div>
@@ -20,7 +21,7 @@
                                 <li><a href="about-us.html">About Us</a></li>
                                 <li><a href="#">Our Services</a></li>
                                 <li><a href="#">Affiliate Program</a></li>
-                                <li><a href="#">Work for Airi</a></li>
+                                <li><a href="#">Work for <?=project_name;?></a></li>
                             </ul>
                         </div>
                     </div>
@@ -97,10 +98,10 @@
                         <!-- Social Icons End Here -->
                     </div>
                     <div class="col-md-4 text-md-center">
-                        <p class="copyright-text">&copy;2018 AIRI. Designed by HasTech</p>
+                        <p class="copyright-text">&copy;2018 <?=project_name;?>. Designed by HasTech</p>
                     </div>
                     <div class="col-md-4 text-md-right">
-                        <img src="assets/img/others/payments-2.png" alt="Payment">
+                        <img src="<?=asset;?>/assets/img/others/payments-2.png" alt="Payment">
                     </div>
                 </div>
             </div>
@@ -128,7 +129,7 @@
                 <div class="side-navigation-inner">
                     <div class="widget">
                         <ul class="sidenav-menu">
-                            <li><a href="about-us.html">About Airi Shop</a></li>
+                            <li><a href="about-us.html">About <?=project_name;?> Shop</a></li>
                             <li><a href="about-us.html">Help Center</a></li>
                             <li><a href="shop-collections.html">Portfolio</a></li>
                             <li><a href="blog.html">Blog</a></li>
@@ -138,7 +139,7 @@
                     <div class="widget pt--30 pr--20">
                         <div class="text-widget">
                             <p>
-                                <img src="assets/img/others/payments.png" alt="payment">
+                                <img src="<?=asset;?>/assets/img/others/payments.png" alt="payment">
                             </p>
                             <p>Pellentesque mollis nec orci id tincidunt. Sed mollis risus eu nisi aliquet, sit amet fermentum justo dapibus.</p>
                         </div>
@@ -194,7 +195,7 @@
                     </div>
                     <div class="widget">
                         <div class="text-widget">
-                            <p class="copyright-text">&copy; 2018 Airi All rights reserved</p>
+                            <p class="copyright-text">&copy; 2018 <?=project_name;?> All rights reserved</p>
                         </div>
                     </div>
                 </div>
@@ -215,7 +216,7 @@
                                     <i class="dl-icon-close"></i>
                                 </a>
                                 <div class="mini-cart__product__image">
-                                    <img src="assets/img/products/prod-17-1-70x91.jpg" alt="products">
+                                    <img src="<?=asset;?>/assets/img/products/prod-17-1-70x91.jpg" alt="products">
                                 </div>
                                 <div class="mini-cart__product__content">
                                     <a class="mini-cart__product__title" href="product-details.html">Chain print bermuda shorts  </a>
@@ -227,7 +228,7 @@
                                     <i class="dl-icon-close"></i>
                                 </a>
                                 <div class="mini-cart__product__image">
-                                    <img src="assets/img/products/prod-18-1-70x91.jpg" alt="products">
+                                    <img src="<?=asset;?>/assets/img/products/prod-18-1-70x91.jpg" alt="products">
                                 </div>
                                 <div class="mini-cart__product__content">
                                     <a class="mini-cart__product__title" href="product-details.html">Waxed-effect pleated skirt</a>
@@ -239,7 +240,7 @@
                                     <i class="dl-icon-close"></i>
                                 </a>
                                 <div class="mini-cart__product__image">
-                                    <img src="assets/img/products/prod-19-1-70x91.jpg" alt="products">
+                                    <img src="<?=asset;?>/assets/img/products/prod-19-1-70x91.jpg" alt="products">
                                 </div>
                                 <div class="mini-cart__product__content">
                                     <a class="mini-cart__product__title" href="product-details.html">Waxed-effect pleated skirt</a>
@@ -251,7 +252,7 @@
                                     <i class="dl-icon-close"></i>
                                 </a>
                                 <div class="mini-cart__product__image">
-                                    <img src="assets/img/products/prod-2-1-70x91.jpg" alt="products">
+                                    <img src="<?=asset;?>/assets/img/products/prod-2-1-70x91.jpg" alt="products">
                                 </div>
                                 <div class="mini-cart__product__content">
                                     <a class="mini-cart__product__title" href="product-details.html">Waxed-effect pleated skirt</a>
@@ -287,7 +288,7 @@
                 </button>
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="airi-element-carousel product-image-carousel nav-vertical-center nav-style-1"
+                        <div class="<?=project_name;?>-element-carousel product-image-carousel nav-vertical-center nav-style-1"
                                 data-slick-options='{
                                     "slidesToShow": 1,
                                     "slidesToScroll": 1,
@@ -299,7 +300,7 @@
                             <div class="product-image">
                                 <div class="product-image--holder">
                                     <a href="product-details.html">
-                                        <img src="assets/img/products/prod-9-1.jpg" alt="Product Image" class="primary-image">
+                                        <img src="<?=asset;?>/assets/img/products/prod-9-1.jpg" alt="Product Image" class="primary-image">
                                     </a>
                                 </div>
                                 <span class="product-badge sale">sale</span>
@@ -307,7 +308,7 @@
                             <div class="product-image">
                                 <div class="product-image--holder">
                                     <a href="product-details.html">
-                                        <img src="assets/img/products/prod-10-1.jpg" alt="Product Image" class="primary-image">
+                                        <img src="<?=asset;?>/assets/img/products/prod-10-1.jpg" alt="Product Image" class="primary-image">
                                     </a>
                                 </div>
                                 <span class="product-badge new">new</span>
@@ -315,7 +316,7 @@
                             <div class="product-image">
                                 <div class="product-image--holder">
                                     <a href="product-details.html">
-                                        <img src="assets/img/products/prod-11-1.jpg" alt="Product Image" class="primary-image">
+                                        <img src="<?=asset;?>/assets/img/products/prod-11-1.jpg" alt="Product Image" class="primary-image">
                                     </a>
                                 </div>
                                 <span class="product-badge hot">hot</span>
@@ -401,37 +402,37 @@
     <!-- ************************* JS Files ************************* -->
 
     <!-- jQuery JS -->
-    <script src="assets/js/vendor/jquery.min.js"></script>
+    <script src="<?=asset;?>/assets/js/vendor/jquery.min.js"></script>
 
     <!-- Bootstrap and Popper Bundle JS -->
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="<?=asset;?>/assets/js/bootstrap.bundle.min.js"></script>
 
     <!-- All Plugins Js -->
-    <script src="assets/js/plugins.js"></script>
+    <script src="<?=asset;?>/assets/js/plugins.js"></script>
 
     <!-- Ajax Mail Js -->
-    <script src="assets/js/ajax-mail.js"></script>
+    <script src="<?=asset;?>/assets/js/ajax-mail.js"></script>
 
     <!-- Main JS -->
-    <script src="assets/js/main.js"></script>
+    <script src="<?=asset;?>/assets/js/main.js"></script>
 
     <!-- REVOLUTION JS FILES -->
-    <script src="assets/js/revoulation/jquery.themepunch.tools.min.js"></script>
-    <script src="assets/js/revoulation/jquery.themepunch.revolution.min.js"></script>    
+    <script src="<?=asset;?>/assets/js/revoulation/jquery.themepunch.tools.min.js"></script>
+    <script src="<?=asset;?>/assets/js/revoulation/jquery.themepunch.revolution.min.js"></script>    
 
     <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
-    <script src="assets/js/revoulation/extensions/revolution.extension.actions.min.js"></script>
-    <script src="assets/js/revoulation/extensions/revolution.extension.carousel.min.js"></script>
-    <script src="assets/js/revoulation/extensions/revolution.extension.kenburn.min.js"></script>
-    <script src="assets/js/revoulation/extensions/revolution.extension.layeranimation.min.js"></script>
-    <script src="assets/js/revoulation/extensions/revolution.extension.migration.min.js"></script>
-    <script src="assets/js/revoulation/extensions/revolution.extension.navigation.min.js"></script>
-    <script src="assets/js/revoulation/extensions/revolution.extension.parallax.min.js"></script>
-    <script src="assets/js/revoulation/extensions/revolution.extension.slideanims.min.js"></script>
-    <script src="assets/js/revoulation/extensions/revolution.extension.video.min.js"></script>
+    <script src="<?=asset;?>/assets/js/revoulation/extensions/revolution.extension.actions.min.js"></script>
+    <script src="<?=asset;?>/assets/js/revoulation/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="<?=asset;?>/assets/js/revoulation/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="<?=asset;?>/assets/js/revoulation/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="<?=asset;?>/assets/js/revoulation/extensions/revolution.extension.migration.min.js"></script>
+    <script src="<?=asset;?>/assets/js/revoulation/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="<?=asset;?>/assets/js/revoulation/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="<?=asset;?>/assets/js/revoulation/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="<?=asset;?>/assets/js/revoulation/extensions/revolution.extension.video.min.js"></script>
 
     <!-- REVOLUTION ACTIVE JS FILES -->
-    <script src="assets/js/revoulation.js"></script>
+    <script src="<?=asset;?>/assets/js/revoulation.js"></script>
     
 </body>
 

@@ -37,15 +37,15 @@ ob_start();
 		// echo "url not routed";
 		//to beutify the url when accessing a user profile 
 		
-	/*	$user = User::where('username', $url[0])->first();
+		$user = User::where('username', $url[0])->first();
 		if ($user) {
 			$this->user = $user;
 					$this->controller = 'UserAboutController';
 		}else{
 
-		$this->controller = 'Error404Controller';
+			$this->controller = 'Error404Controller';
 		}
-*/
+
 
 		}
 

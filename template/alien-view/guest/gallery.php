@@ -12,11 +12,10 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h1 class="page-title">Glalerry</h1>
+                        <h1 class="page-title">Gallery</h1>
                         <ul class="breadcrumb justify-content-center">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="shop-sidebar.html">Shop Pages</a></li>
-                            <li class="current"><span>Shop Collections</span></li>
+                            <li><a href="<?=domain;?>">Home</a></li>
+                            <li class="current"><span>Gallery</span></li>
                         </ul>
                     </div>
                 </div>
@@ -34,7 +33,7 @@
                             <div class="banner-box banner-type-3 banner-type-3-1 banner-hover-1">
                                 <div class="banner-inner">
                                     <div class="banner-image">
-                                        <img src="assets/img/banner/m07-banner1.jpg" alt="Banner">
+                                        <img src="<?=asset;?>/assets/img/banner/m07-banner1.jpg" alt="Banner">
                                     </div>
                                     <div class="banner-info">
                                         <p class="banner-title-1 lts-13 lts-lg-4 text-uppercase">New Season</p>
@@ -48,7 +47,7 @@
                             <div class="banner-box banner-type-3 banner-type-3-1 banner-hover-1">
                                 <div class="banner-inner">
                                     <div class="banner-image">
-                                        <img src="assets/img/banner/m07-banner2.jpg" alt="Banner">
+                                        <img src="<?=asset;?>/assets/img/banner/m07-banner2.jpg" alt="Banner">
                                     </div>
                                     <div class="banner-info">
                                         <p class="banner-title-1 lts-13 lts-lg-4 text-uppercase">New Men</p>
@@ -62,7 +61,7 @@
                             <div class="banner-box banner-type-3 banner-type-3-1 banner-hover-1">
                                 <div class="banner-inner">
                                     <div class="banner-image">
-                                        <img src="assets/img/banner/m07-banner3.jpg" alt="Banner">
+                                        <img src="<?=asset;?>/assets/img/banner/m07-banner3.jpg" alt="Banner">
                                     </div>
                                     <div class="banner-info">
                                         <p class="banner-title-1 lts-13 lts-lg-4 text-uppercase">Hello</p>
@@ -76,7 +75,7 @@
                             <div class="banner-box banner-type-3 banner-type-3-1 banner-hover-1">
                                 <div class="banner-inner">
                                     <div class="banner-image">
-                                        <img src="assets/img/banner/m07-banner4.jpg" alt="Banner">
+                                        <img src="<?=asset;?>/assets/img/banner/m07-banner4.jpg" alt="Banner">
                                     </div>
                                     <div class="banner-info">
                                         <p class="banner-title-1 lts-13 lts-lg-4 text-uppercase">New Season</p>
@@ -90,7 +89,7 @@
                             <div class="banner-box banner-type-3 banner-type-3-1 banner-hover-1">
                                 <div class="banner-inner">
                                     <div class="banner-image">
-                                        <img src="assets/img/banner/m07-banner5.jpg" alt="Banner">
+                                        <img src="<?=asset;?>/assets/img/banner/m07-banner5.jpg" alt="Banner">
                                     </div>
                                     <div class="banner-info">
                                         <p class="banner-title-1 lts-13 lts-lg-4 text-uppercase">Woman 2019</p>
@@ -104,7 +103,7 @@
                             <div class="banner-box banner-type-3 banner-type-3-1 banner-hover-1">
                                 <div class="banner-inner">
                                     <div class="banner-image">
-                                        <img src="assets/img/banner/m07-banner6.jpg" alt="Banner">
+                                        <img src="<?=asset;?>/assets/img/banner/m07-banner6.jpg" alt="Banner">
                                     </div>
                                     <div class="banner-info">
                                         <p class="banner-title-1 lts-13 lts-lg-4 text-uppercase">Jacket</p>

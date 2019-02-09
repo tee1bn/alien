@@ -10,35 +10,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="meta description">
     <!-- Favicons -->
-    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="assets/img/icon.png">
+    <link rel="shortcut icon" href="<?=asset;?>/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="<?=asset;?>/assets/img/icon.png">
 
     <!-- Title -->
-    <title>Airi - Clean, Minimal eCommerce Bootstrap 4 Template</title>
+    <title><?=$page_title;?></title>
 
     <!-- ************************* CSS Files ************************* -->
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?=asset;?>/assets/css/bootstrap.min.css">
 
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?=asset;?>/assets/css/font-awesome.min.css">
 
     <!-- dl Icon CSS -->
-    <link rel="stylesheet" href="assets/css/dl-icon.css">
+    <link rel="stylesheet" href="<?=asset;?>/assets/css/dl-icon.css">
 
     <!-- All Plugins CSS -->
-    <link rel="stylesheet" href="assets/css/plugins.css">
+    <link rel="stylesheet" href="<?=asset;?>/assets/css/plugins.css">
 
     <!-- Revoulation Slider CSS  -->
-    <link rel="stylesheet" href="assets/css/revoulation.css">
+    <link rel="stylesheet" href="<?=asset;?>/assets/css/revoulation.css">
 
     <!-- style CSS -->
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="<?=asset;?>/assets/css/main.css">
 
     <!-- modernizr JS
     ============================================ -->
-    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="<?=asset;?>/assets/js/vendor/modernizr-2.8.3.min.js"></script>
     <!--[if lt IE 9]>
     <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -68,37 +68,37 @@
                             <nav class="main-navigation">
                                 <ul class="mainmenu">
                                     <li class="mainmenu__item menu-item-has-children megamenu-holder">
-                                        <a href="index.php" class="mainmenu__link">
+                                        <a href="<?=domain;?>" class="mainmenu__link">
                                             <span class="mm-text">Home</span>
                                         </a>
                                     </li>
                                     <li class="mainmenu__item menu-item-has-children">
-                                        <a href="shop-fullwidth.php" class="mainmenu__link">
+                                        <a href="<?=domain;?>/shop" class="mainmenu__link">
                                             <span class="mm-text">Shop</span>
                                             <span class="tip">Hot</span>
                                         </a>
                                       
                                     </li>
                                     <li class="mainmenu__item">
-                                        <a href="gallery.php" class="mainmenu__link">
+                                        <a href="<?=domain;?>/gallery" class="mainmenu__link">
                                             <span class="mm-text">Gallery</span>
                                         </a>
                                     </li>
                                     <li class="mainmenu__item menu-item-has-children has-children">
-                                        <a href="about-us.php" class="mainmenu__link">
+                                        <a href="<?=domain;?>/about" class="mainmenu__link">
                                             <span class="mm-text">About Us</span>
                                         </a>
                                        
                                     </li>
                                     <li class="mainmenu__item menu-item-has-children has-children">
-                                        <a href="contact-us.php" class="mainmenu__link">
+                                        <a href="<?=domain;?>/contact" class="mainmenu__link">
                                             <span class="mm-text">Contact Us</span>
                                         </a>
                                        
                                     </li>
 
                                     <li class="mainmenu__item menu-item-has-children has-children">
-                                        <a href="blog.php" class="mainmenu__link">
+                                        <a href="<?=domain;?>/blog" class="mainmenu__link">
                                             <span class="mm-text">Blog</span>
                                         </a>
                                     </li>
@@ -108,19 +108,24 @@
                         </div>
                         <div class="col-lg-2 col-md-3 col-4 text-lg-center">
                             <!-- Logo Start Here -->
-                            <a href="index.php" class="logo-box">
+                            <a href="<?=domain;?>" class="logo-box">
+                               
                                 <figure class="logo--normal"> 
-                                    <img src="assets/img/logo/logo.svg" alt="Logo"/>   
+                                    <!-- <img src="<?=asset;?>/assets/img/logo/logo.svg" alt="Logo"/>    -->
                                 </figure>
                                 <figure class="logo--transparency">
-                                    <img src="assets/img/logo/logo-white.png" alt="Logo"/>  
+                                    <!-- <img src="<?=asset;?>/assets/img/logo/logo-white.png" alt="Logo"/>   -->
                                 </figure>
+                                <h2>
+                                    <?=project_name;?>
+                                </h2>
+
                             </a>
                             <!-- Logo End Here -->
                         </div>
                         <div class="col-xl-5 col-lg-4 col-md-9 col-8">
                             <ul class="header-toolbar text-right">
-                                <li class="header-toolbar__item d-none d-lg-block">
+                                <li class="header-toolbar__item d-`none d-lg-block">
                                     <a href="#sideNav" class="toolbar-btn">
                                         <i class="dl-icon-menu2"></i>
                                     </a>                                    
@@ -179,7 +184,7 @@
                     <div class="col-4">
                         <a href="index.php" class="logo-box">
                             <figure class="logo--normal">
-                                <img src="assets/img/logo/logo.svg" alt="Logo">
+                                <img src="<?=asset;?>/assets/img/logo/logo.svg" alt="Logo">
                             </figure>
                         </a>
                     </div>

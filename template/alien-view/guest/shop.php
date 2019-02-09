@@ -12,10 +12,10 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h1 class="page-title">Shop Grid View</h1>
+                        <h1 class="page-title">Shop </h1>
                         <ul class="breadcrumb justify-content-center">
-                            <li><a href="index.html">Home</a></li>
-                            <li class="current"><span>Shop Pages</span></li>
+                            <li><a href="<?=domain;?>">Home</a></li>
+                            <li class="current"><span>Shop </span></li>
                         </ul>
                     </div>
                 </div>
