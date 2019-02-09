@@ -32,6 +32,7 @@ $router =[
 'contact' =>'ContactController',
 'about' =>'AboutController',
 'gallery' =>'Galleryontroller',
+'blog'  => 'BlogController',
 
 
 

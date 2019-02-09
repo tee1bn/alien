@@ -173,6 +173,7 @@ class ComposerStaticInit81eb7d45cb86396167b941f75b6bed30
 
     public static $classMap = array (
         'Admin' => __DIR__ . '/../..' . '/app/models/Admin.php',
+        'Category' => __DIR__ . '/../..' . '/app/models/Category.php',
         'Chat' => __DIR__ . '/../..' . '/app/models/Chat.php',
         'CmsPages' => __DIR__ . '/../..' . '/app/models/CmsPages.php',
         'Config' => __DIR__ . '/../..' . '/app/classes/Config.php',
@@ -181,6 +182,7 @@ class ComposerStaticInit81eb7d45cb86396167b941f75b6bed30
         'Mailer' => __DIR__ . '/../..' . '/app/classes/Mailer.php',
         'Newsletter' => __DIR__ . '/../..' . '/app/models/Newsletter.php',
         'Orders' => __DIR__ . '/../..' . '/app/models/Orders.php',
+        'Post' => __DIR__ . '/../..' . '/app/models/Post.php',
         'Products' => __DIR__ . '/../..' . '/app/models/Products.php',
         'ProductsCategory' => __DIR__ . '/../..' . '/app/models/ProductsCategory.php',
         'Redirect' => __DIR__ . '/../..' . '/app/classes/Redirect.php',
