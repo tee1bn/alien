@@ -29,7 +29,7 @@
                         </ul>
                         <div class="mini-cart__total">
                             <span>Subtotal</span>
-                            <span class="ammount">  {{$cart.get_total() |  currency:'<?=currency;?>'}}</span>
+                            <span class="ammount">  {{$cart.$total |  currency:'<?=currency;?>'}}</span>
                         </div>
                         <div class="mini-cart__buttons" ng-hide="$cart.$items.length==0">
                             <a href="<?=domain;?>/shop/cart" class="btn btn-fullwidth btn-style-1">View Cart</a>

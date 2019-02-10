@@ -68,7 +68,7 @@
                                                         </td>
                                                         <td class="product-quantity">
                                                             <div class="quantity">
-                                                                <input type="number" class="quantity-input" ng-model="$item.qty" id="qty-4"  min="1">
+                                                                <input ng-change="$shop.$cart.update_server();" type="number" class="quantity-input" ng-model="$item.qty" id="qty-4"  min="1">
                                                             </div>
                                                         </td>
                                                         <td class="product-total-price">
@@ -110,7 +110,7 @@
                                             <tbody>
                                                 <tr>
                                                     <th>Subtotal</th>
-                                                    <td>{{($shop.$cart.get_total()) |  currency:'<?=currency;?>'}} </td>  
+                                                    <td>{{($shop.$cart.$total) |  currency:'<?=currency;?>'}} </td>  
                                                 </tr>
                                                 <tr>
                                                     <th>Shipping</th>
@@ -152,7 +152,7 @@
                                                     <td>
                                                         <span class="product-price-wrapper">
                                                             <span class="money">
-                                                                {{($shop.$cart.get_total() + <?=$shipping_rate;?>) |  currency:'<?=currency;?>'}}</span>
+                                                                {{($shop.$cart.$total + <?=$shipping_rate;?>) |  currency:'<?=currency;?>'}}</span>
                                                         </span>
                                                     </td>
                                                 </tr>

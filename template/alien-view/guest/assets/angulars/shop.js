@@ -52,20 +52,25 @@
 
 					}
 
-			this.get_total = function (){
+			this.calculate_total = function (){
 
 					$total = 0;
 
 					for(x in this.$items){
 						$qty = (this.$items[x].qty != null) ? this.$items[x].qty : 1;
-						$total = $total + (parseInt(this.$items[x].price) );
+						$total = $total + (parseInt(this.$items[x].price) * parseInt(this.$items[x].qty) );
 					}
 
 
-					return $total;
+					 this.$total = $total;
 			}
 			
+
+
 			this.update_server = function () {
+
+				this.calculate_total();
+
 				$scope = angular.element($('#header-mini-cart')).scope();
 				$scope.$cart = this;
 			
