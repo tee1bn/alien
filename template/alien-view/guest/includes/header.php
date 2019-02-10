@@ -79,7 +79,7 @@
   
     <!-- Main Wrapper Start -->
     <div class="wrapper">
-        <div id="header-mini-cart" ng-controller ="ShopController">
+        <div id="header-mini-cart" ng-controller ="CartNotificationController">
 
             <!-- Header Area Start -->
             <header class="header header-fullwidth header-style-1">
@@ -182,7 +182,7 @@
                                     <li class="header-toolbar__item">
                                         <a href="#miniCart" class="mini-cart-btn toolbar-btn">
                                             <i class="dl-icon-cart4"></i>
-                                            <sup class="mini-cart-count">{{$shop.$cart.$items.length}}</sup>
+                                            <sup class="mini-cart-count">{{$cart.$items.length}}</sup>
                                         </a>
                                     </li>
                                     <li class="header-toolbar__item">
@@ -242,7 +242,7 @@
                                 <li class="header-toolbar__item">
                                     <a href="#miniCart" class="mini-cart-btn toolbar-btn">
                                         <i class="dl-icon-cart4"></i>
-                                        <sup class="mini-cart-count">2</sup>
+                                        <sup class="mini-cart-count">{{$cart.$items.length}} </sup>
                                     </a>
                                 </li>
                                 <li class="header-toolbar__item">

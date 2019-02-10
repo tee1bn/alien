@@ -30,9 +30,15 @@ public function open_order_confirmation($order_id='')
 	}
 
 
-	public function shopping_cart()
+	public function cart()
 	{
-		$this->view('guest/shoping-cart');
+		$shipping_rate = '1500.00';
+		$this->view('guest/cart', ['shipping_rate'=>$shipping_rate]);
+	}
+
+	public function checkout()
+	{
+		$this->view('guest/checkout');
 	}
 
 

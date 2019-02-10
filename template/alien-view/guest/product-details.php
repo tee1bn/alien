@@ -12,9 +12,9 @@
                 <div class="row">
                     <div class="col-12">
                         <ul class="breadcrumb">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="shop-sidebar.html">Shop Pages</a></li>
-                            <li class="current"><span>Product Details 02</span></li>
+                            <li><a href="<?=domain;?>">Home</a></li>
+                            <li><a href="<?=domain;?>/shop">Shop</a></li>
+                            <li class="current"><span>Product Details </span></li>
                         </ul>
                     </div>
                 </div>

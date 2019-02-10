@@ -16,7 +16,7 @@
                     <div class="col-12 text-center">
                         <h1 class="page-title">Cart</h1>
                         <ul class="breadcrumb justify-content-center">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="<?=domain;?>">Home</a></li>
                             <li class="current"><span>Cart</span></li>
                         </ul>
                     </div>
@@ -27,7 +27,7 @@
         <!-- Breadcrumb area End -->
 
         <!-- Main Content Wrapper Start -->
-        <div id="content" class="main-content-wrapper">
+        <div id="content" ng-controller="ShopController"  class="main-content-wrapper">
             <div class="page-content-inner">
                 <div class="container">
                     <div class="row pt--80 pt-md--60 pt-sm--40">
@@ -79,52 +79,6 @@
                                             <label for="billing_country" class="form__label form__label--2">Country <span class="required">*</span></label>
                                             <select id="billing_country" name="billing_country" class="form__input form__input--2 nice-select">
                                                 <option value="">Select a country…</option>
-                                                <option value="AF">Afghanistan</option>
-                                                <option value="AL">Albania</option>
-                                                <option value="DZ">Algeria</option>
-                                                <option value="AR">Argentina</option>
-                                                <option value="AM">Armenia</option>
-                                                <option value="AU">Australia</option>
-                                                <option value="AT">Austria</option>
-                                                <option value="AZ">Azerbaijan</option>
-                                                <option value="BH">Bahrain</option>
-                                                <option value="BD" selected="selected">Bangladesh</option>
-                                                <option value="BD">Brazil</option>
-                                                <option value="CN">China</option>
-                                                <option value="EG">Egypt</option>
-                                                <option value="FR">France</option>
-                                                <option value="DE">Germany</option>
-                                                <option value="HK">Hong Kong</option>
-                                                <option value="HU">Hungary</option>
-                                                <option value="IS">Iceland</option>
-                                                <option value="IN">India</option>
-                                                <option value="ID">Indonesia</option>
-                                                <option value="IR">Iran</option>
-                                                <option value="IQ">Iraq</option>
-                                                <option value="IE">Ireland</option>
-                                                <option value="IT">Italy</option>
-                                                <option value="JP">Japan</option>
-                                                <option value="KW">Kuwait</option>
-                                                <option value="MY">Malaysia</option>
-                                                <option value="MV">Maldives</option>
-                                                <option value="MX">Mexico</option>
-                                                <option value="MC">Monaco</option>
-                                                <option value="NP">Nepal</option>
-                                                <option value="RU">Russia</option>
-                                                <option value="KR">South Korea</option>
-                                                <option value="SS">South Sudan</option>
-                                                <option value="ES">Spain</option>
-                                                <option value="LK">Sri Lanka</option>
-                                                <option value="SD">Sudan</option>
-                                                <option value="SZ">Swaziland</option>
-                                                <option value="SE">Sweden</option>
-                                                <option value="CH">Switzerland</option>
-                                                <option value="TN">Tunisia</option>
-                                                <option value="TR">Turkey</option>
-                                                <option value="UA">Ukraine</option>
-                                                <option value="AE">United Arab Emirates</option>
-                                                <option value="GB">United Kingdom (UK)</option>
-                                                <option value="US">United States (US)</option>
                                             </select>
                                         </div>
                                     </div>
@@ -191,51 +145,7 @@
                                                         <select id="shipping_country" name="shipping_country" class="form__input form__input--2 nice-select">
                                                             <option value="">Select a country…</option>
                                                             <option value="AF">Afghanistan</option>
-                                                            <option value="AL">Albania</option>
-                                                            <option value="DZ">Algeria</option>
-                                                            <option value="AR">Argentina</option>
-                                                            <option value="AM">Armenia</option>
-                                                            <option value="AU">Australia</option>
-                                                            <option value="AT">Austria</option>
-                                                            <option value="AZ">Azerbaijan</option>
-                                                            <option value="BH">Bahrain</option>
-                                                            <option value="BD" selected="selected">Bangladesh</option>
-                                                            <option value="BD">Brazil</option>
-                                                            <option value="CN">China</option>
-                                                            <option value="EG">Egypt</option>
-                                                            <option value="FR">France</option>
-                                                            <option value="DE">Germany</option>
-                                                            <option value="HK">Hong Kong</option>
-                                                            <option value="HU">Hungary</option>
-                                                            <option value="IS">Iceland</option>
-                                                            <option value="IN">India</option>
-                                                            <option value="ID">Indonesia</option>
-                                                            <option value="IR">Iran</option>
-                                                            <option value="IQ">Iraq</option>
-                                                            <option value="IE">Ireland</option>
-                                                            <option value="IT">Italy</option>
-                                                            <option value="JP">Japan</option>
-                                                            <option value="KW">Kuwait</option>
-                                                            <option value="MY">Malaysia</option>
-                                                            <option value="MV">Maldives</option>
-                                                            <option value="MX">Mexico</option>
-                                                            <option value="MC">Monaco</option>
-                                                            <option value="NP">Nepal</option>
-                                                            <option value="RU">Russia</option>
-                                                            <option value="KR">South Korea</option>
-                                                            <option value="SS">South Sudan</option>
-                                                            <option value="ES">Spain</option>
-                                                            <option value="LK">Sri Lanka</option>
-                                                            <option value="SD">Sudan</option>
-                                                            <option value="SZ">Swaziland</option>
-                                                            <option value="SE">Sweden</option>
-                                                            <option value="CH">Switzerland</option>
-                                                            <option value="TN">Tunisia</option>
-                                                            <option value="TR">Turkey</option>
-                                                            <option value="UA">Ukraine</option>
-                                                            <option value="AE">United Arab Emirates</option>
-                                                            <option value="GB">United Kingdom (UK)</option>
-                                                            <option value="US">United States (US)</option>
+                                                     
                                                         </select>
                                                     </div>
                                                 </div>
@@ -298,28 +208,23 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th>Aliquam lobortis est 
-                                                    <strong><span>&#10005;</span>1</strong>
+                                       
+                                            <tr  ng-repeat ="($index, $item) in $shop.$cart.$items">
+                                                <th> {{$item.name}} 
+                                                    <strong><span>&#10005;</span>{{$item.qty}}</strong>
                                                 </th>
-                                                <td class="text-right">$80.00</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Auctor gravida enim 
-                                                    <strong><span>&#10005;</span>1</strong>
-                                                </th>
-                                                <td class="text-right">$60.00</td>
+                                                <td class="text-right">{{($item.price * $item.qty) |  currency:'<?=currency;?>'}}</td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
                                             <tr class="cart-subtotal">
                                                 <th>Subtotal</th>
-                                                <td class="text-right">$56.00</td>
+                                                <td class="text-right">{{($shop.$cart.get_total()) |  currency:'<?=currency;?>'}} </td>
                                             </tr>
                                             <tr class="shipping">
                                                 <th>Shipping</th>
                                                 <td class="text-right">
-                                                    <span>Flat Rate; $20.00</span>
+                                                    <span>Flat Rate; <?=$shipping_rate;?></span>
                                                 </td>
                                             </tr>
                                             <tr class="order-total">

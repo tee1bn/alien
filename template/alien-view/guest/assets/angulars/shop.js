@@ -22,7 +22,7 @@
 					window.show_notification('<b>'+$item.name+'</b><br> Already in Cart <br><small>You can increase the qty at Checkout</small> !');
 					return ;
 				}
-
+				$item.qty = 1;
 				this.$items.push($item);
 
 				this.update_server();
@@ -52,19 +52,23 @@
 
 					}
 
-		
-			this.update_server = function () {
-				$scope = angular.element($('#header-mini-cart')).scope();
-				$scope.$cart = this.$items;
-				$total = 0;
+			this.get_total = function (){
 
-					for(x in $scope.$cart){
-						$total += $scope.$cart[x].price;
-						this.$total = $total;
+					$total = 0;
+
+					for(x in this.$items){
+						$qty = (this.$items[x].qty != null) ? this.$items[x].qty : 1;
+						$total = $total + (parseInt(this.$items[x].price) );
 					}
 
-				$scope.$total = $total;
 
+					return $total;
+			}
+			
+			this.update_server = function () {
+				$scope = angular.element($('#header-mini-cart')).scope();
+				$scope.$cart = this;
+			
 				$form = new FormData ();
 				for(x in this.$items){
 					$item = this.$items[x];
@@ -89,7 +93,6 @@
 
            });
 
-				
 
 			}
 
