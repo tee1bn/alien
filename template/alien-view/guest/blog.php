@@ -47,7 +47,7 @@
                                                         <a href="blog.html">Trends</a>
                                                     </div>
                                                     <h3 class="post-title">
-                                                        <a href="<?=domain;?>/blog/<?=$post->id;?>/<?=$post->url_title();?>"><?=$post->title;?></a>
+                                                        <a href="<?=domain;?>/<?=$post->url();?>"><?=$post->title;?></a>
                                                     </h3>
                                                     <div class="post-meta">
                                                         <a class="posted-on" tabindex="0"><?=$post->created_at->diffForHumans();?></a>
@@ -57,7 +57,7 @@
                                                     <div class="post-content">
                                                         <p><?=$post->intro();?></p>
                                                     </div>
-                                                    <a href="<?=domain;?>/blog/<?=$post->id;?>/<?=$post->url_title();?>" class="read-more-btn">Read More</a>
+                                                    <a href="<?=domain;?>/<?=$post->url();?>" class="read-more-btn">Read More</a>
                                                 </div>
                                             </article>
                                         </div>

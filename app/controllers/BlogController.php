@@ -46,7 +46,7 @@ class BlogController extends controller
 		$this->page_title 	= $post->title;
     		
 
-    	$this->view('guest/single-list', ['post'=>$this->post]);
+    	$this->view('guest/single-post', ['post'=>$this->post]);
 	  }
 
 

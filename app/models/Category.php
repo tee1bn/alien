@@ -17,6 +17,16 @@ public function posts(){
 return $this->hasMany('Post');
 	}
 
+	public function url_link()
+	{
+		return "blog/category/{$category->id}/{$this->url_title()}";
+
+	}
+
+	public function url_title()
+	{
+			return ucfirst(str_replace(' ', '-', $this->category));
+	}
 
 }
 
