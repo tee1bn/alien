@@ -61,7 +61,7 @@ class BlogController extends controller
 		$this->page_title 	= $this->category->category;
     			
 
-    	$this->view('guest/index'  , ['posts'=> $posts, 'for_pages'=>$for_pages]);
+    	$this->view('guest/blog'  , ['posts'=> $posts, 'for_pages'=>$for_pages]);
 	  }
 
 
