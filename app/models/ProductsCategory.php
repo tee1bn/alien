@@ -14,10 +14,10 @@ class ProductsCategory extends Eloquent
 
 
 
-public function products()
-{
-	return $this->hasMany('Products' , 'category_id');
-}
+	public function products()
+	{
+		return $this->hasMany('Products' , 'category_id');
+	}
 
 }
 

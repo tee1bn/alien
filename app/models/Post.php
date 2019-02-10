@@ -51,7 +51,7 @@ class Post extends Eloquent
 
 	public function url_title()
 	{
-			return str_replace(' ', '-', $this->title);
+			return str_replace(' ', '-', trim($this->title));
 	}
 
 	public function next_post()

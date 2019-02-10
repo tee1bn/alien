@@ -5,7 +5,6 @@
     $page_description = "";
     include 'includes/header.php';?>
 
-    <script src="<?=asset;?>/assets/angulars/shop.js"></script>
 
 
         <!-- Breadcrumb area Start -->
@@ -27,7 +26,8 @@
         <!-- Breadcrumb area End -->
 
         <!-- Main Content Wrapper Start -->
-        <div ng-controller="ShopController" id="content" class="main-content-wrapper">
+        <div ng-controller="&ShopController" id="content" class="main-content-wrapper">
+            <?php include 'includes/product_quick_view.php';?>
             <div class="shop-page-wrapper">
                 <div class="container-fluid">
                     <div class="row shop-fullwidth pt--45 pt-md--35 pt-sm--20 pb--60 pb-md--50 pb-sm--40">
@@ -212,12 +212,13 @@
                             </div>
                             <div class="shop-products"> 
                                 <div class="row grid-space-20 xxl-block-grid-5">
-                                    <div class="col-lg-3 col-sm-6 mb--40 mb-md--30">
+
+                                    <div  ng-repeat ="($index, $item) in $shop.$items  | filter:searchText" class="col-lg-3 col-sm-6 mb--40 mb-md--30">
                                         <div class="airi-product">
                                             <div class="product-inner">
                                                 <figure class="product-image">
                                                     <div class="product-image--holder">
-                                                        <a href="product-details.html">
+                                                        <a href="{{$item.url_link}}">
                                                             <img src="<?=asset;?>/assets/img/products/prod-20-1.jpg" alt="Product Image" class="primary-image">
                                                             <img src="<?=asset;?>/assets/img/products/prod-20-2.jpg" alt="Product Image" class="secondary-image">
                                                         </a>
@@ -225,175 +226,37 @@
                                                     <div class="airi-product-action">
                                                         <div class="product-action">
                                                             <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="Quick Shop">
-                                                                <span data-toggle="modal" data-target="#productModal">
+                                                                <span  ng-click="$shop.quickview($item)">
                                                                     <i class="dl-icon-view"></i>
                                                                 </span>
                                                             </a>
-                                                            <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                                            <a ng-click="$shop.$cart.add_item($item)"  class="add_to_cart_btn action-btn" href="javascript:void;" data-toggle="tooltip" data-placement="top" title="Add to Cart">
                                                                 <i class="dl-icon-cart29"></i>
                                                             </a>
+
                                                             <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
                                                                 <i class="dl-icon-heart4"></i>
                                                             </a>
-                                                            <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="Add to Compare">
-                                                                <i class="dl-icon-compare"></i>
-                                                            </a>
+
                                                         </div>
                                                     </div>
+                                                    <span class="product-badge new" ng-if="$item.ribbon">{{$item.ribbon}}</span>    
                                                 </figure>
                                                 <div class="product-info text-center">
                                                     <h3 class="product-title">
-                                                        <a href="product-details.html">Limited edition v-neck t-shirt</a>
+                                                        <a href="{{$item.url_link}}">{{$item.name}}</a>
                                                     </h3>
                                                     <span class="product-price-wrapper">
-                                                        <span class="money">$49.00</span>
+                                                        <span class="money">{{$item.price |  currency:'<?=currency;?>'}}</span>
                                                         <span class="product-price-old">
-                                                            <span class="money">$60.00</span>
+                                                            <span class="money"> {{$item.old_price |  currency:'<?=currency;?>'}} </span>
                                                         </span>
                                                     </span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-sm-6 mb--40 mb-md--30">
-                                        <div class="airi-product">
-                                            <div class="product-inner">
-                                                <figure class="product-image">
-                                                    <div class="product-image--holder">
-                                                        <a href="product-details.html">
-                                                            <img src="<?=asset;?>/assets/img/products/prod-19-4.jpg" alt="Product Image" class="primary-image">
-                                                            <img src="<?=asset;?>/assets/img/products/prod-19-1.jpg" alt="Product Image" class="secondary-image">
-                                                        </a>
-                                                    </div>
-                                                    <div class="airi-product-action">
-                                                        <div class="product-action">
-                                                            <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="Quick Shop">
-                                                                <span data-toggle="modal" data-target="#productModal">
-                                                                    <i class="dl-icon-view"></i>
-                                                                </span>
-                                                            </a>
-                                                            <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                                                                <i class="dl-icon-cart29"></i>
-                                                            </a>
-                                                            <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                                                <i class="dl-icon-heart4"></i>
-                                                            </a>
-                                                            <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="Add to Compare">
-                                                                <i class="dl-icon-compare"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <span class="product-badge new">New</span>
-                                                </figure>
-                                                <div class="product-info text-center">
-                                                    <h3 class="product-title">
-                                                        <a href="product-details.html">Hig-Rise Skinny Jean</a>
-                                                    </h3>
-                                                    <div class="product-rating">
-                                                        <span>
-                                                            <i class="dl-icon-star rated"></i>
-                                                            <i class="dl-icon-star rated"></i>
-                                                            <i class="dl-icon-star rated"></i>
-                                                            <i class="dl-icon-star"></i>
-                                                            <i class="dl-icon-star"></i>
-                                                        </span>
-                                                    </div>
-                                                    <span class="product-price-wrapper">
-                                                        <span class="money">$49.00</span>
-                                                        <span class="product-price-old">
-                                                            <span class="money">$60.00</span>
-                                                        </span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-sm-6 mb--40 mb-md--30">
-                                        <div class="airi-product">
-                                            <div class="product-inner">
-                                                <figure class="product-image">
-                                                    <div class="product-image--holder">
-                                                        <a href="product-details.html">
-                                                            <img src="<?=asset;?>/assets/img/products/prod-18-1.jpg" alt="Product Image" class="primary-image">
-                                                            <img src="<?=asset;?>/assets/img/products/prod-18-4.jpg" alt="Product Image" class="secondary-image">
-                                                        </a>
-                                                    </div>
-                                                    <div class="airi-product-action">
-                                                        <div class="product-action">
-                                                            <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="Quick Shop">
-                                                                <span data-toggle="modal" data-target="#productModal">
-                                                                    <i class="dl-icon-view"></i>
-                                                                </span>
-                                                            </a>
-                                                            <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                                                                <i class="dl-icon-cart29"></i>
-                                                            </a>
-                                                            <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                                                <i class="dl-icon-heart4"></i>
-                                                            </a>
-                                                            <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="Add to Compare">
-                                                                <i class="dl-icon-compare"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <span class="product-badge sale">Sale</span>
-                                                </figure>
-                                                <div class="product-info text-center">
-                                                    <h3 class="product-title">
-                                                        <a href="product-details.html">Waxed-effect pleated skirt</a>
-                                                    </h3>
-                                                    <span class="product-price-wrapper">
-                                                        <span class="money">$49.00</span>
-                                                        <span class="product-price-old">
-                                                            <span class="money">$60.00</span>
-                                                        </span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                             
-                                  
-                                    <div class="col-lg-3 col-sm-6 mb--40 mb-md--30">
-                                        <div class="airi-product">
-                                            <div class="product-inner">
-                                                <figure class="product-image">
-                                                    <div class="product-image--holder">
-                                                        <a href="product-details.html">
-                                                            <img src="<?=asset;?>/assets/img/products/prod-2-1.jpg" alt="Product Image" class="primary-image">
-                                                            <img src="<?=asset;?>/assets/img/products/prod-2-3.jpg" alt="Product Image" class="secondary-image">
-                                                        </a>
-                                                    </div>
-                                                    <div class="airi-product-action">
-                                                        <div class="product-action">
-                                                            <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="Quick Shop">
-                                                                <span data-toggle="modal" data-target="#productModal">
-                                                                    <i class="dl-icon-view"></i>
-                                                                </span>
-                                                            </a>
-                                                            <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="Add to Cart">
-                                                                <i class="dl-icon-cart29"></i>
-                                                            </a>
-                                                            <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
-                                                                <i class="dl-icon-heart4"></i>
-                                                            </a>
-                                                            <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="Add to Compare">
-                                                                <i class="dl-icon-compare"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </figure>
-                                                <div class="product-info text-center">
-                                                    <h3 class="product-title">
-                                                        <a href="product-details.html">Round raffia crossbody bag</a>
-                                                    </h3>
-                                                    <span class="product-price-wrapper">
-                                                        <span class="money">$49.00</span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                
 
                                 </div>
                             </div>

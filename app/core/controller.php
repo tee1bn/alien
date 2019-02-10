@@ -309,6 +309,7 @@ if ($response == true) {
 			define("project_name", 	Config::project_name(), 	true);
 			define("accessor",	$accessor, 	true);
 			define("asset", 	$asset, 	true);
+			define("currency", 	$currency, 	true);
 			define("websocket_url", $websocket_url, 	true);
 
 
