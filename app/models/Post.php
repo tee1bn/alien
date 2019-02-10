@@ -46,7 +46,7 @@ class Post extends Eloquent
 
 	public function format_created_at()
 	{
-		return $this->created_at ;
+		return date("M d, Y", strtotime($this->created_at)) ;
 	}
 
 	public function url_title()

@@ -98,7 +98,7 @@
                         <!-- Social Icons End Here -->
                     </div>
                     <div class="col-md-4 text-md-center">
-                        <p class="copyright-text">&copy;2018 <?=project_name;?>. Designed by HasTech</p>
+                        <p class="copyright-text">&copy; <?=date("Y");?> <?=project_name;?>. Built by GitStar Digital</p>
                     </div>
                     <div class="col-md-4 text-md-right">
                         <img src="<?=asset;?>/assets/img/others/payments-2.png" alt="Payment">
@@ -400,9 +400,6 @@
 
 
     <!-- ************************* JS Files ************************* -->
-
-    <!-- jQuery JS -->
-    <script src="<?=asset;?>/assets/js/vendor/jquery.min.js"></script>
 
     <!-- Bootstrap and Popper Bundle JS -->
     <script src="<?=asset;?>/assets/js/bootstrap.bundle.min.js"></script>

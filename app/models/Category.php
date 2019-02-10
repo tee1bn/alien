@@ -19,7 +19,7 @@ return $this->hasMany('Post');
 
 	public function url_link()
 	{
-		return "blog/category/{$category->id}/{$this->url_title()}";
+		return "blog/category/{$this->id}/{$this->url_title()}";
 
 	}
 

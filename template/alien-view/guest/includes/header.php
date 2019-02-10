@@ -3,7 +3,7 @@
         
         
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="zxx" ng-app = "app">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,6 +43,20 @@
     <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+
+    <!-- jQuery JS -->
+    <script src="<?=asset;?>/assets/js/vendor/jquery.min.js"></script>
+
+
+
+    <!-- angularjs -->
+    <script src="<?=asset;?>/assets/angulars/angularjs.js"></script>
+    <script>
+        let $base_url = "<?=domain;?>";
+        var app = angular.module('app', []);
+    </script>
+
 </head>
 
 <body>
@@ -56,6 +70,12 @@
         </div>
     </div> -->
   
+<?php 
+  $menu = explode('/', $_GET['url'])[0];
+
+;?>
+      
+  
     <!-- Main Wrapper Start -->
     <div class="wrapper">
         <!-- Header Area Start -->
@@ -67,37 +87,37 @@
                             <!-- Main Navigation Start Here -->
                             <nav class="main-navigation">
                                 <ul class="mainmenu">
-                                    <li class="mainmenu__item menu-item-has-children megamenu-holder">
+                                    <li class="mainmenu__item menu-item-has-children megamenu-holder <?=($menu == '')?'active': '' ;?>">
                                         <a href="<?=domain;?>" class="mainmenu__link">
                                             <span class="mm-text">Home</span>
                                         </a>
                                     </li>
-                                    <li class="mainmenu__item menu-item-has-children">
+                                    <li class="mainmenu__item menu-item-has-children <?=($menu == 'shop')?'active': '' ;?>">
                                         <a href="<?=domain;?>/shop" class="mainmenu__link">
                                             <span class="mm-text">Shop</span>
                                             <span class="tip">Hot</span>
                                         </a>
                                       
                                     </li>
-                                    <li class="mainmenu__item">
+                                    <li class="mainmenu__item <?=($menu == 'gallery')?'active': '' ;?>">
                                         <a href="<?=domain;?>/gallery" class="mainmenu__link">
                                             <span class="mm-text">Gallery</span>
                                         </a>
                                     </li>
-                                    <li class="mainmenu__item menu-item-has-children has-children">
+                                    <li class="mainmenu__item menu-item-has-children has-children <?=($menu == 'about')?'active': '' ;?>">
                                         <a href="<?=domain;?>/about" class="mainmenu__link">
                                             <span class="mm-text">About Us</span>
                                         </a>
                                        
                                     </li>
-                                    <li class="mainmenu__item menu-item-has-children has-children">
+                                    <li class="mainmenu__item menu-item-has-children has-children <?=($menu == 'contact')?'active': '' ;?>">
                                         <a href="<?=domain;?>/contact" class="mainmenu__link">
                                             <span class="mm-text">Contact Us</span>
                                         </a>
                                        
                                     </li>
 
-                                    <li class="mainmenu__item menu-item-has-children has-children">
+                                    <li class="mainmenu__item menu-item-has-children has-children <?=($menu == 'blog')?'active': '' ;?>">
                                         <a href="<?=domain;?>/blog" class="mainmenu__link">
                                             <span class="mm-text">Blog</span>
                                         </a>

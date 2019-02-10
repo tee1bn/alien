@@ -301,7 +301,9 @@ if ($response == true) {
 			$domain			= Config::domain();
 			$asset 			= $domain."/template/".Config::views_template()."/$view_folder";
 			$accessor 		= $this->tell_whose_order()->username;
+			$currency		= "&#8358";
 			$websocket_url	= "$host:3000";
+			
 
 			define("domain", 	$domain, 	true);
 			define("project_name", 	Config::project_name(), 	true);
@@ -311,6 +313,9 @@ if ($response == true) {
 
 
 			require_once "template/".Config::views_template()."/{$view}.php" ; 
+			require_once 'app/others/show_notifications.php' ; 
+			require_once 'app/others/detect_running_ajax_request.php' ; 
+
 			Session::delete('inputs-errors');
 		}
 

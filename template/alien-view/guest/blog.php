@@ -50,7 +50,7 @@
                                                         <a href="<?=domain;?>/<?=$post->url();?>"><?=$post->title;?></a>
                                                     </h3>
                                                     <div class="post-meta">
-                                                        <a class="posted-on" tabindex="0"><?=$post->created_at->diffForHumans();?></a>
+                                                        <a class="posted-on" tabindex="0"><?=$post->format_created_at();?></a>
                                                         <span class="meta-separator">-</span>
                                                         <a  class="posted-by" tabindex="0">By <?=$post->author();?></a>
                                                     </div>

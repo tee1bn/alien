@@ -16,7 +16,7 @@
 <center>  
   <div id="gitstar-notification"  class="alert alert-info alert-dismissible" >
     <a href="javascript:void;" class="close" onclick="document.getElementById('gitstar-notification').style.display='none'">&times;</a>
-        <!-- <strong><i class='fa fa-bell fa-2x pull-left'> </i></strong>  -->
+        <strong><i class='fa fa-bell pull-left'> </i></strong> 
 	
 	<span id="error_note"></span>    
   </div>
@@ -38,12 +38,14 @@
 
 				let $error_note = '';
 				for (var i = 0; i < data.length; i++) {
-					$error_note += data[i]['message'] +'<br>';
+          $error_note += data[i]['message'] +'<br>';
+					$type += data[i]['title'] +'<br>';
+
 				}
 
 				if ($error_note != '') {
 
-		show_notification($error_note);
+		      show_notification($error_note, $type);
 				}
 
 
@@ -61,9 +63,10 @@
 		}
 
 
-show_notification = function ($notification) {
+show_notification = function ($notification, $type='info') {
 $('#error_note').html($notification);
     $('#gitstar-notification').css('display', 'block');
+    document.getElementById('gitstar-notification').setAttribute("class","alert alert-"+$type+" alert-dismissible");
   }
 
 notify();

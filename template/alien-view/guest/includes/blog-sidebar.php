@@ -4,26 +4,27 @@
                                     <h3 class="widget-title">Categories</h3>
 
                                     <ul class="menu list-unstyled">
-                                <?php foreach (Category::all()->sortBy('category') as $category) :
+                                        <?php foreach (Category::all()->sortBy('category') as $category) :
 
-                                    if (($this->post->category->id == $category->id) || ($this->category->id == $category->id)) {
-                                     $active = 'active';
-                                    }else{
-                                        $active ='';
-                                    }
-                                    ?>
-                                     <li class="<?=$active;?>">
-                                    <a href="<?=domain;?>/<?=$category->url_link();?>">
-                                        <?=ucfirst($category->category);?>
-                                        </a></li>
-                                <?php endforeach ;?>
+                                            if (($this->post->category->id == $category->id) || ($this->category->id == $category->id)) {
+                                             $active = 'active';
+                                            }else{
+                                                $active ='';
+                                            }
+                                            ?>
+                                             <li class="<?=$active;?>">
+                                                <a href="<?=domain;?>/<?=$category->url_link();?>">
+                                                    <?=ucfirst($category->category);?>
+                                                </a>
+                                            </li>
+                                        <?php endforeach ;?>
                                     </ul>
                                 </div>
 
 
 
                                         
-                                   </a>
+                                </a>
                                 </li>
 
 
@@ -46,7 +47,7 @@
                                                 <h3 class="recent-post__title text-truncate">
                                                     <a href="<?=domain;?>/<?=$recent_post->url();?>"><?=$recent_post->title;?></a>
                                                 </h3>
-                                                <span class="recent-post__meta"><?=$recent_post->created_at;?></span>
+                                                <span class="recent-post__meta"><?=$recent_post->format_created_at();?></span>
                                             </div>
                                         </div>
                                        <?php endforeach;?>
@@ -70,4 +71,4 @@
                                     </div>
                                 </div> -->
                             </div>
-                        </div>
+    </div>

@@ -63,6 +63,8 @@ $currency = '$';
 </script>
 <script src="<?=asset;?>/js/angularjs.js"></script>
 <script src="<?=asset;?>/includes/angularjs_apps/shop_products.js"></script>
+
+
 	<?=$this->detect_running_ajax_request();?>
 	<?=$this->show_notifications();?>
 
