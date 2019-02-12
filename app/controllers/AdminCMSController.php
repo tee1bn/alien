@@ -34,7 +34,8 @@ print_r($slider_key);
 	Session::putFlash('info', 'Slider deleted successfully');
 	$page_content->update(['page_content' => json_encode($page_content_array)]);
 	
-Redirect::to('admin-cms/sliders');
+	
+	Redirect::to('admin-cms/sliders');
 
 }
 

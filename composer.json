@@ -6,16 +6,18 @@
     },
 
 
-"autoload":{
 
 
-"classmap": [
+	"autoload":{
 
-	"app/models",
-	"app/classes",
-	"app/core"
-]
 
-}
+	"classmap": [
+
+		"app/models",
+		"app/classes",
+		"app/core"
+	]
+
+	}
 
 }

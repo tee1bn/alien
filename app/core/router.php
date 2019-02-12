@@ -1,38 +1,40 @@
 
+
+
 <?php 
 
 
-$router =[
+	$router =[
 
-''=>'home',
-'home'=>'home',
-'newsfeed'=>'home',
-
-
-
-
-
-#websocket controller
-'websocket' =>'WebSocketContrdoller',
-
-
-
-
-#api routers
-'products_api' =>'ProductsApiController',
-'categories_api' =>'CategoriesApiController',
-'cms_api' =>'CmsApiController',
+	''=>'home',
+	'home'=>'home',
+	'newsfeed'=>'home',
 
 
 
 
 
-#pages routers
-'shop' =>'shopController',
-'contact' =>'ContactController',
-'about' =>'AboutController',
-'gallery' =>'Galleryontroller',
-'blog'  => 'BlogController',
+	#websocket controller
+	'websocket' =>'WebSocketContrdoller',
+
+
+
+
+	#api routers
+	'products_api' =>'ProductsApiController',
+	'categories_api' =>'CategoriesApiController',
+	'cms_api' =>'CmsApiController',
+
+
+
+
+
+	#pages routers
+	'shop' =>'shopController',
+	'contact' =>'ContactController',
+	'about' =>'AboutController',
+	'gallery' =>'Galleryontroller',
+	'blog'  => 'BlogController',
 
 
 

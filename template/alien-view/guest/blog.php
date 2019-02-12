@@ -25,7 +25,7 @@
         <!-- Breadcrumb area End -->
 
         <!-- Main Content Wrapper Start -->
-        <div id="content" class="main-content-wrapper">
+        <div id="content" ng-controller="ShopController"  class="main-content-wrapper">
             <div class="page-content-inner blog-page-sidebar">
                 <div class="container">
                     <div class="row ptb--80 pt-md--60 pb-md--55 pt-sm--50 pb-sm--45">

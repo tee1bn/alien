@@ -3,6 +3,9 @@
 		this.$items = [];
 		this.$total  = 0;
 
+
+
+
 		this.contains_object =  function(obj, list) {
 		    var i;
 		    for (i = 0; i < list.length; i++) {
@@ -44,7 +47,33 @@
 
 				}
 
+			this.place_order = function () {
+				console.log("great");
 
+                    
+                    $form = new FormData ();
+                    $form.append('cart', JSON.stringify(this) );
+                
+                 $.ajax({
+                    type: "POST",
+                    url: $base_url+"/shop/place_order",
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    data: $form,
+                    success: function(data) {
+                      console.log(data);
+
+
+                      window.notify();
+                    },
+                    error: function (data) {
+                         //alert("fail"+data);
+                    }
+
+                   });
+                             
+			}
 
 			this.empty_cart =  function () {
 					this.$items = [];
@@ -100,6 +129,45 @@
 
 
 			}
+
+			this.prepare_shipping_address =  function ($different_shipping_choice){
+				console.log($different_shipping_choice.target.checked);
+				  if ($different_shipping_choice.target.checked) {
+                            console.log('sdiif addreaa');
+                         /*   $("#shipping_firstname").val("");
+                            $("#shipping_lastname").val("");
+                            $("#shipping_company").val("");
+                            $("#shipping_country").val("");
+                            $("#shipping_street_address").val("");
+                            $("#shipping_apartment").val("");
+                            $("#shipping_city").val("");
+                            $("#shipping_state").val("");
+                            $("#shipping_phone").val("");
+                            $("#shipping_email").val("");
+*/
+                        }else{
+                            console.log('not diff addreaa');
+                            // this.$buyer_detail.shippind.shippind_email = this.$buyer_detail.billing.billing_email ;
+                            $("#shipping_firstname").val($("#billing_firstname").val());
+                            $("#shipping_lastname").val($("#billing_lastname").val());
+                           
+                           $("#shipping_company").val("okok");
+                           //  $("#shipping_country").val("");
+                           //  $("#shipping_street_address").val("");
+                           //  $("#shipping_apartment").val("");
+                           //  $("#shipping_city").val("");
+                           //  $("#shipping_state").val("");
+                           //  $("#shipping_phone").val("");
+                           //  $("#shipping_email").val("");
+
+                        $scope = angular.element($("#shipping_email")).scope();
+                        $scope.$apply();
+
+
+
+                                                    }
+                                                
+			};
 
 	}
 

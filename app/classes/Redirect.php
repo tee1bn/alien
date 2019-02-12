@@ -32,7 +32,7 @@ class Redirect
 
 
 
-ob_end_clean();
+				ob_end_clean();
 				header('Location:'. $location);
 				exit();
 		}

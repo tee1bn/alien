@@ -56,7 +56,7 @@
                             <div class="checkout-title mt--10">
                                 <h2>Billing Details</h2>
                             </div>
-                            <input type="" value="{{$shop.$cart}}">
+                            <input type="" id="cart" ng-model="$shop.$cart">
                             <div class="checkout-form">
                                 <form action="#" class="form form--checkout">
                                     <div class="form-row mb--30">
@@ -81,6 +81,7 @@
                                             <label for="billing_country" class="form__label form__label--2">Country <span class="required">*</span></label>
                                             <select id="billing_country" required="" ng-model="$shop.$cart.$buyer_detail.billing.billing_country" class="form__input form__input--2 nice-select">
                                                 <option value="">Select a country…</option>
+                                                <option value="Nigeria">Nigeria</option>
                                             </select>
                                         </div>
                                     </div>
@@ -120,7 +121,7 @@
                                     <div class="form-row">
                                         <div class="form__group col-12">
                                             <div class="custom-checkbox mb--20">
-                                                <input type="checkbox" onclick="prepare_shipping_address(this);" name="shipdifferetads" id="shipdifferetads" class="form__checkbox">
+                                                <input type="checkbox" ng-click="$shop.$cart.prepare_shipping_address($event)"  name="shipdifferetads" id="shipdifferetads" class="form__checkbox">
                                                 
                                                 <label for="shipdifferetads"  class="form__label form__label--2 shipping-label">Ship To A Different Address?</label>
                                             </div>
@@ -129,7 +130,7 @@
                                                 prepare_shipping_address = function ($different_shipping_choice){
                                                     if ($different_shipping_choice.checked) {
                                                         console.log('sdiif addreaa');
-                                                        $("#shipping_firstname").val("");
+                                                     /*   $("#shipping_firstname").val("");
                                                         $("#shipping_lastname").val("");
                                                         $("#shipping_company").val("");
                                                         $("#shipping_country").val("");
@@ -139,20 +140,23 @@
                                                         $("#shipping_state").val("");
                                                         $("#shipping_phone").val("");
                                                         $("#shipping_email").val("");
-
+*/
                                                     }else{
                                                         console.log('not diff addreaa');
-                                                        $("#shipping_firstname").val($("#billing_firstname"));
-                                                        $("#shipping_lastname").val("");
-                                                        $("#shipping_company").val("");
-                                                        $("#shipping_country").val("");
-                                                        $("#shipping_street_address").val("");
-                                                        $("#shipping_apartment").val("");
-                                                        $("#shipping_city").val("");
-                                                        $("#shipping_state").val("");
-                                                        $("#shipping_phone").val("");
-                                                        $("#shipping_email").val("");
 
+                                                        $("#shipping_firstname").val($("#billing_firstname").val());
+                                                        $("#shipping_lastname").val($("#billing_lastname").val());
+                                                       
+                                                       $("#shipping_company").val("okok");
+                                                       //  $("#shipping_country").val("");
+                                                       //  $("#shipping_street_address").val("");
+                                                       //  $("#shipping_apartment").val("");
+                                                       //  $("#shipping_city").val("");
+                                                       //  $("#shipping_state").val("");
+                                                       //  $("#shipping_phone").val("");
+                                                       //  $("#shipping_email").val("");
+
+                                                    // $scope = angular.element($("#shipping_email")).scope();
 
 
 
@@ -188,7 +192,7 @@
                                                         <label for="shipping_country" class="form__label form__label--2">Country <span class="required">*</span></label>
                                                         <select id="shipping_country"  ng-model="$shop.$cart.$buyer_detail.shipping.shipping_country" class="form__input form__input--2 nice-select">
                                                             <option value="">Select a country…</option>
-                                                            <option value="AF">Afghanistan</option>
+                                                            <option value="Nigeria">Nigeria</option>    
                                                      
                                                         </select>
                                                     </div>
@@ -320,8 +324,11 @@
                                         </div>
                                         <div class="payment-group mt--20">
                                             <p class="mb--15">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
-                                            <button type="submit" class="btn btn-fullwidth btn-style-1">Place Order</button>
+                                            <button type="button" ng-click="$shop.$cart.place_order()"  class="btn btn-fullwidth btn-style-1">Place Order</button>
+
                                         </div>
+                                                                
+
                                     </form>
                                 </div>
                             </div>

@@ -1,6 +1,6 @@
     <?php include 'includes/header.php';?>
         <!-- Main Content Wrapper Start -->
-        <div id="content" class="main-content-wrapper">
+        <div id="content" ng-controller="ShopController"  class="main-content-wrapper">
             <div class="homepage-slider" id="homepage-slider-1">
                 <div id="rev_slider_18_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="home-06" data-source="gallery" style="background:transparent;padding:0px;">
                 <!-- START REVOLUTION SLIDER 5.4.7 fullscreen mode -->

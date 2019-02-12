@@ -8,15 +8,72 @@
 class shopController extends controller
 {
 
+	public $billing_detail_rules = [
+
+		   			'billing_firstname'  => [
+		   							'required'=>true,
+		   									] ,
+                    'billing_lastname'  => [
+		   							'required'=>true,
+		   									] ,
+                    'billing_country'  => [
+		   							'required'=>true,
+		   									] , 
+
+                    'billing_street_address'  =>[
+		   							'required'=>true,
+		   									] ,
+                    'billing_city'  => [
+		   							'required'=>true,
+		   									] ,
+                    'billing_state'  => [
+		   							'required'=>true,
+		   									] ,
+                    'billing_phone'  => [
+		   							'required'=>true,
+		   									]  ,
+                    'billing_email'  => [
+		   							'required'=>true,
+		   									] ,
+	];
+
+	public $shipping_detail_rules = [
+
+		   			'shipping_firstname'  => [
+		   							'required'=>true,
+		   									] ,
+                    'shipping_lastname'  => [
+		   							'required'=>true,
+		   									] ,
+                    'shipping_country'  => [
+		   							'required'=>true,
+		   									] , 
+
+                    'shipping_street_address'  =>[
+		   							'required'=>true,
+		   									] ,
+                    'shipping_city'  => [
+		   							'required'=>true,
+		   									] ,
+                    'shipping_state'  => [
+		   							'required'=>true,
+		   									] ,
+                    'shipping_phone'  => [
+		   							'required'=>true,
+		   									]  ,
+                    'shipping_email'  => [
+		   							'required'=>true,
+		   									] ,
+	];
 
 	public function __construct(){
 
 	}
 
-public function open_order_confirmation($order_id='')
-{
-		echo $this->buildView('emails/order_confirmation', ['order'=> Orders::find($order_id)]);
-}
+	public function open_order_confirmation($order_id='')
+	{
+			echo $this->buildView('emails/order_confirmation', ['order'=> Orders::find($order_id)]);
+	}
 
 	/**
 	 * this is the default landing point for all request to our application base domain
@@ -40,6 +97,67 @@ public function open_order_confirmation($order_id='')
 	{
 		$this->view('guest/checkout');
 	}
+
+
+	public function place_order()
+	{
+
+		echo "<pre>";
+		// print_r($_POST['cart']);
+
+		$cart =  json_decode($_POST['cart'], true);
+		foreach ($cart['$items'] as $key => $item) {
+			unset($cart['$items'][$key]['$$hashKey']);
+		}
+
+
+		;
+		$cart['$buyer_detail']['shipping'];
+
+
+		$billing_validator	= new Validator;
+		$shipping_validator	= new Validator;
+		
+	$billing_validator->check($cart['$buyer_detail']['billing'], $this->billing_detail_rules);
+		$error_notes =  $this->inputErrors();
+	$shipping_validator->check($cart['$buyer_detail']['shipping'], $this->shipping_detail_rules);
+		// $error_notes .=  $this->inputErrors();
+
+	 if($billing_validator->passed() || $shipping_validator->passed() ){
+
+
+	 }else{
+
+		Session::putFlash('danger', "{$error_notes}");
+	 }
+
+	 return;
+
+
+
+
+
+		print_r($cart);
+
+
+
+
+
+
+		Session::putFlash('success', "Order placed successfully! ");
+
+
+
+
+	return;
+ 	$this->empty_cart_in_session();
+
+ 	/*$this->send_order_confirmation_email($order->id);
+ 	$this->send_order_notification_email($order->id);
+*/
+	}
+
+
 
 
 	public function product_detail($product_id=null)
@@ -112,9 +230,44 @@ public function open_order_confirmation($order_id='')
 		// ->forPage($page , $per_page);
 	}
 
+	public function empty_cart_in_session()
+	{
+		unset($_SESSION['cart']);
+	}
 
-public function fetch_products($page=1, $category_id=null)
-{
+
+
+
+	public function send_order_notification_email($order_id)
+	{
+		$order =  Orders::find($order_id);
+
+			$notification_email=  	CmsPages::where('page_unique_name', 'notification' )->first()->page_content;
+			$notification_email = json_decode($notification_email , true);
+
+
+		$subject = Config::project_name().' NEW ORDER NOTIFICATION';
+		 $email_body = $this->buildView('emails/order_notification', ['order'=>$order]);
+
+		$mailer = 	new Mailer();
+		$mailer->sendMail($notification_email['notification_email'], $subject, $email_body );
+	}
+
+
+	public function send_order_confirmation_email($order_id)
+	{
+		$order =  Orders::find($order_id);
+		$to = $order->email;
+		$subject = Config::project_name().' ORDER CONFIRMATION';
+		 $email_body = $this->buildView('emails/order_confirmation', ['order'=>$order]);
+
+		$mailer = 	new Mailer();
+		$mailer->sendMail($to, $subject, $email_body );
+	}
+
+
+	public function fetch_products($page=1, $category_id=null)
+	{
 
 		$per_page = 9;
 		$courses = Products::on_sale()->orderBy('updated_at', 'DESC');
@@ -153,6 +306,9 @@ public function fetch_products($page=1, $category_id=null)
 		// $per_page = 100;
 		echo $course =  Course::find($course_id);
 			}	
+
+
+	
 
 
 

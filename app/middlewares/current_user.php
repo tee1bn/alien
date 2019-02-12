@@ -14,19 +14,19 @@ class current_user extends controller
 	
 
 
-public function mustbe_loggedin(){
+	public function mustbe_loggedin(){
 
-if($this->auth()){
+		if($this->auth()){
 
-	return $this;
-		
-		}else{
+			return $this;
+				
+				}else{
 
-		Redirect::to('');
-		exit();
+					Redirect::to('');
+					exit();
 		}
 
-}
+	}
 
 
 public function must_have_complete_profile()

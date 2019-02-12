@@ -2,10 +2,10 @@
 <?php
 
 
-/**
-* 
-*/
-class Input
+	/**
+	* 
+	*/
+	class Input
 
 {
 	
