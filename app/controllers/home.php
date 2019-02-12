@@ -47,6 +47,26 @@ class home extends controller
 
 	}
 
+
+	public function add_to_new_letters()
+	{
+
+
+		if (!filter_var(Input::get('newsletter') , FILTER_VALIDATE_EMAIL)) {
+			Session::putFlash('danger', "Invalid email!");
+			return;
+		}
+
+		try {
+		echo "string";
+
+			Newsletter::create(['email'=> Input::get('newsletter')]);
+			Session::putFlash('success', "Subscribed successfully!");
+		} catch (Exception $e) {
+			Session::putFlash('info', "Already subscribed successfully!");
+		}
+	}
+
 }
 
 

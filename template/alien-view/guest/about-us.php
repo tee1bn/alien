@@ -33,7 +33,7 @@
                                 <div class="row">
                                     <div class="col-xl-5 offset-xl-7 col-md-6 offset-md-6 pt--90 pt-md--80 pb--100 pl-sm--35">
                                         <figure class="mb--40 mb-md--30 max-w-45">
-                                            <img src="assets/img/logo/m01-logo.png" alt="logo">
+                                            <img src="<?=asset;?>/assets/img/logo/m01-logo.png" alt="logo">
                                         </figure>
                                         <p class="font-size-16 font-2 heading-color">
                                             Integer ut ligula quis lectus fringilla elementum porttitor sed est. Fringilla efficitur ligula sed lobortis. Sed tempus faucibus mi, quis fringilla mauris lacinia sed. Integer vehicula egestas nunc ac facilisis. Nam bibendum non faucibus libero eu. Curabitur posuere to ullamcorper                         
@@ -49,13 +49,13 @@
                                 <h3 class="heading-tertiary heading-color mb--15">Airi Beautiful eCommerce Online Store</h3>
                                 <p class="color--light-3 mb--25 mb-md--20">Praesent sed ex vel mauris eleifend mollis. Vestibulum dictum sodales ante, ac pulvinar urna sollicitudin in. Suspendisse sodales dolor nec mattis convallis. Quisque ut nulla viverra, posuere lorem eget, ultrices metus. Nulla facilisi. Duis aliquet, eros in auctor aliquam, tortor justo laoreet nisi, nec pulvinar lectus diam nec libero. Nullam sit amet Cras porta posuere lectus, vitae consectetur dolor elementum</p>
                                 <figure>
-                                    <img src="assets/img/about/about-signature.png" alt="signature">
+                                    <img src="<?=asset;?>/assets/img/about/about-signature.png" alt="signature">
                                 </figure>
                             </div>
                         </div>
                         <div class="col-lg-5 col-md-6">
                             <figure>
-                                <img src="assets/img/about/about-bg2.jpg" alt="about">
+                                <img src="<?=asset;?>/assets/img/about/about-bg2.jpg" alt="about">
                             </figure>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                         <div class="col-lg-5 col-md-6 order-md-1">
                             <figure class="image-box image-box-w-video-btn btn-right max-w-sm-65 max-w-xs-100">
                                 <a href="https://www.youtube.com/watch?v=Rp19QD2XIGM" class="video-popup">
-                                    <img src="assets/img/about/about-bg3.jpg" alt="about">
+                                    <img src="<?=asset;?>/assets/img/about/about-bg3.jpg" alt="about">
                                     <span class="video-btn video-btn--2"></span>
                                 </a>
                             </figure>
@@ -114,7 +114,7 @@
                                         <div class="airi-team">
                                             <div class="team-member">
                                                 <div class="team-member__thumbnail">
-                                                    <img src="assets/img/team/member-1.jpg" alt="Team Member">
+                                                    <img src="<?=asset;?>/assets/img/team/member-1.jpg" alt="Team Member">
                                                     <a href="team.html" class="link-overlay">Team member</a>
                                                     <div class="team-member__overlay">
                                                         <ul class="social social-round">
@@ -146,7 +146,7 @@
                                         <div class="airi-team">
                                             <div class="team-member">
                                                 <div class="team-member__thumbnail">
-                                                    <img src="assets/img/team/member-2.jpg" alt="Team Member">
+                                                    <img src="<?=asset;?>/assets/img/team/member-2.jpg" alt="Team Member">
                                                     <a href="team.html" class="link-overlay">Team member</a>
                                                     <div class="team-member__overlay">
                                                         <ul class="social social-round">
@@ -178,7 +178,7 @@
                                         <div class="airi-team">
                                             <div class="team-member">
                                                 <div class="team-member__thumbnail">
-                                                    <img src="assets/img/team/member-3.jpg" alt="Team Member">
+                                                    <img src="<?=asset;?>/assets/img/team/member-3.jpg" alt="Team Member">
                                                     <a href="team.html" class="link-overlay">Team member</a>
                                                     <div class="team-member__overlay">
                                                         <ul class="social social-round">
@@ -210,7 +210,7 @@
                                         <div class="airi-team">
                                             <div class="team-member">
                                                 <div class="team-member__thumbnail">
-                                                    <img src="assets/img/team/member-4.jpg" alt="Team Member">
+                                                    <img src="<?=asset;?>/assets/img/team/member-4.jpg" alt="Team Member">
                                                     <a href="team.html" class="link-overlay">Team member</a>
                                                     <div class="team-member__overlay">
                                                         <ul class="social social-round">
@@ -242,7 +242,7 @@
                                         <div class="airi-team">
                                             <div class="team-member">
                                                 <div class="team-member__thumbnail">
-                                                    <img src="assets/img/team/member-5.jpg" alt="Team Member">
+                                                    <img src="<?=asset;?>/assets/img/team/member-5.jpg" alt="Team Member">
                                                     <a href="team.html" class="link-overlay">Team member</a>
                                                     <div class="team-member__overlay">
                                                         <ul class="social social-round">
@@ -274,7 +274,7 @@
                                         <div class="airi-team">
                                             <div class="team-member">
                                                 <div class="team-member__thumbnail">
-                                                    <img src="assets/img/team/member-6.jpg" alt="Team Member">
+                                                    <img src="<?=asset;?>/assets/img/team/member-6.jpg" alt="Team Member">
                                                     <a href="team.html" class="link-overlay">Team member</a>
                                                     <div class="team-member__overlay">
                                                         <ul class="social social-round">
@@ -324,7 +324,7 @@
                                     }'>
                                         <div class="testimonial testimonial-style-3">
                                             <div class="testimonial__inner">
-                                                <img src="assets/img/others/happy-client-1.jpg" alt="Client" class="testimonial__author--img">
+                                                <img src="<?=asset;?>/assets/img/others/happy-client-1.jpg" alt="Client" class="testimonial__author--img">
                                                 <p class="testimonial__desc">"Maecenas eu accumsan libero. Fusce id imperdiet felis. Cras sed ex vel turpis ultricies blandit nec et massa. Pellentesque lectus turpis, vestibulum eu interdum vel.</p>
                                                 <div class="testimonial__author">
                                                     <h3 class="testimonial__author--name">Lura Frazier</h3>
@@ -334,7 +334,7 @@
                                         </div>
                                         <div class="testimonial testimonial-style-3">
                                             <div class="testimonial__inner">
-                                                <img src="assets/img/others/happy-client-2.jpg" alt="Client" class="testimonial__author--img">
+                                                <img src="<?=asset;?>/assets/img/others/happy-client-2.jpg" alt="Client" class="testimonial__author--img">
                                                 <p class="testimonial__desc">"Maecenas eu accumsan libero. Fusce id imperdiet felis. Cras sed ex vel turpis ultricies blandit nec et massa. Pellentesque lectus turpis, vestibulum eu interdum vel.</p>
                                                 <div class="testimonial__author">
                                                     <h3 class="testimonial__author--name">Lura Frazier</h3>

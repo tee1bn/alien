@@ -105,3 +105,29 @@ $(document).ready(function(){
 });
     
 	</script>
+
+  
+<script>
+  add_to_new_letters = function ($input) {
+    // console.log($input);
+       var form_data = new FormData();
+
+    form_data.append("newsletter" , $input.value);
+
+     $.ajax({
+           type: "POST",
+           url: '<?=domain;?>/home/add_to_new_letters',
+           data: form_data, // 
+           contentType: false,
+           cache:false,
+           processData:false,
+           success: function(data)
+           {
+            notify();
+            console.log(data);
+           }
+         });
+
+
+  }
+</script> 
