@@ -59,7 +59,7 @@
                             </figure>
                         </div>
                     </div>
-                    <div class="row ptb--40 ptb-md--30 ptb-sm--20">
+                   <!--  <div class="row ptb--40 ptb-md--30 ptb-sm--20">
                         <div class="col-lg-6 offset-lg-1 col-md-6 order-md-2 mb-sm--25">
                             <div class="about-text">
                                 <h3 class="heading-tertiary heading-color mb--20">Why Work With Us ?</h3>
@@ -89,8 +89,8 @@
                                 </a>
                             </figure>
                         </div>
-                    </div>
-                    <div class="row pt--30 pt-md--20 pt-sm--15 pb--40 pb-md--30 pb-sm--20">
+                    </div> -->
+                  <!--   <div class="row pt--30 pt-md--20 pt-sm--15 pb--40 pb-md--30 pb-sm--20">
                         <div class="col-12">
                             <div class="row justify-content-center mb--35 mb-md--25">
                                 <div class="col-xl-6 text-center">
@@ -307,8 +307,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row pt--30 pt-md--20 pt-sm--10 pb--75 pb-md--55 pb-sm--35">
+                    </div> -->
+                   <!--  <div class="row pt--30 pt-md--20 pt-sm--10 pb--75 pb-md--55 pb-sm--35">
                         <div class="col-12">
                             <div class="row mb--35 mb-md--25">
                                 <div class="col-12 text-center">
@@ -346,7 +346,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

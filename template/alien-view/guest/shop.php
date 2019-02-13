@@ -261,7 +261,9 @@
                             </div>
 
 
-                            <center><button class="btn btn btn-default">Load More</button></center>
+                            <center  ng-show="$shop.$no_more_product==false">
+                                <button class="btn btn btn-default" ng-click="$shop.fetch_products()">Load More</button>
+                            </center>
 
                         </div>
                     </div>

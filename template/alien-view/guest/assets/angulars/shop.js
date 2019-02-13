@@ -22,7 +22,7 @@
 
 				//ensure item is not added in cart more than once
 				if (this.contains_object($item, this.$items)) {
-					window.show_notification('<b>'+$item.name+'</b><br> Already in Cart <br><small>You can increase the qty at Checkout</small> !');
+					window.show_notification('<b>'+$item.name+'</b><br> Already in Cart <br><small>You can increase the qty at "View Cart"</small> !');
 					return ;
 				}
 				$item.qty = 1;
@@ -172,8 +172,17 @@
 	}
 
 
-	function Shop($items) {
+	function Shop($items=null) {
 		this.$items = [];
+		this.$items_page = 1;
+
+		/**
+		 * [$no_more_product true if there is 
+		 * more products to fetch from db and false if other wise.
+		 * mainly for pagination]
+		 * @type {Boolean}
+		 */
+		this.$no_more_product = false;   
 		this.$cart = new Cart();
 		this.$quickview ;
 
@@ -186,12 +195,85 @@
 
 			}
 		
-		this.add_item($items);
+		// this.add_item($items);
+
 
 		this.quickview = function ($item) {
 					this.$quickview = $item;
 					$('#productModal').modal('show');			
 			}
+
+		this.fetch_products = function () {
+
+				$this= this;
+				$category = null;
+			 $.ajax({
+	            type: "POST",
+	            url: $base_url+'/shop/fetch_products/'+$this.$items_page+'/'+$category,
+	            cache: false,
+	            data: null,
+	            success: function(data) {
+
+	              		if (data.length==0) {
+	              			$this.$no_more_product = true;
+	              			return;
+	              		}
+
+
+
+	              	$this.add_item(data);
+	              	$this.$items_page++;
+	              	$this.retrieve_cart_in_session();
+	              	$this.update_angular_scope();
+				/*
+		              console.log(data);
+		              console.log($this);
+				*/					
+			
+	            },
+	            error: function (data) {
+	                 //alert("fail"+data);
+	            }
+
+	           });
+			}
+
+					this.fetch_products();
+
+
+		this.retrieve_cart_in_session = function () {
+
+			$this = this;
+			 $.ajax({
+	            type: "POST",
+	            url: $base_url+'/shop/retrieve_cart_in_session/',
+	            cache: false,
+	            data: null,
+	            success: function(data) {
+
+
+				    console.log(data);
+				    	 for(x in data){
+				    	var $item = data[x];
+				    	$this.$cart.$items.push($item);
+				    }
+				    	$this.$cart.update_server();
+				    	$this.update_angular_scope();
+
+				
+	            },
+	            error: function (data) {
+	                 //alert("fail"+data);
+	            }
+
+	           });
+			}
+
+			this.update_angular_scope = function () {
+					$scope = angular.element($('#content')).scope().$apply();
+					$scope = angular.element($('#header-mini-cart')).scope().$apply();
+			}
+
 
 
 
@@ -222,6 +304,11 @@
 			$page = 1;
 			
 			$category = $category_id = 0;
+		    $scope.$shop = new Shop();
+
+
+		    return;
+
 
 			$http.get($base_url+'/shop/fetch_products/'+$page+'/'+$category)
 			    .then(function(response) {
@@ -230,8 +317,9 @@
 				    $scope.$shop = new Shop(response.data);
 
 				    console.log($scope.$shop);
-		
-		$http.get($base_url+'/shop/retrieve_cart_in_session/')
+
+
+			$http.get($base_url+'/shop/retrieve_cart_in_session/')
 			    .then(function(response) {
 
 				    // console.log(response.data);
