@@ -19,10 +19,11 @@ class Products extends Eloquent
 	
 	protected $table = 'products';
 
-
 	public function related_products()
 	{
-		return	self::where('id',$this->id)->latest()->random()->get();
+		return	self::where('id', '!=' ,$this->id)
+					->whereRaW("(category_id = '$this->category_id' OR id != $this->id )")
+					->latest()->take(20)->get()->shuffle()->take(4);
 	}
 
 
@@ -35,6 +36,16 @@ class Products extends Eloquent
 	public function getmainimageAttribute()
 	{
 		return $this->images['images'][0];
+	}
+
+
+
+	public function getsecondaryimageAttribute()
+	{
+		if ($this->images['images'][1] !=null) {
+			return $this->images['images'][1];
+		}
+			return $this->mainimage;
 	}
 
 
