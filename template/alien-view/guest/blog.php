@@ -38,13 +38,14 @@
                                             <article class="post">
                                                 <div class="post-media">
                                                     <div class="image">
-                                                        <img src="<?=domain;?>/<?=$post->image_path;?>" alt="Blog">
-                                                        <a href="single-post.html" class="link-overlay">Blog</a>
+                                                        <img src="<?=domain;?>/<?=$post->image_path;?>" alt="<?=$post->title;?>" 
+                                                        style="height: 500px;object-fit: contain;">
+                                                        <a href="<?=domain;?>/<?=$post->url();?>" class="link-overlay">Blog</a>
                                                     </div>
                                                 </div>
                                                 <div class="post-info post-info--2">
                                                     <div class="post-entry-meta">
-                                                        <a href="blog.html">Trends</a>
+                                                        <!-- <a href="blog.html">Trends</a> -->
                                                     </div>
                                                     <h3 class="post-title">
                                                         <a href="<?=domain;?>/<?=$post->url();?>"><?=$post->title;?></a>

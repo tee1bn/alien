@@ -58,8 +58,7 @@ class home extends controller
 		}
 
 		try {
-		echo "string";
-
+			
 			Newsletter::create(['email'=> Input::get('newsletter')]);
 			Session::putFlash('success', "Subscribed successfully!");
 		} catch (Exception $e) {

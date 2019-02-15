@@ -129,7 +129,7 @@ print_r($_POST['content']);
 		//to remove any haskey set bu angularjs
 		foreach ($content_array as $key => $value) {
 
-			unset($content_array[$key]['$$hashKey']);
+			// unset($content_array[$key]['$$hashKey']);
 
 
 		}

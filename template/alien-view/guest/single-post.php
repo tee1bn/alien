@@ -1,8 +1,8 @@
 
     <?php
 
-    $page_title = "";
-    $page_description = "";
+    $page_title = $post->title;
+    $page_description = $post->intro();
     include 'includes/header.php';?>
 
 
@@ -38,9 +38,9 @@
                                         <h2 class="entry-title"><?=$post->title;?></h2>
                                         <div class="entry-meta">
                                             <div class="entry-meta-top">
-                                                <a href="blog.html" class="posted-on"><?=$post->format_created_at();?></a>
+                                                <a class="posted-on"><?=$post->format_created_at();?></a>
                                                 <span class="meta-separator">-</span>
-                                                <a href="blog.html" class="posted-by">By <?=$post->author();?></a>
+                                                <a  class="posted-by">By <?=$post->author();?></a>
                                                 <span class="meta-separator">/</span>
                                                 <a href="<?=domain;?>/<?=$post->category->url_link();?>" style="text-transform: capitalize;">
                                                     <?=$post->category->category;?></a>
@@ -48,7 +48,8 @@
                                         </div>
                                     </div>
                                     <div class="entry-thumbnail">
-                                        <img src="<?=asset;?>/assets/img/blog/post-1-1.jpg" alt="Post Thumbnail">
+                                        <img src="<?=domain;?>/<?=$post->image_path;?>" alt="<?=$post->title;?> image" 
+                                        style="width: 680px;height: 680px;object-fit: cover;">
                                     </div>
                                     <div class="entry-content"><?=$post->content;?>
                                     </div>
@@ -100,7 +101,7 @@
                                 <!-- Social Sharing Icons End Here -->
 
                                 <!-- Post Navigation Start Here -->
-                                <nav class="post-navigation">
+                              <!--   <nav class="post-navigation">
                                     <div class="nav-links">
                                         <div class="nav-prev nav-links__inner">
                                             <a href="single-post.html" class="nav-links__link">Prev Post</a>
@@ -125,7 +126,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </nav>
+                                </nav> -->
                                 <!-- Post Navigation Start Here -->
                                 
                                 DISQUS COES HERE

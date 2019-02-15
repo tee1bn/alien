@@ -54,6 +54,27 @@ class Post extends Eloquent
 			return str_replace(' ', '-', trim($this->title));
 	}
 
+
+
+	public static function default_main_image()
+	{
+			return "uploads/images/posts/product_9.jpg";
+	}
+
+
+	public function getimagepathAttribute($value)
+	{
+        if ((!is_dir($value))  && (file_exists($value))) {
+
+        return ($value);
+        }
+
+    	return self::default_main_image();
+
+	}
+
+
+
 	public function next_post()
 	{
 

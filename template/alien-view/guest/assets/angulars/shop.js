@@ -48,7 +48,7 @@
 				}
 
 			this.place_order = function () {
-				console.log("great");
+				// console.log("great");
 
                     
                     $form = new FormData ();
@@ -62,7 +62,7 @@
                     processData: false,
                     data: $form,
                     success: function(data) {
-                      console.log(data);
+                      // console.log(data);
 
 
                       window.notify();
@@ -117,7 +117,7 @@
             processData: false,
             data: $form,
             success: function(data) {
-              console.log(data);
+              // console.log(data);
               // $scope.fetch_page_content();
               window.notify();
             },
@@ -252,7 +252,7 @@
 	            success: function(data) {
 
 
-				    console.log(data);
+				    // console.log(data);
 				    	 for(x in data){
 				    	var $item = data[x];
 				    	$this.$cart.$items.push($item);
@@ -316,7 +316,7 @@
 				    // console.log(response.data);
 				    $scope.$shop = new Shop(response.data);
 
-				    console.log($scope.$shop);
+				    // console.log($scope.$shop);
 
 
 			$http.get($base_url+'/shop/retrieve_cart_in_session/')

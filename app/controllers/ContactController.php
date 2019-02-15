@@ -14,37 +14,10 @@ class ContactController extends controller
 	}
 
 
-	public function add_to_news_letter()
-	{
-		
-
-if(! filter_var( $_POST['email'], FILTER_VALIDATE_EMAIL)){
-echo 'Email not valid';
-return;
-}
-
-    try { 
-  
-    $new_subscribed_email = Newsletter::create(['email' => $_POST['email']]);
-    if($new_subscribed_email) {
-    echo "Email subscribed succesfully";
-
-  }
-
-
-    } catch (Exception $e) {
-
-    echo "Email already subscribed succesfully";
-
-        }
-
-
-  	}
-
 	public function send_message()
 	{
 		print_r($_POST);
-
+		Session::putFlash("Message sent successfully!", "success");
 	}
 
 

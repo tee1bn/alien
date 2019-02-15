@@ -35,7 +35,7 @@ $(document).ready(function(){
             cache: false,
             success: function(data) {
 
-		show_notification("Message sent successfully!");
+				notify();
 
             },
             error: function (data) {

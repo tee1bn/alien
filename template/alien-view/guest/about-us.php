@@ -1,9 +1,11 @@
 
     <?php
 
-    $page_title = "";
+    $page_title = "About Us | ".project_name;
     $page_description = "";
     include 'includes/header.php';?>
+
+    <script src="<?=asset;?>/assets/angulars/cms_about_page.js"></script>
 
         <!-- Breadcrumb area Start -->
 
@@ -23,8 +25,24 @@
 
         <!-- Breadcrumb area End -->
 
+
         <!-- Main Content Wrapper Start -->
-        <div id="content" ng-controller="ShopController"  class="main-content-wrapper">
+        <span  ng-controller="ShopController" ></span>
+        <div id="content" ng-controller="AboutPageController" class="main-content-wrapper">
+        <style type="text/css">
+            .about-bg-1{
+                    background: url(<?=domain;?>/{{$page_cms[0].image}}) no-repeat scroll ;
+                    margin-left: 0rem;
+                    margin-right: -15rem;
+                    padding-right: 15rem;
+                    height: 500px;
+            }
+            @media screen and (max-width: 600px) {
+              .about-bg-1 {
+                 background:none;
+              }
+            }
+        </style>
             <div class="page-content-inner">
                 <div class="container">
                     <div class="row pt--80 pt-md--60 pt-sm--40">
@@ -32,11 +50,12 @@
                             <div class="about-text about-bg-1">
                                 <div class="row">
                                     <div class="col-xl-5 offset-xl-7 col-md-6 offset-md-6 pt--90 pt-md--80 pb--100 pl-sm--35">
-                                        <figure class="mb--40 mb-md--30 max-w-45">
+                                       <!--  <figure class="mb--40 mb-md--30 max-w-45">
                                             <img src="<?=asset;?>/assets/img/logo/m01-logo.png" alt="logo">
-                                        </figure>
-                                        <p class="font-size-16 font-2 heading-color">
-                                            Integer ut ligula quis lectus fringilla elementum porttitor sed est. Fringilla efficitur ligula sed lobortis. Sed tempus faucibus mi, quis fringilla mauris lacinia sed. Integer vehicula egestas nunc ac facilisis. Nam bibendum non faucibus libero eu. Curabitur posuere to ullamcorper                         
+                                        </figure> -->
+                                <h3 class="heading-tertiary heading-color mb--15"   <?=$this->allow_contenteditable('$page_cms[0].name');?>></h3>
+
+                                        <p class="font-size-16 font-2 heading-color"  <?=$this->allow_contenteditable('$page_cms[0].textcontent');?>>
                                         </p>
                                     </div>
                                 </div>
@@ -46,16 +65,16 @@
                     <div class="row pt--80 pt-md--60 pt-sm--35 pb--40 pb-md--30 pb-sm--15">
                         <div class="col-lg-7 col-md-6 mb-sm--30">
                             <div class="about-text">
-                                <h3 class="heading-tertiary heading-color mb--15">Airi Beautiful eCommerce Online Store</h3>
-                                <p class="color--light-3 mb--25 mb-md--20">Praesent sed ex vel mauris eleifend mollis. Vestibulum dictum sodales ante, ac pulvinar urna sollicitudin in. Suspendisse sodales dolor nec mattis convallis. Quisque ut nulla viverra, posuere lorem eget, ultrices metus. Nulla facilisi. Duis aliquet, eros in auctor aliquam, tortor justo laoreet nisi, nec pulvinar lectus diam nec libero. Nullam sit amet Cras porta posuere lectus, vitae consectetur dolor elementum</p>
-                                <figure>
+                                <h3 class="heading-tertiary heading-color mb--15"   <?=$this->allow_contenteditable('$page_cms[1].name');?>></h3>
+                                <p class="color--light-3 mb--25 mb-md--20" <?=$this->allow_contenteditable('$page_cms[1].textcontent');?>></p>
+                            <!--     <figure>
                                     <img src="<?=asset;?>/assets/img/about/about-signature.png" alt="signature">
-                                </figure>
+                                </figure> -->
                             </div>
                         </div>
                         <div class="col-lg-5 col-md-6">
                             <figure>
-                                <img src="<?=asset;?>/assets/img/about/about-bg2.jpg" alt="about">
+                                <img src="<?=domain;?>/{{$page_cms[1].image}}" alt="about">
                             </figure>
                         </div>
                     </div>
