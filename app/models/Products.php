@@ -59,6 +59,7 @@ class Products extends Eloquent
 
 
 
+
 	public static function upload_product_images($files)
 	{
 		$directory = 'uploadsp/images/products';
@@ -132,9 +133,9 @@ class Products extends Eloquent
 	}
 
 
-	public function getquickdescriptionAtrribute()
+	public function quickdescription()
 	{
-		return substr($this->description, 0, random_int(180, 250) ).'...';
+		return substr($this->description, 0, random_int(240, 450) ).'...';
 	}
 
 

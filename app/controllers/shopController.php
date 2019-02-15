@@ -289,7 +289,7 @@ class shopController extends controller
 			$course->url_link = $course->url_link();
 			$course->images = $course->images;
 			$course->mainimage = $course->mainimage;
-			$course->quick_description = $course->quickdescription;
+			$course->quickdescription = $course->quickdescription();
 		}
 
 		header("Content-type: application/json");
@@ -306,7 +306,20 @@ class shopController extends controller
 
 		header("Content-type: application/json");
 		// $per_page = 100;
-		echo $course =  Products::find($course_id);
+		 $course =  Products::find($course_id);
+
+			$course->by = $course->instructor->lastname.' '. $course->instructor->firstname;
+			$course->category = $course->category;
+			$course->short_title = substr($course->title, 0, 34);
+			$course->last_updated = $course->updated_at->diffForHumans();
+			$course->thumbnail = $course->image;
+			$course->url_link = $course->url_link();
+			$course->images = $course->images;
+			$course->mainimage = $course->mainimage;
+			$course->quickdescription = $course->quickdescription();
+
+		echo $course;
+
 			}	
 
 

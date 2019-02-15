@@ -2,7 +2,7 @@
     <?php
 
     $page_title = "$product->name";
-    $page_description = "$product->quickdescription";
+    $page_description = "{$product->quickdescription()}";
     include 'includes/header.php';?>
 
         <!-- Breadcrumb area Start -->
@@ -51,6 +51,38 @@
            });
 
     }  
+
+
+    quickview = function ($item_id) {
+
+            $form = new FormData();
+         $.ajax({
+            type: "POST",
+            url: $base_url+"/shop/find/"+$item_id,
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: $form,
+            success: function(data) {
+
+                // show_notification(data);
+                console.log(data);
+                $scope = angular.element($('#to_find_scope')).scope();
+                $scope.$shop.quickview(data);
+                $scope.$apply();
+                
+              // $scope.fetch_page_content();
+            },
+            error: function (data) {
+                 //alert("fail"+data);
+            }
+
+           });
+
+    }  
+
+
+
    </script>
      
 
@@ -58,7 +90,11 @@
 
         <!-- Breadcrumb area End -->
         <span ng-controller='ShopController'>
-            <span id="to_find_scope"></span>
+            <span id="to_find_scope">
+                
+                        <?php include 'includes/product_quick_view.php';?>
+            </span>
+
         </span>
         <!-- Main Content Wrapper Start -->
         <div id="content" class="main-content-wrapper">
@@ -354,30 +390,32 @@
                                                     </div>
                                                     <div class="airi-product-action">
                                                         <div class="product-action">
-                                                            <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="Quick Shop">
-                                                                <span data-toggle="modal" data-target="#productModal">
+                                                            <a class="quickview-btn action-btn" title="Quick Shop">
+                                                                <span onclick="quickview(<?=$related_product->id;?>)">
                                                                     <i class="dl-icon-view"></i>
                                                                 </span>
                                                             </a>
-                                                            <a class="add_to_cart_btn action-btn" href="cart.html" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                                            <a class="add_to_cart_btn action-btn"
+                                                            onclick="add_item(<?=$related_product->id;?>)" title="Add to Cart">
                                                                 <i class="dl-icon-cart29"></i>
                                                             </a>
-                                                            <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
+                                                            <a class="add_wishlist action-btn" href="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
                                                                 <i class="dl-icon-heart4"></i>
                                                             </a>
-                                                            <a class="add_compare action-btn" href="compare.html" data-toggle="tooltip" data-placement="top" title="Add to Compare">
-                                                                <i class="dl-icon-compare"></i>
-                                                            </a>
+                                                          
                                                         </div>
                                                     </div>
-                                                    <span class="product-badge sale">Sale</span>
+                                                    <span class="product-badge sale"><?=$related_product->ribbon;?></span>
                                                 </figure>
                                                 <div class="product-info text-center">
                                                     <h3 class="product-title">
-                                                        <a href="product-details.html">Leopard print satin shirt</a>
+                                                        <a href="<?=$related_product->url_link();?>"><?=$related_product->name;?>
+
+                                                    </a>
                                                     </h3>
                                                     <span class="product-price-wrapper">
-                                                        <span class="money">$49.00</span>
+                                                        <span class="money"><?=$currency;?> 
+                                                        <?=$this->money_format($related_product->price);?></span>
                                                     </span>
                                                 </div>
                                             </div>

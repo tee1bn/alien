@@ -42,7 +42,7 @@
                                     <span class="money">{{$shop.$quickview.old_price |  currency:'<?=currency;?>'}}</span>
                                 </span>
                             </span>
-                            <p class="product-short-description mb--25 mb-md--20">{{$shop.$quickview.quick_description}}</p>
+                            <p class="product-short-description mb--25 mb-md--20">{{$shop.$quickview.quickdescription}}</p>
                             <div class="product-action d-flex flex-row align-items-center mb--30 mb-md--20">
                               <!--   <div class="quantity">
                                     <input type="number" class="quantity-input" name="qty" id="quick-qty" value="1" min="1">

@@ -3,14 +3,14 @@
             <div class="container">
                 <div class="row pt--40 pt-md--30 mb--40 mb-sm--30">
                     <div class="col-12 text-md-center">
-                        <div class="footer-widget">
+                        <!-- <div class="footer-widget">
                             <div class="textwidget">
                                 <a href="<?=domain;?>" class="footer-logo">
-                                    <!-- <img src="<?=asset;?>/assets/img/logo/logo.svg" alt="Logo"> -->
+                                    <img src="<?=asset;?>/assets/img/logo/logo.svg" alt="Logo">
                                     <h2 class=""><?=project_name;?></h2>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="row mb--15 mb-sm--20">
@@ -90,10 +90,11 @@
                         <!-- Social Icons End Here -->
                     </div>
                     <div class="col-md-4 text-md-center">
-                        <p class="copyright-text">&copy; <?=date("Y");?> <?=project_name;?>. Built by GitStar Digital</p>
+                        <p class="copyright-text">&copy; <?=date("Y");?> All rights reserved <?//=project_name;?>. </p>
                     </div>
                     <div class="col-md-4 text-md-right">
-                        <img src="<?=asset;?>/assets/img/others/payments-2.png" alt="Payment">
+                        <!-- <img src="<?=asset;?>/assets/img/others/payments-2.png" alt="Payment"> -->
+                        <p>Built by <a href="http://gitstardigital.com" target="_blank">GitStar Digital </a></p>
                     </div>
                 </div>
             </div>
