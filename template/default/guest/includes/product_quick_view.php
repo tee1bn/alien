@@ -18,30 +18,15 @@
                                     "nextArrow": "dl-icon-right"
                                 }'
                         >
-                            <div class="product-image">
+                            <div   class="product-image">
                                 <div class="product-image--holder">
                                     <a href="{{$shop.$quickview.url_link}}">
-                                        <img src="<?=asset;?>/assets/img/products/prod-9-1.jpg" alt="Product Image" class="primary-image">
+                                        <img src="<?=domain;?>/{{$shop.$quickview.images.images[0].main_image}}" alt="Product Image" class="primary-image" style="height: 600px;width: 100%;">
                                     </a>
                                 </div>
                                 <span class="product-badge sale" ng-if="$shop.$quickview.ribbon">{{$shop.$quickview.ribbon}}</span>
                             </div>
-                            <div class="product-image">
-                                <div class="product-image--holder">
-                                    <a href="{{$shop.$quickview.url_link}}">
-                                        <img src="<?=asset;?>/assets/img/products/prod-10-1.jpg" alt="Product Image" class="primary-image">
-                                    </a>
-                                </div>
-                                <span class="product-badge sale" ng-if="$shop.$quickview.ribbon">{{$shop.$quickview.ribbon}}</span>
-                            </div>
-                            <div class="product-image">
-                                <div class="product-image--holder">
-                                    <a href="{{$shop.$quickview.url_link}}">
-                                        <img src="<?=asset;?>/assets/img/products/prod-11-1.jpg" alt="Product Image" class="primary-image">
-                                    </a>
-                                </div>
-                                <span class="product-badge sale" ng-if="$shop.$quickview.ribbon">{{$shop.$quickview.ribbon}}</span>
-                            </div>
+                      
                         </div>
                     </div>
                     <div class="col-md-6">

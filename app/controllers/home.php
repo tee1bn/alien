@@ -21,6 +21,8 @@ class home extends controller
 
 		$product =Products::find(66);
 		print_r($product->toArray());
+		print_r($product->images);
+		print_r($product->main_image);
 
 
 	}

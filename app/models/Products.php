@@ -20,11 +20,30 @@ class Products extends Eloquent
 	protected $table = 'products';
 
 
-
-	public function getimages()
+	public function related_products()
 	{
+		return	self::where('id',$this->id)->latest()->random()->get();
+	}
 
-		echo "string";
+
+	public function getimagesAttribute()
+	{
+		return json_decode($this->front_image, true);
+	}
+
+
+	public function getmainimageAttribute()
+	{
+		return $this->images['images'][0];
+	}
+
+
+
+	public function getoldpriceAttribute()
+	{	
+		if ($this->old_price != '') {
+			return  Config::currency().' '.number_format($this->old_price,2);		
+		}
 	}
 
 
@@ -102,7 +121,7 @@ class Products extends Eloquent
 	}
 
 
-	public function quick_description()
+	public function getquickdescriptionAtrribute()
 	{
 		return substr($this->description, 0, random_int(180, 250) ).'...';
 	}

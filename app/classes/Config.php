@@ -6,6 +6,7 @@
  */
 class Config
 {
+
 	
 	public function __construct()
 	{
@@ -19,6 +20,11 @@ class Config
 	public  static function admin_url()
 	{
 		return	 'admin_url';
+	}
+
+	public  static function currency()
+	{
+		return	 '&#8358';
 	}
 
 

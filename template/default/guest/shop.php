@@ -212,14 +212,16 @@
                             <div class="shop-products"> 
                                 <div class="row grid-space-20 xxl-block-grid-5">
 
+                                    <!-- {{$shop.$items[0].images}} -->
                                     <div  ng-repeat ="($index, $item) in $shop.$items  | filter:searchText" class="col-lg-3 col-sm-6 mb--40 mb-md--30">
                                         <div class="airi-product">
                                             <div class="product-inner">
                                                 <figure class="product-image">
                                                     <div class="product-image--holder">
                                                         <a href="{{$item.url_link}}">
-                                                            <img src="<?=asset;?>/assets/img/products/prod-20-1.jpg" alt="Product Image" class="primary-image">
-                                                            <img src="<?=asset;?>/assets/img/products/prod-20-2.jpg" alt="Product Image" class="secondary-image">
+                                                            <img src="<?=domain;?>/{{$item.images.images[0].main_image}}" alt="Product Image" class="primary-image">
+                                                            <img  ng-hide="$item.images.images[0].main_image==''" 
+                                                            src="<?=domain;?>/{{$item.images.images[0].main_image}}" alt="Product Image" class="secondary-image">
                                                         </a>
                                                     </div>
                                                     <div class="airi-product-action">
