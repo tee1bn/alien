@@ -34,14 +34,14 @@ class AdminProductsController extends controller
 					$product->delete();
 
 					echo "deleted";
-					Session::putFlash('Info', 'succesfully deleted!');
+					Session::putFlash('success', 'succesfully deleted!');
 
 
 
 				} catch (Exception $e) {
 					
 					print_r($e->getMessage());
-					Session::putFlash('Info', 'This product cannot be deleted');
+					Session::putFlash('info', 'This product cannot be deleted');
 
 
 				}
@@ -174,7 +174,7 @@ Redirect::to("admin-products/edit_item/$item_id");
 
 	public function createProduct(){
 
-		if (Input::exists('add_products')) {
+		if (Input::exists('add_products') || true) {
 
 // print_r($_FILES['front_image']);
 
@@ -210,54 +210,30 @@ Redirect::to("admin-products/edit_item/$item_id");
  if($this->validator->passed()){
 
  	echo "paseed";
+ 	print_r($_FILES);
+
+ 	$product_images = (Products::upload_product_images($_FILES['front_image']));
+
+	//upload the feaured_img;
+		if (count($product_images['images'])!= 0) {
+
+		 		$product = Products::create([
+		 		'name' => Input::get('name'),
+		 		'description' => Input::get('description'),
+		 		'price' => Input::get('price'),
+		 		'category_id' => Input::get('category'),
+				'front_image'=> json_encode($product_images)
+ 		]);
 
 
-$handle = new Upload($_FILES['front_image']);
-	$dir = 'uploads/images/products';
+		}else{
 
-		$min_height = 335;
-		$min_width = 270;
-
-		echo $handle->image_src_x;
-
-		if (($handle->image_src_x < $min_width) || ($handle->image_src_y < $min_height) ) {
-
-					Session::putFlash('Info', "Item image must be or atleast {$min_width}px min width x {$min_height}px min height for best fit!");
-
-	// Redirect::to('admin-products');
-		}
-
-	$handle->file_new_name_body = 'product';
-
-
-	$handle->process($dir);
-	$front_image_path = $dir.'/'.$handle->file_dst_name;
-
-
-
-
-
-//upload the feaured_img;
-		if ($handle->processed) {
-
-
- 		$product = Products::create([
- 		'name' => Input::get('name'),
- 		'description' => Input::get('description'),
- 		'price' => Input::get('price'),
- 		'category_id' => Input::get('category'),
-		'front_image'=> $front_image_path
- 	]);
-
-
+			Session::putFlash('info', "Please check the images and try again!");
+			Redirect::back();
 		}
 
 
-	Session::putFlash('Info', "Item created successfully!");
-
-	Redirect::to('admin-products');
-
-
+		Session::putFlash('success', "Item created successfully!");
 
  }else{
 

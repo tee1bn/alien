@@ -2,7 +2,7 @@
       <?php include 'header_nav.php' ;?>
       <?php include 'datatable.php' ;?>
 
-        <!-- page content -->
+              <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
@@ -63,11 +63,11 @@
                  </div>
 
                 <div class="form-group">
-                   <input type="file" name="front_image" class="form-control" required="required" value="<?=Input::old('front_image');?>" placeholder="Item price">
+                   <input type="file" multiple="" name="front_image[]" class="form-control" required="required" value="<?=Input::old('front_image');?>" placeholder="Item price">
                   </div>
 
                      <div class="form-group">
-                       <textarea class="form-control" name="description" rows="6" required="required"  placeholder="Item description"><?=Input::old('description');?></textarea>
+                       <textarea class="form-control" name="description"  id="" required="required"  placeholder="Item description"><?=Input::old('description');?></textarea>
                       </div>
 
                   <div class="form-group">
@@ -91,7 +91,9 @@
 
 
 
-
+            <script>
+              ClassicEditor.create( document.querySelector( '#editor' ) );
+            </script>
 
 
 

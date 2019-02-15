@@ -40,6 +40,15 @@ class Redirect
 
 	}
 
+	public function back()
+	{
+
+		 $location = $_SERVER['HTTP_REFERER'];
+			ob_end_clean();
+				header('Location:'. $location);
+				exit();
+
+	}
 
 
 }

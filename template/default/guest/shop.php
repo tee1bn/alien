@@ -1,104 +1,278 @@
-<?php
 
-$page_title = "Shop | Fashion store in usa";
-$page_description = "";
+    <?php
 
-
- include 'includes/header.php';
-
-?>
-	
-
-	<div ng-app = "Shop" ng-controller="productsDisplayController" ng-cloak>
-	<?php include 'includes/mini-cart.php';?>
-
-	
-	<!-- Product -->
-	<section class="bg0 m-t-23 p-b-40" >
-		<div class="container">
-			<div class="flex-w flex-sb-m p-b-52">
-				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 " data-filter="*" ng-click="update_search_filter('')">
-						All Products
-					</button>
-
-					<button style="text-transform: capitalize;" ng-repeat="($index , $category) in $categories " class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".{{$category.category}}"  ng-click="update_search_filter($category.category)" >
-						{{$category.category}}
-					</button>
-
-				</div>
-
-				<div class="flex-w flex-c-m m-tb-10">
-					
-
-					<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
-						<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
-						<i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-						Search
-					</div>
-				</div>
-				
-				<!-- Search product -->
-				<div class="dis-none panel-search w-full p-t-10 p-b-15">
-					<div class="bor8 dis-flex p-l-15">
-						<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
-							<i class="zmdi zmdi-search"></i>
-						</button>
-
-						<input class="mtext-107 cl2 size-114 plh2 p-r-15" type="text" ng-model="searchText" ng-init="searchText='<?=$default_category;?>'" placeholder="Search">
-					</div>	
-				</div>
-
-				
-				<!-- filter spot -->
-			</div>
-			<div class="row isotop-grid" style="position: unset; height: auto; padding-bottom: 20px;">
-				<div ng-repeat="($index , $product) in $products  | filter:searchText" class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item {{$product.category.category}}">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0" style="background: #d2d6d8;">
-							<img src="<?=domain;?>/{{$product.front_image}}" alt="IMG-PRODUCT" class="git_product_image" >
-							<a href="javascript:void;" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 " ng-click="set_in_quick_view($index, $product.id)">
-								Quick View
-							</a>
-						</div>
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									{{$product.name}}
-								</a>
-
-								<span class="stext-105 cl3">
-									<?=$currency;?>{{$product.formatted_price}}
-								</span>
-							</div>
-<div class="block2-txt-child2 flex-r p-t-3">
-								<span class="label-tag">{{$product.category.category}}</span>
-								
-							</div>
-
-				
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<?php include 'includes/quick_view_modal.php';?>
+    $page_title = "";
+    $page_description = "";
+    include 'includes/header.php';?>
 
 
+        <!-- Breadcrumb area Start -->
 
-			<!-- Load more -->
-			<div class="flex-c-m flex-w w-full p-t-10 p-b-10" style="cursor: pointer;">
-				<a  ng-show="$no_more_content==false" id="load_more_btn" ng-click="fetch_products();" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
-					Load More
-				</a>
-			</div>
-		</div>
-	</section>
-		
+        <div  class="breadcrumb-area bg--white-6 pt--60 pb--70 pt-lg--40 pb-lg--50 pt-md--30 pb-md--40">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1 class="page-title">Shop </h1>
+                        <ul class="breadcrumb justify-content-center">
+                            <li><a href="<?=domain;?>">Home</a></li>
+                            <li class="current"><span>Shop </span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-		</div>
+        <!-- Breadcrumb area End -->
+
+        <!-- Main Content Wrapper Start -->
+        <div ng-controller="ShopController" id="content" class="main-content-wrapper">
+            <?php include 'includes/product_quick_view.php';?>
+            <div class="shop-page-wrapper">
+                <div class="container-fluid">
+                    <div class="row shop-fullwidth pt--45 pt-md--35 pt-sm--20 pb--60 pb-md--50 pb-sm--40">
+                        <div class="col-12">
+                            <div class="shop-toolbar">
+                                <div class="shop-toolbar__inner">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-6 text-md-left text-center mb-sm--20">
+                                            <div class="shop-toolbar__left">
+                                                <p class="product-pages">Showing 1–20 of 42 results</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="shop-toolbar__right">
+                                                <a href="#" class="product-filter-btn shop-toolbar__btn">
+                                                    <span>Filters</span>
+                                                    <i></i>
+                                                </a>
+                                                <div class="product-ordering">
+                                                    <a href="#" class="product-ordering__btn shop-toolbar__btn">
+                                                        <span>Short By</span>
+                                                        <i></i>
+                                                    </a>
+                                                    <ul class="product-ordering__list">
+                                                        <li class="active"><a href="#">Sort by popularity</a></li>
+                                                        <li><a href="#">Sort by average rating</a></li>
+                                                        <li><a href="#">Sort by newness</a></li>
+                                                        <li><a href="#">Sort by price: low to high</a></li>
+                                                        <li><a href="#">Sort by price: high to low</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="advanced-product-filters">
+                                    <div class="product-filter">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="product-widget product-widget--price">
+                                                    <h3 class="widget-title">Price</h3>
+                                                    <ul class="product-widget__list">
+                                                        <li>
+                                                            <a href="shop-sidebar.html">
+                                                                <span class="ammount">$20.00</span>
+                                                                <span> - </span>
+                                                                <span class="ammount">$40.00</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-sidebar.html">
+                                                                <span class="ammount">$40.00</span>
+                                                                <span> - </span>
+                                                                <span class="ammount">$50.00</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-sidebar.html">
+                                                                <span class="ammount">$50.00</span>
+                                                                <span> - </span>
+                                                                <span class="ammount">$60.00</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-sidebar.html">
+                                                                <span class="ammount">$60.00</span>
+                                                                <span> - </span>
+                                                                <span class="ammount">$80.00</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-sidebar.html">
+                                                                <span class="ammount">$80.00</span>
+                                                                <span> - </span>
+                                                                <span class="ammount">$100.00</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-sidebar.html">
+                                                                <span class="ammount">$100.00</span>
+                                                                <span> + </span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="product-widget product-widget--brand">
+                                                    <h3 class="widget-title">Brands</h3>
+                                                    <ul class="product-widget__list">
+                                                        <li>
+                                                            <a href="shop-sidebar.html">
+                                                                <span>Airi</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-sidebar.html">
+                                                                <span>Mango</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-sidebar.html">
+                                                                <span>Valention</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-sidebar.html">
+                                                                <span>Zara</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="product-widget product-widget--color">
+                                                    <h3 class="widget-title">Color</h3>
+                                                    <ul class="product-widget__list product-color-swatch">
+                                                        <li>
+                                                            <a href="shop-sidebar.html" class="product-color-swatch-btn blue">
+                                                                <span class="product-color-swatch-label">Blue</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-sidebar.html" class="product-color-swatch-btn green">
+                                                                <span class="product-color-swatch-label">Green</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-sidebar.html" class="product-color-swatch-btn pink">
+                                                                <span class="product-color-swatch-label">Pink</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-sidebar.html" class="product-color-swatch-btn red">
+                                                                <span class="product-color-swatch-label">Red</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-sidebar.html" class="product-color-swatch-btn grey">
+                                                                <span class="product-color-swatch-label">Grey</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="product-widget product-widget--size">
+                                                    <h3 class="widget-title">Size</h3>
+                                                    <ul class="product-widget__list">
+                                                        <li>
+                                                            <a href="shop-sidebar.html">
+                                                                <span>L</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-sidebar.html">
+                                                                <span>M</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-sidebar.html">
+                                                                <span>S</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-sidebar.html">
+                                                                <span>XL</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="shop-sidebar.html">
+                                                                <span>XXL</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="btn-close"><i class="dl-icon-close"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shop-products"> 
+                                <div class="row grid-space-20 xxl-block-grid-5">
+
+                                    <div  ng-repeat ="($index, $item) in $shop.$items  | filter:searchText" class="col-lg-3 col-sm-6 mb--40 mb-md--30">
+                                        <div class="airi-product">
+                                            <div class="product-inner">
+                                                <figure class="product-image">
+                                                    <div class="product-image--holder">
+                                                        <a href="{{$item.url_link}}">
+                                                            <img src="<?=asset;?>/assets/img/products/prod-20-1.jpg" alt="Product Image" class="primary-image">
+                                                            <img src="<?=asset;?>/assets/img/products/prod-20-2.jpg" alt="Product Image" class="secondary-image">
+                                                        </a>
+                                                    </div>
+                                                    <div class="airi-product-action">
+                                                        <div class="product-action">
+                                                            <a class="quickview-btn action-btn" data-toggle="tooltip" data-placement="top" title="Quick Shop">
+                                                                <span  ng-click="$shop.quickview($item)">
+                                                                    <i class="dl-icon-view"></i>
+                                                                </span>
+                                                            </a>
+                                                            <a ng-click="$shop.$cart.add_item($item)"  class="add_to_cart_btn action-btn" href="javascript:void;" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                                                <i class="dl-icon-cart29"></i>
+                                                            </a>
+
+                                                            <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
+                                                                <i class="dl-icon-heart4"></i>
+                                                            </a>
+
+                                                        </div>
+                                                    </div>
+                                                    <span class="product-badge new" ng-if="$item.ribbon">{{$item.ribbon}}</span>    
+                                                </figure>
+                                                <div class="product-info text-center">
+                                                    <h3 class="product-title">
+                                                        <a href="{{$item.url_link}}">{{$item.name}}</a>
+                                                    </h3>
+                                                    <span class="product-price-wrapper">
+                                                        <span class="money">{{$item.price |  currency:'<?=currency;?>'}}</span>
+                                                        <span class="product-price-old">
+                                                            <span class="money"> {{$item.old_price |  currency:'<?=currency;?>'}} </span>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+
+                                </div>
+                            </div>
 
 
+                            <center  ng-show="$shop.$no_more_product==false">
+                                <button class="btn btn btn-default" ng-click="$shop.fetch_products()">Load More</button>
+                            </center>
 
-<?php include 'includes/footer.php';?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Content Wrapper Start -->
+
+
+      
+
+      <?php include 'includes/footer.php';?>

@@ -14,6 +14,18 @@ class home extends controller
 	}
 
 
+	public function test($value='')
+	{	
+		echo "<pre>";
+
+
+		$product =Products::find(66);
+		print_r($product->toArray());
+
+
+	}
+
+
 
 	/**
 	 * this is the default landing point for all request to our application base domain

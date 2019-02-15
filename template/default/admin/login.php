@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="<?php echo $admin_img; ?>/admin_images/logo.png" />
 
-    <title><?=$this->website;?> </title>
+    <title><?=project_name;?> </title>
 
      <?php
 
@@ -51,8 +51,8 @@
                 <br />
 
                 <div>
-                  <h1> <?=$this->name;?></h1>
-                  <p>©2016 All Rights Reserved. <?=$this->name;?> </p>
+                  <h1>  <?=project_name;?></h1>
+                  <p>@ <?=date("Y");?> All Rights Reserved. </p> 
                 </div>
               </div>
             </form>

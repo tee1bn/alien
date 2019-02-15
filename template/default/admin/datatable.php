@@ -15,6 +15,8 @@
 
     <!-- Custom Theme Style -->
     <link href="<?=asset;?>/vendors/build/css/custom.min.css" rel="stylesheet">
+    <!-- ckeditor -->
+        <script src="<?=asset;?>/includes/js/classic-ckeditor.js"> </script>
 
 
  <!-- jQuery -->

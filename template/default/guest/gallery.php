@@ -1,23 +1,39 @@
-<?php
 
-$page_title = "Gallery | Fashion store in usa";
-$page_description = "";
- include 'includes/header.php';?>
-	
+    <?php
 
-	<script src="<?=asset;?>/includes/angularjs_apps/cms_gallery_page.js"></script>
+    $page_title = "Gallery | ".project_name;
+    $page_description = "";
+    include 'includes/header.php';?>
 
+    <script src="<?=asset;?>/assets/angulars/cms_gallery_page.js"></script>
 
+        <!-- Breadcrumb area Start -->
 
-	<style>
-		.gallery-img-modal{
+        <div class="breadcrumb-area bg--white-6 pt--60 pb--70 pt-lg--40 pb-lg--50 pt-md--30 pb-md--40">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h1 class="page-title">Gallery</h1>
+                        <ul class="breadcrumb justify-content-center">
+                            <li><a href="<?=domain;?>">Home</a></li>
+                            <li class="current"><span>Gallery</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Breadcrumb area End -->
+        <span ng-controller="ShopController"></span>
+    <style>
+        .gallery-img-modal{
 
             object-fit: contain;
             height: 300px;
             width: 100%;
         }
 
-		.gallery-img{
+        .gallery-img{
             cursor:default;
             object-fit: cover;
             height: 300px;
@@ -73,124 +89,50 @@ $page_description = "";
             right: 0px;
             background: #f5f5f5c7;
         }
+    </style>
 
-	</style>
-
-	<script>
-		show_open_icon = function ($div) {
-			$div.childNodes[1].style.display = "block";
-			$div.childNodes[3].style.display = "block";
-		}
-		hide_open_icon = function ($div) {
-			$div.childNodes[1].style.display = "none";
-		}
-	</script>
-
-	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('<?=asset;?>/images/bg-02.jpg');">
-		<h2 class="ltext-105 cl0 txt-center">
-			Gallery
-		</h2>
-	</section>	
-			<section class="bg0 p-t-62 p-b-60" ng-app="GalleryPage" ng-controller="GalleryPageController">
-
-<?php if($this->admin()):?>
-	<i class="fa fa-plus fa-2x  add-image" onclick="document.getElementById('file_upload_input').click();"></i>
-<?php endif;?>
-
-<input multiple="" type="file" style="display: none;" id="file_upload_input" onchange="angular.element(this).scope().acknowledge_file_attachment();" name="">
-
-					<div class="container">
-						<div class="row">
-							<div 
-							ng-repeat="($index, $content) in $page_cms" class="col-md-3 gallery-img-holder"
-							 onmousemove="show_open_icon(this)" onmouseout="hide_open_icon(this)">
-								<i class="fa fa-plus fa-4x open_img_icon"  ng-click="open_previewer($page_cms, $index)" ></i>
-								<span style="display: none; background: #002bff96;" class="gallery-label badge badge-primary"
-								<?=$this->allow_contenteditable('$content.image_label');?> >
-							{{$content.image_label}}
-						</span>
-								<img src="<?=domain;?>/{{$content.path}}" class="gallery-img">
-                                
-                                <?php if($this->admin()):?>
-                                <i class="fa fa-close fa-3x delete_img" ng-click="delete_image($index)"></i>
-                                <?php endif;?>
-
-							</div>
+    <script>
+        show_open_icon = function ($div) {
+            $div.childNodes[1].style.display = "block";
+            $div.childNodes[3].style.display = "block";
+        }
+        hide_open_icon = function ($div) {
+            $div.childNodes[1].style.display = "none";
+        }
+    </script>
 
 
-						</div>
-					</div>
+        <!-- Main Content Wrapper Start -->
+        <div id="content" ng-controller="GalleryPageController"   class="main-content-wrapper">
+            <div class="shop-page-wrapper">
+                <div class="container-fluid p-0">
+                    <div class="row no-gutters">
+                        <div ng-repeat="($index, $content) in $page_cms"  class="col-md-4">
+                            <div class="banner-box banner-type-3 banner-type-3-1 banner-hover-1">
+                                <div class="banner-inner">
+                                    <div class="banner-image">
+                                        <img style="height: 358px;width: 446px;" src="<?=domain;?>/{{$content.path}}" alt="Banner">
+                                    </div>
+                                    <div class="banner-info">
+                                        <p class="banner-title-1 lts-13 lts-lg-4 text-uppercase" 
+                                         <?=$this->allow_contenteditable('$content.image_label');?>>
+                                     </p>
+                                    <!-- 
+                                        <h2 class="banner-title-2"> 
+                                            <strong  <?=$this->allow_contenteditable('$content.image_label');?>></strong>
+                                        </h2>
+                                     -->
+                                    </div>
+                                    <a class="banner-link banner-overlay">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Content Wrapper Start -->
 
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-        <button type="button" class="close " id="modal-closer" data-dismiss="modal">&times;</button>
-        <i class="fa fa-chevron-left img-nexter-left  img-nexter fa-3x" ng-click="$file_previewer.back()"></i>
-        <i class="fa fa-chevron-right img-nexter-right img-nexter  fa-3x" ng-click="$file_previewer.next()"></i>
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content gallery-modal-body">
-      <div class="modal-body" style="    padding: 20% 0;">
-      		<p>
-			<img src="<?=domain;?>/{{$file_previewer.$current_file.path}}" class="gallery-img-modal">
-				{{$file_previewer.$current_file.image_label}}
-			</p>
-
-      </div>
-     
-    </div>
-
-  </div>
-</div>
-
-			</section>
-
-<style>
-	#myModal{
-    z-index: 999999;
-   background-color: rgb(0, 0, 0, 0.9) !important;
-}
-.gallery-modal-body{
-
-    background: none ;
-    text-align: center;
-}
-
-#modal-closer {
-    background: white;
-    padding: 10px;
-    border-radius: 172px;
-
-    }
-
-
-
-    .img-nexter:hover{
-	color: white;
-	cursor: pointer;
-    }
-
-    .img-nexter{
-    position: absolute;
-    top: 50%;    
-    z-index: 99999999;
-}
-.img-nexter-left{
-	left: 0px;
-    }
-
-    .img-nexter-right{
-	right: 0px;
-
-
-    }
-
-
-</style>	
-
-
-<!-- image viewer modal ends -->
-
-		
-<?php include 'includes/footer.php';?>
+    <?php
+    include 'includes/footer.php';?>

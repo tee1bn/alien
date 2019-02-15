@@ -59,7 +59,7 @@ class Config
 	*/
 	public  static function views_template()
 	{
-		return	'alien-view';
+		return	'default';
 
 	}
 

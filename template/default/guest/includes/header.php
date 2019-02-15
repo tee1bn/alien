@@ -1,263 +1,311 @@
-<?php
-$currency = '$';
-;?>
-<!DOCTYPE html>
-<html lang="en">
+        
+        
+        
+        
+<!doctype html>
+<html class="no-js" lang="zxx" ng-app = "app">
 <head>
-	<title><?=$page_title;?> | <?=project_name;?></title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="<?=$page_description;?>">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="<?=asset;?>/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="<?=asset;?>/assets/img/icon.png">
 
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="<?=asset;?>/images/icons/logo-05.jpg"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?=asset;?>/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?=asset;?>/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?=asset;?>/fonts/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?=asset;?>/fonts/linearicons-v1.0.0/icon-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?=asset;?>/vendor/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="<?=asset;?>/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?=asset;?>/vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?=asset;?>/vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="<?=asset;?>/vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?=asset;?>/vendor/slick/slick.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?=asset;?>/vendor/MagnificPopup/magnific-popup.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?=asset;?>/vendor/perfect-scrollbar/perfect-scrollbar.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?=asset;?>/css/util.css">
-	<link rel="stylesheet" type="text/css" href="<?=asset;?>/css/main.css">
-<!--===============================================================================================-->
+    <!-- Title -->
+    <title><?=$page_title;?></title>
 
+    <!-- ************************* CSS Files ************************* -->
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<?=asset;?>/assets/css/bootstrap.min.css">
 
-<!--===============================================================================================-->	
-	<script src="<?=asset;?>/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="<?=asset;?>/vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="<?=asset;?>/vendor/bootstrap/js/popper.js"></script>
-	<script src="<?=asset;?>/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="<?=asset;?>/assets/css/font-awesome.min.css">
 
-	
+    <!-- dl Icon CSS -->
+    <link rel="stylesheet" href="<?=asset;?>/assets/css/dl-icon.css">
+
+    <!-- All Plugins CSS -->
+    <link rel="stylesheet" href="<?=asset;?>/assets/css/plugins.css">
+
+    <!-- Revoulation Slider CSS  -->
+    <link rel="stylesheet" href="<?=asset;?>/assets/css/revoulation.css">
+
+    <!-- style CSS -->
+    <link rel="stylesheet" href="<?=asset;?>/assets/css/main.css">
+
+    <!-- modernizr JS
+    ============================================ -->
+    <script src="<?=asset;?>/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 
-<!-- /*
- AngularJS v1.4.8
- (c) 2010-2015 Google, Inc. http://angularjs.org
- License: MIT
-*/ -->
-<script>
-	let $base_url = "<?=domain;?>";
-</script>
-<script src="<?=asset;?>/js/angularjs.js"></script>
-<script src="<?=asset;?>/includes/angularjs_apps/shop_products.js"></script>
+    <!-- jQuery JS -->
+    <script src="<?=asset;?>/assets/js/vendor/jquery.min.js"></script>
 
 
-	<?=$this->detect_running_ajax_request();?>
-	<?=$this->show_notifications();?>
 
+    <!-- angularjs -->
+    <script src="<?=asset;?>/assets/angulars/angularjs.js"></script>
+    <script>
+        let $base_url = "<?=domain;?>";
+        var app = angular.module('app', []);
+    </script>
+    <script src="<?=asset;?>/assets/angulars/shop.js"></script>
 
 </head>
-<body class="animsition">
-	
-	<!-- Header -->
-	<header class="header-v4">
-		<!-- Header desktop -->
-		<div class="container-menu-desktop">
-			<!-- Topbar -->
-		<!-- 	<div class="top-bar">
-				<div class="content-topbar flex-sb-m h-full container">
-					<div class="left-top-bar">
-						Free shipping for standard order over $100
-					</div>
 
-				<?php include 'righthand-topbar.php';?>
-				</div>
-			</div> -->
+<body>
 
-			<div class="wrap-menu-desktop how-shadow1" style="
-    position: fixed;
-    top: 0px;">
-				<nav class="limiter-menu-desktop container">
-					
-					<!-- Logo desktop -->		
-					<a href="#" class="logo">
-						<img src="<?=asset?>/images/icons/logo-05.jpg" alt="IMG-LOGO">
-						<h3 style="color: #717fe0;"><?=project_name;?></h3>
-					</a>
+<!-- 
+    <div class="ai-preloader active">
+        <div class="ai-preloader-inner h-100 d-flex align-items-center justify-content-center">
+            <div class="ai-child ai-bounce1"></div>
+            <div class="ai-child ai-bounce2"></div>
+            <div class="ai-child ai-bounce3"></div>
+        </div>
+    </div> -->
+  
+<?php 
+  $menu = explode('/', $_GET['url'])[0];
 
-					<!-- Menu desktop -->
-					<div class="menu-desktop">
-						<ul class="main-menu">
+;?>
+      
+  
+    <!-- Main Wrapper Start -->
+    <div class="wrapper">
+        <div id="header-mini-cart" ng-controller ="CartNotificationController">
+
+            <!-- Header Area Start -->
+            <header class="header header-fullwidth header-style-1">
+                <div class="header-inner fixed-header">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <div class="col-xl-5 col-lg-6">
+                                <!-- Main Navigation Start Here -->
+                                <nav class="main-navigation">
+                                    <ul class="mainmenu">
+                                        <li class="mainmenu__item menu-item-has-children megamenu-holder <?=($menu == '')?'active': '' ;?>">
+                                            <a href="<?=domain;?>" class="mainmenu__link">
+                                                <span class="mm-text">Home</span>
+                                            </a>
+                                        </li>
+                                        <li class="mainmenu__item menu-item-has-children <?=($menu == 'shop')?'active': '' ;?>">
+                                            <a href="<?=domain;?>/shop" class="mainmenu__link">
+                                                <span class="mm-text">Shop</span>
+                                                <span class="tip">Hot</span>
+                                            </a>
+                                          
+                                        </li>
+                                        <li class="mainmenu__item <?=($menu == 'gallery')?'active': '' ;?>">
+                                            <a href="<?=domain;?>/gallery" class="mainmenu__link">
+                                                <span class="mm-text">Gallery</span>
+                                            </a>
+                                        </li>
+                                        <li class="mainmenu__item menu-item-has-children has-children <?=($menu == 'about')?'active': '' ;?>">
+                                            <a href="<?=domain;?>/about" class="mainmenu__link">
+                                                <span class="mm-text">About Us</span>
+                                            </a>
+                                           
+                                        </li>
+                                        <li class="mainmenu__item menu-item-has-children has-children <?=($menu == 'contact')?'active': '' ;?>">
+                                            <a href="<?=domain;?>/contact" class="mainmenu__link">
+                                                <span class="mm-text">Contact Us</span>
+                                            </a>
+                                           
+                                        </li>
+
+                                        <li class="mainmenu__item menu-item-has-children has-children <?=($menu == 'blog')?'active': '' ;?>">
+                                            <a href="<?=domain;?>/blog" class="mainmenu__link">
+                                                <span class="mm-text">Blog</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <!-- Main Navigation End Here -->
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-4 text-lg-center">
+                                <!-- Logo Start Here -->
+                                <a href="<?=domain;?>" class="logo-box">
+                                   
+                                    <figure class="logo--normal"> 
+                                        <!-- <img src="<?=asset;?>/assets/img/logo/logo.svg" alt="Logo"/>    -->
+                                    </figure>
+                                    <figure class="logo--transparency">
+                                        <!-- <img src="<?=asset;?>/assets/img/logo/logo-white.png" alt="Logo"/>   -->
+                                    </figure>
+                                    <h2>
+                                        <?=project_name;?>
+                                    </h2>
+
+                                </a>
+                                <!-- Logo End Here -->
+                            </div>
+                            <div class="col-xl-5 col-lg-4 col-md-9 col-8">
+                                <ul class="header-toolbar text-right">
+                                    <li class="header-toolbar__item d-`none d-lg-block">
+                                        <a href="#sideNav" class="toolbar-btn">
+                                            <i class="dl-icon-menu2"></i>
+                                        </a>                                    
+                                    </li>
+                                    <li class="header-toolbar__item user-info-menu-btn">
+                                        <a href="#">
+                                            <i class="fa fa-user-circle-o"></i>
+                                        </a>
+                                        <ul class="user-info-menu">
+                                            <li>
+                                                <a href="my-account.php">My Account</a>
+                                            </li>
+                                            <li>
+                                                <a href="cart.php">Shopping Cart</a>
+                                            </li>
+                                            <li>
+                                                <a href="checkout.php">Check Out</a>
+                                            </li>
+                                            <li>
+                                                <a href="wishlist.php">Wishlist</a>
+                                            </li>
+                                            <li>
+                                                <a href="order-tracking.php">Order tracking</a>
+                                            </li>
+                                            <li>
+                                                <a href="compare.php">compare</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="header-toolbar__item">
+                                        <a href="#miniCart" class="mini-cart-btn toolbar-btn">
+                                            <i class="dl-icon-cart4"></i>
+                                            <sup class="mini-cart-count">{{$cart.$items.length}}</sup>
+                                        </a>
+                                    </li>
+                                    <li class="header-toolbar__item">
+                                        <a href="#searchForm" class="search-btn toolbar-btn">
+                                            <i class="dl-icon-search1"></i>
+                                        </a>
+                                    </li>
+                                    <li class="header-toolbar__item d-lg-none">
+                                        <a href="#" class="menu-btn"></a>                 
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- Header Area End -->
+
+            <!-- Mobile Header area Start -->
+            <header class="header-mobile">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-4">
+                            <a href="index.php" class="logo-box">
+                                <figure class="logo--normal">
+                                    <img src="<?=asset;?>/assets/img/logo/logo.svg" alt="Logo">
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="col-8">
+                            <ul class="header-toolbar text-right">
+                                <li class="header-toolbar__item user-info-menu-btn">
+                                    <a href="#">
+                                        <i class="fa fa-user-circle-o"></i>
+                                    </a>
+                                    <ul class="user-info-menu">
+                                        <li>
+                                            <a href="my-account.php">My Account</a>
+                                        </li>
+                                        <li>
+                                            <a href="cart.php">Shopping Cart</a>
+                                        </li>
+                                        <li>
+                                            <a href="checkout.php">Check Out</a>
+                                        </li>
+                                        <li>
+                                            <a href="wishlist.php">Wishlist</a>
+                                        </li>
+                                        <li>
+                                            <a href="order-tracking.php">Order tracking</a>
+                                        </li>
+                                        <li>
+                                            <a href="compare.php">compare</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="header-toolbar__item">
+                                    <a href="#miniCart" class="mini-cart-btn toolbar-btn">
+                                        <i class="dl-icon-cart4"></i>
+                                        <sup class="mini-cart-count">{{$cart.$items.length}} </sup>
+                                    </a>
+                                </li>
+                                <li class="header-toolbar__item">
+                                    <a href="#searchForm" class="search-btn toolbar-btn">
+                                        <i class="dl-icon-search1"></i>
+                                    </a>
+                                </li>
+                                <li class="header-toolbar__item d-lg-none">
+                                    <a href="#" class="menu-btn"></a>                 
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- Mobile Navigation Start Here -->
+                            <div class="mobile-navigation dl-menuwrapper" id="dl-menu">
+                                <button class="dl-trigger">Open Menu</button>
+                                <ul class="dl-menu">
+                                    <li>
+                                        <a href="index.php">
+                                            Home
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="shop-sidebar.php">
+                                            Shop
+                                            <span class="tip">Hot</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="shop-sidebar.php">
+                                            Gallery
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="shop-sidebar.php">
+                                            About Us
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="contact-us.php">
+                                            Contact Us
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="blog.php">
+                                            Blog
+                                        </a>
+                                    </li>
 
 
-							
-	<li><a href="<?=Config::domain();?>">Home</a></li>
-		
-				<li>
-								<a href="#">Our Services <i class="fa fa-caret-down"></i></a>
-								<ul class="sub-menu">
-									<?php foreach (ProductsCategory::all() as $category ) :?>
-
-									<li>
-										<a href="<?=domain;?>/shop/<?=$category->category;?>"> <?=ucfirst($category->category);?></a>
-									</li>
-
-									<?php endforeach ;?>
-								</ul>
-							</li>
-
-
-			
-				<li>
-								<a href="#">About us <i class="fa fa-caret-down"></i></a>
-								<ul class="sub-menu">
-									
-									<li>
-										<a href="<?=domain;?>/about/our-brand">Our Brand</a>
-									</li>
-
-									<li>
-										<a href="<?=domain;?>/about/meet-the-ceo">Meet the CEO</a>
-									</li>
-
-								</ul>
-							</li>
-				
-				<li>
-					<a href="<?=domain;?>/about/our-core-values">Our Core Values</a>
-				</li>
-				
-				<li>
-					<a href="<?=Config::domain();?>/gallery">Gallery</a>
-				</li>
-
-
-				<li>
-					<a href="<?=Config::domain();?>/contact">Contact</a>
-				</li>
-						</ul>
-					</div>	
-
-					<!-- Icon header -->
-					<div class="wrap-icon-header flex-w flex-r-m">
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
-							<i class="zmdi zmdi-search"></i>
-						</div>
-
-						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart">
-							<span class="badge badge-xs badge-primary item-counter"></span>
-							<i class="zmdi zmdi-shopping-cart"></i>
-						</div>
-
-					</div>
-				</nav>
-			</div>	
-		</div>
-
-		<!-- Header Mobile -->
-		<div class="wrap-header-mobile">
-			<!-- Logo moblie -->		
-			<div class="logo-mobile">
-				<a href="">
-						<img src="<?=asset?>/images/icons/logo-05.jpg" alt="IMG-LOGO">
-				</a>
-				<h4 style="margin-top: 5px;
-    margin-left: 38px;"><?=project_name;?></h4>
-			</div>
-
-			<!-- Icon header -->
-			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
-					<i class="zmdi zmdi-search"></i>
-				</div>
-
-				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 js-show-cart">
-												<span class="badge badge-xs badge-primary item-counter"></span>
-					<i class="zmdi zmdi-shopping-cart"></i>
-				</div>
-
-			</div>
-
-			<!-- Button show menu -->
-			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
-				<span class="hamburger-box">
-					<span class="hamburger-inner"></span>
-				</span>
-			</div>
-		</div>
-
-
-		<!-- Menu Mobile -->
-		<div class="menu-mobile">
-			<!-- <ul class="topbar-mobile">
-				<li>
-					<div class="left-top-bar">
-						Free shipping for standard order over $100
-					</div>
-				</li>
-
-				<li>
-									<?php include 'righthand-topbar.php';?>
-
-				</li>
-			</ul> -->
-
-			<ul class="main-menu-m">
-				<?php include 'navs.php'; ?>
-			</ul>
-		</div>
-
-		<!-- Modal Search -->
-		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
-			<div class="container-search-header">
-				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-					<i class="fa fa-times"></i>
-				</button>
-
-				<form class="wrap-search-header flex-w p-l-15">
-					<button class="flex-c-m trans-04">
-						<i class="zmdi zmdi-search"></i>
-					</button>
-					<input class="plh3" type="text" name="search" placeholder="Search...">
-				</form>
-			</div>
-		</div>
-	</header>
-
-	
-
-<style>
-	.git_product_image{
-		width: 270px;
-		height: 335px;
-		object-fit: cover;
-	}
-	.item-counter{
-
-    font-size: 12px;
-    position: absolute;
-    right: 3px;
-    top: -6px;
-	}
-
-	.label-tag{
-text-transform: capitalize;
-    background: #b8bff0c9;
-    border-radius: 7px;
-    padding-right: 2px;
-    padding-left: 2px;
-	}
-</style>
+                                </ul>
+                            </div>
+                            <!-- Mobile Navigation End Here -->
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- Mobile Header area End -->
+            <?php include 'mini-cart.php';?>
+        </div>

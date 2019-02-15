@@ -20,6 +20,88 @@ class Products extends Eloquent
 	protected $table = 'products';
 
 
+
+	public function getimages()
+	{
+
+		echo "string";
+	}
+
+
+
+	public static function upload_product_images($files)
+	{
+		$directory = 'uploadsp/images/products';
+
+		foreach ($files as $attribute => $attributes) {
+			foreach ($attributes as $key => $value) {
+				$refined_file[$key][$attribute] = $value;
+			}
+
+		}
+
+		$i = 0;
+		foreach ($refined_file as  $file) {
+
+			$handle = new Upload ($file);
+
+
+					$file_type = explode('/', $handle->file_src_mime)[0];
+	                if (($file_type == 'image' ) ||($file_type == 'video' ) ) {
+
+
+
+						$min_height = 335;
+						$min_width  = 270;
+
+						// echo $handle->image_src_x;
+
+						if (($handle->image_src_x < $min_width) || ($handle->image_src_y < $min_height) ) {
+
+							Session::putFlash('info', "Item image $i) must be or atleast {$min_width}px min 
+								width x {$min_height}px min height for best fit!");
+							continue;
+						}
+
+
+	                	$handle->Process($directory);
+	                	$file_path = $directory.'/'.$handle->file_dst_name;
+
+	                	if ($file_type == 'image') {
+
+	                         // we now process the image a second time, with some other settings
+				            $handle->image_resize            = true;
+				            // $handle->image_ratio_y           = true;
+				            $handle->image_x                 = 350;
+				            $handle->image_y                 = 263;
+
+				            $handle->Process($directory);
+
+				            $resized_path    = $directory.'/'.$handle->file_dst_name;
+
+							$images[$i]['main_image'] = $file_path;
+							$images[$i]['thumbnail'] = $resized_path;
+						}
+
+	                }
+	                $i++;
+		}
+
+
+
+			$property_media = [
+			'images' => $images,
+					];
+
+
+
+
+		return ($property_media);
+
+
+	}
+
+
 	public function quick_description()
 	{
 		return substr($this->description, 0, random_int(180, 250) ).'...';
