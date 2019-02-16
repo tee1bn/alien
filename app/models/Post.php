@@ -52,8 +52,8 @@ class Post extends Eloquent
 	public function update_post_images($files, $images_to_be_deleted)
 	{
 
-	$property_media =	$this->upload_post_images($files);
-    $new_images = $property_media['images'];
+		$property_media =	$this->upload_post_images($files);
+	    $new_images = $property_media['images'];
 
 
         $previous_images =  $this->image_path['images'];

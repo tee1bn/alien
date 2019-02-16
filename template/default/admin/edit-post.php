@@ -74,7 +74,7 @@
      foreach ($post->image_path['images'] as $key => $image):?> 
                   <div class="col-sm-3">
                     <div class="property-image">
-                      <img src="<?=domain;?>/<?=$image['main_image'];?>" width="100%" style="object-fit: cover;">
+                      <img src="<?=domain;?>/<?=$image['main_image'];?>" style="width: 100%;    border: 1px solid beige; height: 210px; 
                       <div class="property-image-content">
                         <i class="fa fa-times-circle delete-image" onclick="select_this_for_delete(this)"></i>
                         <input type="checkbox" name="images_to_be_deleted[]" value="<?=$key;?>" style="display: none;" >

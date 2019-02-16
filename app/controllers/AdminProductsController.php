@@ -88,87 +88,16 @@ class AdminProductsController extends controller
 
 
 	public function update_item(){
+		echo "<pre>";
 
-				if (Input::exists('update_products')) {
-						$this->validator()->check(Input::all() , array(
+		$product = Products::find(Input::get('item_id'));
+		$update = 	$product->update_product($_POST, $_FILES['front_image']);
+		// return;
 
-
-										'name' =>[
-
-											'required'=> true,
-											'min'=> 2,
-												],
-								'price' =>[
-
-											'required'=> true,
-											'min'=> 1,
-											'max'=> 20,	
-											'numeric'=> true,
-												],
-
-								'description' => [
-
-													'required'=> true,
-													'min'=> 4,
-												]
-
-						
-						));
-
- if($this->validator->passed()){
-
-$item_id = Input::get('item_id');
-
- $item =	Products::find($item_id);
- 	$item->update([
- 						'name' 			=>Input::get('name'),
-						'price' 		=>Input::get('price'),
-						'category_id' 	=>Input::get('category'),
-						'description' 	=>Input::get('description'),
- 								]);
-
-
-
- 								print_r($_FILES['front_image']);
-
-if ($_FILES['front_image']['size'] != 0) {
-
-
-$handle = new Upload($_FILES['front_image']);
-	$dir = 'uploads/images/products';
-
-		$min_height = 335;
-		$min_width = 270;
-
-		echo $handle->image_src_x;
-
-		if (($handle->image_src_x < $min_width) || ($handle->image_src_y < $min_height) ) {
-
-					Session::putFlash('Info', "Item image must be or atleast {$min_width}px min width x {$min_height}px min height for best fit!");
-
-		}
-
-	$handle->file_new_name_body = 'product';
-
-
-	$handle->process($dir);
-	$front_image_path = $dir.'/'.$handle->file_dst_name;
-	 (new Upload($item->front_image))->clean();
-
-	 $item->update(['front_image'=> $front_image_path]);
-
-
-
-}
-
-Session::putFlash('Info', "Item Updated successfully!");
- }
-
-
-				}
-
-Redirect::to("admin-products/edit_item/$item_id");
-
+		if ($update === true) {
+				Session::putFlash('success','Product Updated Successfully.');
+			}
+		Redirect::back();
 	}
 
 

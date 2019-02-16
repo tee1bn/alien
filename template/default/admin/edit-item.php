@@ -38,24 +38,24 @@
                   </div>
                 <div class="x_content row">
 
-                  <div class="col-md-3 col-xs-12" style="background: #d2d6d8;">
-                    <img class="img-responsive" src="<?=domain;?>/<?=$item->front_image;?>"  style="width:270px; height: 350px; object-fit: contain;"  >
-                  </div>
-            
 
-                 <form method="post" enctype="multipart/form-data" class="col-md-9 col-xs-12" action="<?=domain;?>/admin-products/update_item">
+                 <form method="post" enctype="multipart/form-data" class="col-md-12 col-xs-12" action="<?=domain;?>/admin-products/update_item">
                   <?=$this->inputErrors();?>
                   <div class="form-group">
                     <?=$this->csrf_field('update_products');?>
+                    Name
                    <input type="" name="name" class="form-control" required="required" value="<?=$item->name;?>" placeholder="Item name" >
                   </div>
 
                    <input type="hidden" name="item_id" value="<?=$item->id;?>" >
+
                 <div class="form-group">
+                  Price:
                    <input type="" name="price" class="form-control" required="required" value="<?=$item->price;?>" placeholder="Item price">
                  </div>
 
                 <div class="form-group">
+                  Category:
                   <select name="category" class="form-control" required="required">
                     <option value="">select category</option>
                     <?php foreach (ProductsCategory::all() as $category):?>
@@ -67,10 +67,65 @@
                  </div>
 
                 <div class="form-group">
-                   <input type="file" name="front_image" class="form-control"  value="<?=$item->front_image;?>" placeholder="Item price">
+                  Images:
+                   <input type="file" multiple="" name="front_image[]" class="form-control"  placeholder="Item price">
                   </div>
 
+
+
+    <div class="row">
+    <div  style="margin-left: 15px;color: red;"> Mark pictures and click Update to delete marked images</div>
+    <?php
+    $i=0;
+
+     foreach ($item->images['images'] as $key => $image):?> 
+                  <div class="col-sm-3">
+                    <div class="property-image">
+                      <img src="<?=domain;?>/<?=$image['main_image'];?>" style="width: 100%;    border: 1px solid beige; height: 210px; 
+                      object-fit: contain;">
+                      <div class="property-image-content">
+                        <i class="fa fa-times-circle delete-image" onclick="select_this_for_delete(this)"></i>
+                        <input type="checkbox" name="images_to_be_deleted[]" value="<?=$key;?>" style="display: none;" >
+                      </div>
+                    </div>
+                  </div>
+      
+    <?php $i++;  endforeach;?>
+              </div><br>
+
+  <style type="text/css">
+.delete-image:hover{
+color: red;
+cursor: pointer;
+}
+.delete-image{
+    position: absolute;
+    top: 3px;
+    right: 18px;
+    font-size: 20px;
+  }
+          </style>
+
+
+          <script>
+            select_this_for_delete= function ($element) {
+                $checkbox = $element.nextSibling.nextSibling;
+
+              if ($checkbox.checked == false) {
+                $checkbox.checked = true;
+                $element.style.color = 'red';
+              }else{
+                $checkbox.checked = false;
+                $element.style.color = 'black';
+
+              }
+
+            }
+          </script>
+
+
                      <div class="form-group">
+                      Description
                        <textarea class="form-control" name="description" rows="6" required="required"  placeholder="Item description"><?=$item->description;?></textarea>
                       </div>
 
