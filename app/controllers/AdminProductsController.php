@@ -59,11 +59,11 @@ class AdminProductsController extends controller
 		if($product->on_sale == 0){
 
 			$product->update(['on_sale' => 1]);
-		Session::putFlash('Info', 'Item put on sale successfully');
+		Session::putFlash('success', 'Item put on sale successfully');
 
 		}else{
 			$product->update(['on_sale' => 0]);
-			Session::putFlash('Info', 'Item removed from sale successfully');
+			Session::putFlash('success', 'Item removed from sale successfully');
 
 		}
 
@@ -200,11 +200,6 @@ Redirect::to("admin-products/edit_item/$item_id");
 						'required'=> true,
 						'min'=> 4,
 					]
-
-		
-
-
-
 		));
 
  if($this->validator->passed()){
@@ -225,6 +220,7 @@ Redirect::to("admin-products/edit_item/$item_id");
 				'front_image'=> json_encode($product_images)
  		]);
 
+			Session::putFlash('success', "Item created successfully!");
 
 		}else{
 
@@ -233,7 +229,6 @@ Redirect::to("admin-products/edit_item/$item_id");
 		}
 
 
-		Session::putFlash('success', "Item created successfully!");
 
  }else{
 

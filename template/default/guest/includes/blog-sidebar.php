@@ -6,7 +6,8 @@
                                     <ul class="menu list-unstyled">
                                         <?php foreach (Category::all()->sortBy('category') as $category) :
 
-                                            if (($this->post->category->id == $category->id) || ($this->category->id == $category->id)) {
+                                            if (($this->post->category->id == $category->id) || 
+                                                ($this->category->id == $category->id)) {
                                              $active = 'active';
                                             }else{
                                                 $active ='';
@@ -19,19 +20,9 @@
                                             </li>
                                         <?php endforeach ;?>
                                     </ul>
-                                </div>
-
-
-
-                                        
+                                </div>                                       
                                 </a>
                                 </li>
-
-
-
-
-
-
 
                                 <div class="widget blog-widget widget-recent-posts mb--40 mb-md--30 mb-sm--20">
                                     <h3 class="widget-title">Recent Post</h3>
@@ -40,7 +31,7 @@
                                         <div class="recent-post__item">
                                             <div class="recent-post__thumb">
                                                 <a href="<?=domain;?>/<?=$recent_post->url();?>">
-                                                    <img src="<?=domain;?>/<?=$recent_post->image_path;?>" alt="<?=$recent_post->url_title();?>">
+                                                    <img src="<?=domain;?>/<?=$recent_post->mainimagesmall;?>" alt="<?=$recent_post->url_title();?>">
                                                 </a>
                                             </div>
                                             <div class="recent-post__content">

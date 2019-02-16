@@ -373,7 +373,7 @@
                                     ]'
                                     >
 
-                                    <?php foreach ($product->related_products() as  $related_product):?>
+                                    <?php foreach ($related_products = $product->related_products() as  $related_product):?>
                                         <div class="airi-product">
                                             <div class="product-inner">
                                                 <figure class="product-image">
@@ -421,6 +421,10 @@
                                             </div>
                                         </div>
                                     <?php endforeach;?>
+                                    <?php if ($related_products->count()==0):?>
+                                      <span  style="margin: auto; text-align: center;">  No Item Found</span>
+                                    <?php endif;?>
+
                                     </div>
                                 </div>
                             </div>

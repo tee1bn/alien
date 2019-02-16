@@ -42,14 +42,14 @@
                                                 <span class="meta-separator">-</span>
                                                 <a  class="posted-by">By <?=$post->author();?></a>
                                                 <span class="meta-separator">/</span>
-                                                <a href="<?=domain;?>/<?=$post->category->url_link();?>" style="text-transform: capitalize;">
+                                                <a href="<?=domain;?>/<?=$post->category->url_link;?>" style="text-transform: capitalize;">
                                                     <?=$post->category->category;?></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="entry-thumbnail">
-                                        <img src="<?=domain;?>/<?=$post->image_path;?>" alt="<?=$post->title;?> image" 
-                                        style="width: 680px;height: 680px;object-fit: cover;">
+                                        <img src="<?=domain;?>/<?=$post->mainimage;?>" alt="<?=$post->title;?> image" 
+                                        style="width: 680px;object-fit: cover;">
                                     </div>
                                     <div class="entry-content"><?=$post->content;?>
                                     </div>
@@ -166,8 +166,8 @@
                                     <article class="blog blog-style-2">
                                         <div class="blog-media">
                                             <div class="image">
-                                                <a href="single-post.html">
-                                                    <img src="<?=asset;?>/assets/img/blog/blog-f-1-500x478.jpg" alt="Blog Thumb">
+                                                <a href="<?=domain;?>/<?=$other_post->url();?>">
+                                                    <img style="width:370px; height: 195px; object-fit: contain;" src="<?=domain;?>/<?=$other_post->mainimage;?>" alt="Blog Thumb">
                                                 </a>
                                             </div>
                                         </div>
@@ -175,7 +175,7 @@
                                             <div class="blog-entry-meta">
                                                 <a  class="posted-on"><?=$other_post->format_created_at();?></a>
                                                 <span class="meta-separator">-</span>
-                                                <a href="blog.html" class="posted-by"> By <?=$other_post->author();?></a>
+                                                <a href="javascript:void;" class="posted-by"> By <?=$other_post->author();?></a>
                                             </div>
                                             <h3 class="blog-title blog-title--2">
                                                 <a href="<?=domain;?>/<?=$other_post->url();?>"><?=$other_post->title;?> </a>

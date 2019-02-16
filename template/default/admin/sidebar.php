@@ -100,7 +100,7 @@
                     <ul class="nav child_menu" >
 
           
-<li><a> About us <span class="fa fa-chevron-down"></span></a>           
+        <li><a> About us <span class="fa fa-chevron-down"></span></a>           
                     <ul class="nav child_menu" >
          
          <li>
@@ -120,34 +120,46 @@
          </a>                  
          </li>
 
-</ul>
-</li>
-<li>
-  <a href="<?=domain ;?>/contact">
-   Contact 
- </a>                  
- </li>
+          </ul>
+          </li>
+          <li>
+            <a href="<?=domain ;?>/contact">
+             Contact 
+           </a>                  
+           </li>
 
-<li>
-  <a href="<?=domain ;?>/gallery">
-   Gallery 
- </a>                  
- </li>
+          <li>
+            <a href="<?=domain ;?>/gallery">
+             Gallery 
+           </a>                  
+           </li>
 
-<li>
-  <a href="<?=domain ;?>/admin-cms/sliders">
-   Sliders 
- </a>                  
- </li>
+          <li>
+            <a href="<?=domain ;?>/admin-cms/sliders">
+             Sliders 
+           </a>                  
+           </li>
 
-<li>
-  <a href="<?=domain ;?>/admin-cms/social-handles">
-   Socials 
- </a>                  
- </li>
+          <li>
+            <a href="<?=domain ;?>/admin-cms/social-handles">
+             Socials 
+           </a>                  
+           </li>
 
-</ul>
-</li>
+          </ul>
+          </li>
+        
+<li><a><i class="fa fa-bullhorn"></i> Blog <span class="fa fa-chevron-down"></span></a>           
+                    <ul class="nav child_menu" >
+
+          <li>
+            <a href="<?=domain ;?>/admin/blog-posts">
+             Posts 
+           </a>                  
+           </li>
+
+          </ul>
+          </li>
         
 <li><a href="<?=domain ;?>/admin-settings"><i class="fa fa-cog"></i> Settings</a>
                     

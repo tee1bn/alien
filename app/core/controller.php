@@ -316,6 +316,7 @@ if ($response == true) {
 			require_once "template/".Config::views_template()."/{$view}.php" ; 
 			require_once 'app/others/show_notifications.php' ; 
 			require_once 'app/others/detect_running_ajax_request.php' ; 
+			require_once 'app/others/confirmation_dialog.php' ; 
 
 			Session::delete('inputs-errors');
 		}

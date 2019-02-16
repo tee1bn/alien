@@ -1,7 +1,7 @@
 
     <?php
 
-    $page_title = "";
+    $page_title = "Blog | ".project_name;
     $page_description = "";
     include 'includes/header.php';?>
 
@@ -30,15 +30,14 @@
                 <div class="container">
                     <div class="row ptb--80 pt-md--60 pb-md--55 pt-sm--50 pb-sm--45">
                         <div class="col-lg-9 order-lg-2 mb-md--40" id="main-content">
-                            <div class="row">
-                                             
+                            <div class="row">                                             
                                 <?php if($posts->isNotEmpty()):?>
                                     <?php foreach ($posts as $post): ?>
                                         <div class="col-12 mb--40 mb-md--30 mb-sm--25">
                                             <article class="post">
                                                 <div class="post-media">
                                                     <div class="image">
-                                                        <img src="<?=domain;?>/<?=$post->image_path;?>" alt="<?=$post->title;?>" 
+                                                        <img src="<?=domain;?>/<?=$post->mainimage;?>" alt="<?=$post->title;?>" 
                                                         style="height: 500px;object-fit: contain;">
                                                         <a href="<?=domain;?>/<?=$post->url();?>" class="link-overlay">Blog</a>
                                                     </div>
@@ -65,9 +64,10 @@
                                     <?php endforeach ;?>
                                <?php else :?>
 
-                                    <div class="post">
-                                        <center>No posts founds</center>
+                                    <div class="post" style="margin: auto;margin-bottom: 15px;" >
+                                        <center>No Posts Found</center>
                                     </div>
+                                    <br>
 
                                 <?php endif ;?>
                             </div>

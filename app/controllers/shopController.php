@@ -269,7 +269,7 @@ class shopController extends controller
 	public function fetch_products($page=1, $category_id=null)
 	{
 
-		$per_page = 9;
+		$per_page = 20;
 		$courses = Products::on_sale()->orderBy('updated_at', 'DESC');
 
 		if (Category::find($category_id) != null) {

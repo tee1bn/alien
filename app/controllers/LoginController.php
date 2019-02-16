@@ -58,7 +58,7 @@ class LoginController extends controller
 
 			echo $this->admin();
 
-			Session::putFlash('Info',"Welcome Admin $admin->firstname");
+			Session::putFlash('success',"Welcome Admin $admin->firstname");
 			Redirect::to('admin-products');
 
 }else{

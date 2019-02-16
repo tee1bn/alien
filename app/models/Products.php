@@ -19,6 +19,14 @@ class Products extends Eloquent
 	
 	protected $table = 'products';
 
+
+
+	public function getdeletelinkAttribute($value)
+	{
+		return  Config::domain()."/admin-products/deleteProduct/{$this->id}";
+	}
+
+
 	public function related_products()
 	{
 		return	self::where('id', '!=' ,$this->id)
@@ -62,7 +70,7 @@ class Products extends Eloquent
 
 	public static function upload_product_images($files)
 	{
-		$directory = 'uploadsp/images/products';
+		$directory = 'uploads/images/products';
 
 		foreach ($files as $attribute => $attributes) {
 			foreach ($attributes as $key => $value) {

@@ -21,20 +21,20 @@
 
 
 	#api routers
-	'products_api' =>'ProductsApiController',
-	'categories_api' =>'CategoriesApiController',
-	'cms_api' =>'CmsApiController',
+	'products_api' 		=>'ProductsApiController',
+	'categories_api' 	=>'CategoriesApiController',
+	'cms_api' 			=>'CmsApiController',
 
 
 
 
 
 	#pages routers
-	'shop' =>'shopController',
-	'contact' =>'ContactController',
-	'about' =>'AboutController',
-	'gallery' =>'Galleryontroller',
-	'blog'  => 'BlogController',
+	'shop' 		=>'shopController',
+	'contact' 	=>'ContactController',
+	'about' 	=>'AboutController',
+	'gallery' 	=>'Galleryontroller',
+	'blog'  	=> 'BlogController',
 
 
 
@@ -57,7 +57,10 @@
 'admin-level-settings' => 'AdminLevelSetttingsController',
 
 
-'admin-profile' => 'AdminProfileController',
+'admin' => 'AdminController',
+
+
+
 'admin-administrators' => 'AdminAdministratorsController',
 
 

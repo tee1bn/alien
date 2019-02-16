@@ -159,7 +159,7 @@
                               <label type='label' class='label label-xs label-primary'>Edit
                               </label>
                            </a>
-                            <a href="<?=domain;?>/admin-products/deleteProduct/<?=$item->id;?>">
+                            <a  onclick="$confirm_dialog = new ConfirmationDialog('<?=$product->deletelink;?>')">
                                 <label type='label' class='label label-xs label-danger'>Delete
                                 </label>
                              </a>
