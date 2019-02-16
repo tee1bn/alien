@@ -36,7 +36,7 @@ class AdminController extends controller
 	public function edit_post($post_id)
 	{
 			try {
-				echo $post = Post::find($post_id);
+				 $post = Post::find($post_id);
 				
 			} catch (Exception $e) {
 				

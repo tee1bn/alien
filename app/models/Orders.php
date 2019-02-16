@@ -8,11 +8,14 @@ class Orders extends Eloquent
 	
 		protected $fillable = [
 								'buyer_name',
+								'user_id',
 								'email',
 								'phone',
 								'address',
 								'additional_note',
 								'buyer_order',
+								'billing_details',
+								'shipping_details',
 								'status'
 								];
 	
@@ -20,34 +23,32 @@ class Orders extends Eloquent
 
 
 
-public function order_detail()
-{
-
-	return (json_decode($this->buyer_order,true));
-
-}
-
-public function total_item()
-{
-
-
-	$orders =  $this->order_detail();
-	
-	return count($orders);
-}
-
-public function total_qty()
-{
-
-	$orders =  $this->order_detail();
-	foreach ($orders as $order) {
-
-		$total_qty[] = $order['qty'];
-
+	public function order_detail()
+	{
+		return (json_decode($this->buyer_order,true));
 	}
 
-	return array_sum($total_qty);
-}
+	public function total_item()
+	{
+
+
+		$orders =  $this->order_detail();
+		
+		return count($orders);
+	}
+
+	public function total_qty()
+	{
+
+		$orders =  $this->order_detail();
+		foreach ($orders as $order) {
+
+			$total_qty[] = $order['qty'];
+
+		}
+
+		return array_sum($total_qty);
+	}
 
 
 

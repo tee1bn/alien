@@ -41,13 +41,12 @@
 <!--                       Add content to the page ...
 -->                  
 <form method="post" action="<?=domain;?>/blog/update_post" enctype="multipart/form-data" >
-  <div class="col-md-12 input-group">
-    <input class="form-control has-feedback-left" value="<?=$post->title;?>" id="inputSuccess2" name="title" placeholder="Post title" type="text" required="">
-    <span class="fa fa-chain form-control-feedback left" aria-hidden="true"></span>
+  <div class="form-group">
+    <input class="form-control " value="<?=$post->title;?>" name="title" placeholder="Post title" type="text" required="">
   </div>
 
 
-  <div class="col-md-12 input-group">
+  <div class="form-group">
     <select class="select2_single form-control select2-hidden-accessible" name="category" tabindex="-1" aria-hidden="true">
       <option>Category</option>
         <?php foreach (Category::all() as $key): ?>
@@ -61,9 +60,8 @@
 
 
 
-  <div class="col-md-12 input-group">
-    <input type="file"  class="form-control has-feedback-left" id="inputSuccess2"  name="image_path[]" placeholder="Featured image" required="">
-    <span class="fa fa-picture-o form-control-feedback left" aria-hidden="true"></span>
+  <div class="form-group">
+    <input type="file"  class="form-control"  name="image_path[]" placeholder="Featured image" required="">
   </div>
 
     <div class="row">
@@ -74,7 +72,7 @@
      foreach ($post->image_path['images'] as $key => $image):?> 
                   <div class="col-sm-3">
                     <div class="property-image">
-                      <img src="<?=domain;?>/<?=$image['main_image'];?>" style="width: 100%;    border: 1px solid beige; height: 210px; 
+                      <img src="<?=domain;?>/<?=$image['main_image'];?>" style="width: 100%;    border: 1px solid beige; height: 210px;" >
                       <div class="property-image-content">
                         <i class="fa fa-times-circle delete-image" onclick="select_this_for_delete(this)"></i>
                         <input type="checkbox" name="images_to_be_deleted[]" value="<?=$key;?>" style="display: none;" >
@@ -117,14 +115,13 @@ cursor: pointer;
 
 
 
-  <div class="col-md-12 input-group">
-    <textarea class="form-control  has-feedback-left" id="inputSuccess2" name="content" style="height: 200px;" placeholder="Content of post" required=""><?=$post->content;?></textarea>
-    <span class="fa fa-edit form-control-feedback left" aria-hidden="true"></span>
+  <div class="form-group">
+    <textarea class="form-control " name="content" style="height: 200px;" placeholder="Content of post" required=""><?=$post->content;?></textarea>
   </div>
   <input type="hidden"  name="id" value="<?=$post->id;?>">
 
-  <div class="col-md-4 input-group">
-    <input class="form-control has-feedback-left" id="inputSuccess2" type="submit" value="Update">
+  <div class="col-md-4">
+    <input class="form-control" type="submit" value="Update">
   </div>
 </form>
 

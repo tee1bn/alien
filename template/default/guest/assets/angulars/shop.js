@@ -62,7 +62,7 @@
                     processData: false,
                     data: $form,
                     success: function(data) {
-                      // console.log(data);
+                      console.log(data);
 
 
                       window.notify();

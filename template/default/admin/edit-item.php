@@ -39,7 +39,7 @@
                 <div class="x_content row">
 
 
-                 <form method="post" enctype="multipart/form-data" class="col-md-12 col-xs-12" action="<?=domain;?>/admin-products/update_item">
+                 <form method="post" enctype="multipart/form-data" class="col-md-12 " action="<?=domain;?>/admin-products/update_item">
                   <?=$this->inputErrors();?>
                   <div class="form-group">
                     <?=$this->csrf_field('update_products');?>

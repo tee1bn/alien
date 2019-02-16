@@ -103,7 +103,7 @@ class shopController extends controller
 	{
 
 		echo "<pre>";
-		// print_r($_POST['cart']);
+		print_r($_POST['cart']);
 
 		$cart =  json_decode($_POST['cart'], true);
 		foreach ($cart['$items'] as $key => $item) {
@@ -126,18 +126,25 @@ class shopController extends controller
 	 if($billing_validator->passed() || $shipping_validator->passed() ){
 
 
+		$new_order = Orders::create([
+								'user_id'		=> $this->auth()->id,
+								'buyer_order'		=> json_encode($cart),
+			]);
+
+			Session::putFlash('success', "Order Created Successfully");
+
 	 }else{
 
 		Session::putFlash('danger', "{$error_notes}");
 	 }
 
+		print_r($cart);
 	 return;
 
 
 
 
 
-		print_r($cart);
 
 
 

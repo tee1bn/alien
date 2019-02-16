@@ -1,7 +1,7 @@
 
     <?php
 
-    $page_title = "";
+    $page_title = "Checkout ";
     $page_description = "";
     include 'includes/header.php';?>
 
