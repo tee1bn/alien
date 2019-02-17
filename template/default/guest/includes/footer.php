@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-xl-5 offset-xl-1 col-lg-6 offset-lg-3 col-md-8 offset-md-2">
                         <div class="footer-widget">
-                            <h3 class="widget-title widget-title--2 widget-title--icon">Subscribe now and get 10% off new collection</h3>
+                            <h3 class="widget-title widget-title--2 widget-title--icon">Subscribe now and get latest deals</h3>
                             <form action="" class="newsletter-form newsletter-form--3 mc-form" method="post" target="_blank">
                                 <input type="email" name="newsletter-email" id="newsletter-email" class="newsletter-form__input" placeholder="Enter Your Email Address..">
                                 <button type="button" onclick="add_to_new_letters(document.getElementById('newsletter-email'))"  class="newsletter-form__submit">

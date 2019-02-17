@@ -8,7 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'Admin' => $baseDir . '/app/models/Admin.php',
     'Category' => $baseDir . '/app/models/Category.php',
-    'Chat' => $baseDir . '/app/models/Chat.php',
     'CmsPages' => $baseDir . '/app/models/CmsPages.php',
     'Config' => $baseDir . '/app/classes/Config.php',
     'Input' => $baseDir . '/app/classes/Input.php',
@@ -16,6 +15,7 @@ return array(
     'Mailer' => $baseDir . '/app/classes/Mailer.php',
     'Newsletter' => $baseDir . '/app/models/Newsletter.php',
     'Orders' => $baseDir . '/app/models/Orders.php',
+    'PasswordReset' => $baseDir . '/app/models/PasswordReset.php',
     'Post' => $baseDir . '/app/models/Post.php',
     'Products' => $baseDir . '/app/models/Products.php',
     'ProductsCategory' => $baseDir . '/app/models/ProductsCategory.php',

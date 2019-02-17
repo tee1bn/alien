@@ -14,9 +14,6 @@
 
 
 
-
-
-
       include 'head.php';?>
 
   </head>

@@ -3,7 +3,7 @@
         
         
 <!doctype html>
-<html class="no-js" lang="zxx" ng-app = "app">
+<html class="no-js" lang="zxx" ng-app = "app" ng-cloak>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -81,6 +81,75 @@
     <div class="wrapper">
         <div id="header-mini-cart" ng-controller ="CartNotificationController">
 
+
+
+
+<?php
+
+    $auth_navigation = [
+                            [   
+                                'link' => domain."/login", 
+                                'nav' => "Login"
+                            ],
+
+                            [   
+                                'link' => domain."/user/my-account", 
+                                'nav' => "My Account"
+                            ],
+
+                            [   
+                                'link' => domain."/shop/cart", 
+                                'nav' => "Shopping Cart"
+                            ],
+
+                            [   
+                                'link' => domain."/shop/checkout", 
+                                'nav' => "Check Out"
+                            ],
+
+
+                            [   
+                                'link' => domain."", 
+                                'nav' => "Wishlist"
+                            ],
+
+                        ];
+
+    $main_navigation = [
+                            [   
+                                'link' => domain."", 
+                                'nav' => "Home",
+                                'active' => ""
+                            ],
+
+                            [   
+                                'link' => domain."/shop", 
+                                'nav' => "Shop",
+                                'active' => "shop"
+                            ],
+
+                            [   
+                                'link' => domain."/about", 
+                                'nav' => "About Us",
+                                'active' => "about"
+                            ],
+
+                            [   
+                                'link' => domain."/contact", 
+                                'nav' => "Contact Us",
+                                'active' => "contact"
+                            ],
+
+                            [   
+                                'link' => domain."/blog", 
+                                'nav' => "Blog",
+                                'active' => "blog",
+                            ],
+
+                        ];
+
+
+;?>
             <!-- Header Area Start -->
             <header class="header header-fullwidth header-style-1">
                 <div class="header-inner fixed-header">
@@ -90,42 +159,19 @@
                                 <!-- Main Navigation Start Here -->
                                 <nav class="main-navigation">
                                     <ul class="mainmenu">
-                                        <li class="mainmenu__item menu-item-has-children megamenu-holder <?=($menu == '')?'active': '' ;?>">
-                                            <a href="<?=domain;?>" class="mainmenu__link">
-                                                <span class="mm-text">Home</span>
-                                            </a>
-                                        </li>
-                                        <li class="mainmenu__item menu-item-has-children <?=($menu == 'shop')?'active': '' ;?>">
-                                            <a href="<?=domain;?>/shop" class="mainmenu__link">
-                                                <span class="mm-text">Shop</span>
-                                                <span class="tip">Hot</span>
-                                            </a>
-                                          
-                                        </li>
-                                        <li class="mainmenu__item <?=($menu == 'gallery')?'active': '' ;?>">
-                                            <a href="<?=domain;?>/gallery" class="mainmenu__link">
-                                                <span class="mm-text">Gallery</span>
-                                            </a>
-                                        </li>
-                                        <li class="mainmenu__item menu-item-has-children has-children <?=($menu == 'about')?'active': '' ;?>">
-                                            <a href="<?=domain;?>/about" class="mainmenu__link">
-                                                <span class="mm-text">About Us</span>
-                                            </a>
-                                           
-                                        </li>
-                                        <li class="mainmenu__item menu-item-has-children has-children <?=($menu == 'contact')?'active': '' ;?>">
-                                            <a href="<?=domain;?>/contact" class="mainmenu__link">
-                                                <span class="mm-text">Contact Us</span>
-                                            </a>
-                                           
-                                        </li>
 
-                                        <li class="mainmenu__item menu-item-has-children has-children <?=($menu == 'blog')?'active': '' ;?>">
-                                            <a href="<?=domain;?>/blog" class="mainmenu__link">
-                                                <span class="mm-text">Blog</span>
+                                        <?php foreach ($main_navigation as $key => $main_menu) :?>
+
+                                        <li class="mainmenu__item menu-item-has-children megamenu-holder 
+                                        <?=($menu == $main_menu[active])?'active': '' ;?>">
+                                            <a href="<?=$main_menu['link'];?>" class="mainmenu__link">
+                                                <span class="mm-text"><?=$main_menu['nav'];?></span>
+                                                <!-- <span class="tip"></span> -->
                                             </a>
                                         </li>
+                                    <?php endforeach;?>
                                     </ul>
+
                                 </nav>
                                 <!-- Main Navigation End Here -->
                             </div>
@@ -146,6 +192,8 @@
                                 </a>
                                 <!-- Logo End Here -->
                             </div>
+
+
                             <div class="col-xl-5 col-lg-4 col-md-9 col-8">
                                 <ul class="header-toolbar text-right">
                                     <li class="header-toolbar__item d-`none d-lg-block">
@@ -154,28 +202,22 @@
                                         </a>                                    
                                     </li>
                                     <li class="header-toolbar__item user-info-menu-btn">
+                                        <?php if ($this->auth()):?>
+                                            <a href="#">
+                                                <i class="fa fa-user-circle-o"></i>
+                                            </a>
+                                        <?php else:?>
                                         <a href="#">
-                                            <i class="fa fa-user-circle-o"></i>
+                                            <i class="fa fa-lock"></i>
                                         </a>
+                                        <?php endif;?>
                                         <ul class="user-info-menu">
+                                            <?php foreach ($auth_navigation as $key => $nav):?>
                                             <li>
-                                                <a href="my-account.php">My Account</a>
+                                                <a href="<?=$nav['link'];?>"><?=$nav['nav'];?></a>
                                             </li>
-                                            <li>
-                                                <a href="cart.php">Shopping Cart</a>
-                                            </li>
-                                            <li>
-                                                <a href="checkout.php">Check Out</a>
-                                            </li>
-                                            <li>
-                                                <a href="wishlist.php">Wishlist</a>
-                                            </li>
-                                            <li>
-                                                <a href="order-tracking.php">Order tracking</a>
-                                            </li>
-                                            <li>
-                                                <a href="compare.php">compare</a>
-                                            </li>
+
+                                        <?php endforeach ;?>
                                         </ul>
                                     </li>
 
@@ -206,37 +248,35 @@
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-4">
-                            <a href="index.php" class="logo-box">
-                                <figure class="logo--normal">
+                            <a href="<?=domain;?>" class="logo-box">
+<!--                                 <figure class="logo--normal">
                                     <img src="<?=asset;?>/assets/img/logo/logo.svg" alt="Logo">
                                 </figure>
+ -->                                     <h2>
+                                        <?=project_name;?>
+                                    </h2>
+
                             </a>
                         </div>
                         <div class="col-8">
                             <ul class="header-toolbar text-right">
                                 <li class="header-toolbar__item user-info-menu-btn">
-                                    <a href="#">
-                                        <i class="fa fa-user-circle-o"></i>
-                                    </a>
+                                        <?php if ($this->auth()):?>
+                                            <a href="#">
+                                                <i class="fa fa-user-circle-o"></i>
+                                            </a>
+                                        <?php else:?>
+                                        <a href="#">
+                                            <i class="fa fa-lock"></i>
+                                        </a>
+                                        <?php endif;?>
                                     <ul class="user-info-menu">
-                                        <li>
-                                            <a href="my-account.php">My Account</a>
-                                        </li>
-                                        <li>
-                                            <a href="cart.php">Shopping Cart</a>
-                                        </li>
-                                        <li>
-                                            <a href="checkout.php">Check Out</a>
-                                        </li>
-                                        <li>
-                                            <a href="wishlist.php">Wishlist</a>
-                                        </li>
-                                        <li>
-                                            <a href="order-tracking.php">Order tracking</a>
-                                        </li>
-                                        <li>
-                                            <a href="compare.php">compare</a>
-                                        </li>
+                                          <?php foreach ($auth_navigation as $key => $nav):?>
+                                            <li>
+                                                <a href="<?=$nav['link'];?>"><?=$nav['nav'];?></a>
+                                            </li>
+
+                                        <?php endforeach ;?>
                                     </ul>
                                 </li>
                                 <li class="header-toolbar__item">
@@ -262,43 +302,16 @@
                             <div class="mobile-navigation dl-menuwrapper" id="dl-menu">
                                 <button class="dl-trigger">Open Menu</button>
                                 <ul class="dl-menu">
+                            <?php foreach ($main_navigation as $key => $main_menu) :?>
+
                                     <li>
-                                        <a href="index.php">
-                                            Home
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="shop-sidebar.php">
-                                            Shop
-                                            <span class="tip">Hot</span>
+                                        <a href="<?=$main_menu['link'];?>">
+                                            <?=$main_menu['nav'];?>
+                                            <!-- <span class="tip">Hot</span> -->
                                         </a>
                                     </li>
 
-                                    <li>
-                                        <a href="shop-sidebar.php">
-                                            Gallery
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="shop-sidebar.php">
-                                            About Us
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="contact-us.php">
-                                            Contact Us
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="blog.php">
-                                            Blog
-                                        </a>
-                                    </li>
-
-
+                                    <?php endforeach;?>                                    
                                 </ul>
                             </div>
                             <!-- Mobile Navigation End Here -->

@@ -1,21 +1,55 @@
 
 	function Cart(){
 		this.$items = [];
-		this.$total  = 0;
+		this.$total  = 0;		//total of items selected
+		this.$coupon = [];
+		this.$shipping_details = [];
+		this.$selected_shipping ;
+		
+		this.retrieve_shipping_settings = function () {
 
+			var $this = this;
+			 $.ajax({
+	            type: "POST",
+	            url: $base_url+'/shop/retrieve_shipping_settings/',
+	            cache: false,
+	            data: null,
+	            success: function(data) {
+	            	$this.$shipping_details = data;
+					$this.set_shipping_cost('default');
+
+	            },
+	            error: function (data) {
+	                 //alert("fail"+data);
+	            }
+	        });
+		}
+		this.retrieve_shipping_settings();
+
+		this.set_shipping_cost  = function ($location) {
+
+			for(x in this.$shipping_details){
+				var	$shipping = this.$shipping_details[x];
+				if ($shipping.location == $location) {
+					this.$selected_shipping = $shipping;
+				}
+
+			}
+			console.log(this.$shipping_details);
+		}
 
 
 
 		this.contains_object =  function(obj, list) {
-		    var i;
-		    for (i = 0; i < list.length; i++) {
-		        if ((list[i] === obj ) || (list[i]['id'] == obj.id)) {
-		            return true;
-		        }
+			    var i;
+			    for (i = 0; i < list.length; i++) {
+			        if ((list[i] === obj ) || (list[i]['id'] == obj.id)) {
+			            return true;
+			        }
 
-    			}
+	    		}
     			return false;
-				}
+		}
 
 
 			this.add_item = function($item){
@@ -33,19 +67,18 @@
 			}
 
 			this.remove_item = function($item){
-				 var i;
+	
+				var i;
+			    for (i = 0; i < this.$items.length; i++) {
+			        if (this.$items[i] === $item) {
+			        	this.$items.splice(i, 1);
 
-		    for (i = 0; i < this.$items.length; i++) {
-		        if (this.$items[i] === $item) {
-		        	this.$items.splice(i, 1);
-
-					this.update_server();
-		            return true;
-		        }
-    			}
-    			return false;
-
-				}
+						this.update_server();
+			            return true;
+			        }
+	    		}
+	    			return false;
+			}
 
 			this.place_order = function () {
 				// console.log("great");
@@ -193,10 +226,11 @@
 				this.$items.push($new_item);
 				}
 
-			}
+		}
 		
-		// this.add_item($items);
+			// this.add_item($items);
 
+		
 
 		this.quickview = function ($item) {
 					this.$quickview = $item;
@@ -269,6 +303,7 @@
 	           });
 			}
 
+	
 			this.update_angular_scope = function () {
 					$scope = angular.element($('#content')).scope().$apply();
 					$scope = angular.element($('#header-mini-cart')).scope().$apply();

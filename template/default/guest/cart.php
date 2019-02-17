@@ -53,7 +53,8 @@
                                                             </a>
                                                         </td>
                                                         <td class="product-thumbnail text-left">
-                                                            <img src="assets/img/products/prod-11-1-70x81.jpg" alt="Product Thumnail">
+
+                                                            <img src="<?=domain;?>/{{$item.images.images[0].main_image}}"  alt="Product Thumnail" style="width: 75px; object-fit: cover;" >
                                                         </td>
                                                         <td class="product-name text-left wide-column">
                                                             <h3>
@@ -115,14 +116,19 @@
                                                 <tr>
                                                     <th>Shipping</th>
                                                     <td>
-                                                        <span>Flat rate: <?=$shipping_rate;?></span>
+                                                        <span>Flat Rate
+                                                        {{$shop.$cart.$selected_shipping.price |  currency:'<?=currency;?>'}}
+                                                     </span>
+                                                     <!-- <br>{{$shop.$cart.$selected_shipping.location}} -->
+<!-- 
                                                         <div class="shipping-calculator-wrap">
-                                                            <!-- <a href="#shipping_calculator" class="expand-btn">Calculate Shipping</a> -->
+                                                            <a href="#shipping_calculator" class="expand-btn">Calculate Shipping</a>
                                                             <form id="shipping_calculator" class="form shipping-calculator-form hide-in-default">
                                                                 <div class="form__group mb--10">
                                                                     <select id="calc_shipping_country" name="calc_shipping_country" class="nice-select">
-                                                                    <option value="BD" selected="selected">Bangladesh</option>
-                                                                    <option value="US">United States (US)</option>
+
+                                                                    <option ng-repeat="($index ,$shipping) in $shop.$cart.$shipping_details">
+                                                                    {{$shipping.lo}}</option>
                                                                     </select>
                                                                 </div>
                                                                 <div class="form__group mb--10">
@@ -144,7 +150,7 @@
                                                                     <input type="submit" value="Update Totals">
                                                                 </div>
                                                             </form>
-                                                        </div>
+                                                        </div> -->
                                                     </td>  
                                                 </tr>
                                                 <tr class="order-total">

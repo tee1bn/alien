@@ -56,7 +56,6 @@
                             <div class="checkout-title mt--10">
                                 <h2>Billing Details</h2>
                             </div>
-                            <input type="" id="cart" ng-model="$shop.$cart">
                             <div class="checkout-form">
                                 <form action="#" class="form form--checkout">
                                     <div class="form-row mb--30">
@@ -271,19 +270,24 @@
                                         <tfoot>
                                             <tr class="cart-subtotal">
                                                 <th>Subtotal</th>
-                                                <td class="text-right">{{($shop.$cart.get_total()) |  currency:'<?=currency;?>'}} </td>
+                                                <td class="text-right">{{($shop.$cart.$total) |  currency:'<?=currency;?>'}} </td>
                                             </tr>
                                             <tr class="shipping">
                                                 <th>Shipping</th>
                                                 <td class="text-right">
-                                                    <?php $shipping_rate=0;?>
-                                                    <span>Flat Rate; <?=$shipping_rate;?></span>
+
+                                                    <span>Flat Rate
+                                                    {{$shop.$cart.$selected_shipping.price |  currency:'<?=currency;?>'}}
+                                                         
+                                                     </span><br>
+                                                    {{$shop.$cart.$selected_shipping.location}}
+
                                                 </td>
                                             </tr>
                                             <tr class="order-total">
                                                 <th>Order Total</th>
                                                 <td class="text-right"><span class="order-total-ammount">
-                                            {{($shop.$cart.$total + <?=$shipping_rate;?>) |  currency:'<?=currency;?>'}}
+                                            {{($shop.$cart.$total + <?=$this->shipping_rate;?>) |  currency:'<?=currency;?>'}}
                                                 </span></td>
                                             </tr>
                                         </tfoot>

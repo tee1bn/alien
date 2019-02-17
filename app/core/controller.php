@@ -300,6 +300,7 @@ if ($response == true) {
 			$host			= Config::host();
 			$domain			= Config::domain();
 			$asset 			= $domain."/template/".Config::views_template()."/$view_folder";
+			
 			$accessor 		= $this->tell_whose_order()->username;
 			$currency		= Config::currency();
 			$websocket_url	= "$host:3000";

@@ -1,21 +1,23 @@
 
     <?php
-
-    $page_title = "";
+    
+    $page_title = "User Dashbard |".project_name;
     $page_description = "";
-    include 'includes/header.php';?>
+
+    include realpath(__DIR__.'/../includes/header.php');?>
 
 
 
         <!-- Breadcrumb area Start -->
 
+        <!-- <span ng-controller="shopController"></span> -->
         <div class="breadcrumb-area bg--white-6 breadcrumb-bg-1 pt--60 pb--70 pt-lg--40 pb-lg--50 pt-md--30 pb-md--40">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 text-center">
                         <h1 class="page-title">My Account</h1>
                         <ul class="breadcrumb justify-content-center">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="Javascript:void;">Home</a></li>
                             <li class="current"><span>My Account</span></li>
                         </ul>
                     </div>
@@ -33,12 +35,15 @@
                         <div class="col-12">
                             <div class="user-dashboard-tab flex-column flex-md-row">
                                 <div class="user-dashboard-tab__head nav flex-md-column" role="tablist" aria-orientation="vertical">
+
                                     <a class="nav-link active" data-toggle="pill" role="tab" href="#dashboard" aria-controls="dashboard" aria-selected="true">Dashboard</a>
+
                                     <a class="nav-link" data-toggle="pill" role="tab" href="#orders" aria-controls="orders" aria-selected="true">Orders</a>
                                     <a class="nav-link" data-toggle="pill" role="tab" href="#downloads" aria-controls="downloads" aria-selected="true">Downloads</a>
                                     <a class="nav-link" data-toggle="pill" role="tab" href="#addresses" aria-controls="addresses" aria-selected="true">Addresses</a>
                                     <a class="nav-link" data-toggle="pill" role="tab" href="#accountdetails" aria-controls="accountdetails" aria-selected="true">Account Details</a>
-                                    <a class="nav-link" href="login-register.html">Logout</a>
+
+                                    <a class="nav-link" href="<?=domain;?>/login/logout">Logout</a>
                                 </div>
                                 <div class="user-dashboard-tab__content tab-content">
                                     <div class="tab-pane fade show active" id="dashboard">
@@ -211,4 +216,4 @@
 
 
     <?php
-    include 'includes/footer.php';?>
+    include realpath(__DIR__.'/../includes/footer.php');?>

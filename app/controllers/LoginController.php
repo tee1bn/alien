@@ -83,9 +83,9 @@ class LoginController extends controller
 	{
 	
 	if($this->auth()){
-		Redirect::to("account-dashboard/index/{$this->auth()->username}");
+		// Redirect::to();
 	}
-	$this->view('guest/login', []);
+	$this->view('guest/register', []);
 
 	}
 
@@ -97,9 +97,9 @@ class LoginController extends controller
 	 */
 	public function authenticate()
 	{
-echo "<pre>";
+		// echo "<pre>";
 
-		if(Input::exists("user_login")){
+		if(Input::exists("user_login") || true){
 			print_r(Input::all());
 
 		$trial = User::where('email', Input::get('user'))->first();
@@ -117,37 +117,25 @@ echo "<pre>";
 
 		if ($result) {
 
-// echo "wole ";
+			Redirect::to("user/my-account");
 
-		Session::putFlash('Info',"Welcome ".$result->firstname);
+		}else{
 
-		Redirect::to("");
-
-	}else{
-
-			Session::putFlash('Info','Invalid Credentials');
-			$this->validator()->addError('credentials' , "<i class='fa fa-exclamation-triangle'></i> Invalid Credentials.");
-
+				Session::putFlash('danger','Invalid Credentials');
+				$this->validator()->addError('credentials' , "<i class='fa fa-exclamation-triangle'></i> Invalid Credentials.");
 
 				}
-
-
 			}
 
-		Redirect::to("");
-print_r($this->validator()->errors()
-);
-}
+			Redirect::to("login");
+		// print_r($this->validator()->errors());
+	}
 
 
 
 	public function logout($user=''){
 
 		session_destroy();
-		Session::putFlash('Info',"Hope to see you again.");
-
-
-
 		if($user == 'admin'){
 
 					// Redirect::to('login/adminLogin');
@@ -157,7 +145,7 @@ print_r($this->validator()->errors()
 
 
 
-		Redirect::to('');
+		Redirect::to('login');
 
 	}
 

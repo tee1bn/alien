@@ -1,20 +1,20 @@
 
     <?php
 
-    $page_title = "";
+    $page_title = "Login | Register";
     $page_description = "";
     include 'includes/header.php';?>
 
 
         <!-- Breadcrumb area Start -->
-
+        <span ng-controller="ShopController"></span>
         <div class="breadcrumb-area bg--white-6 breadcrumb-bg-1 pt--60 pb--70 pt-lg--40 pb-lg--50 pt-md--30 pb-md--40">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 text-center">
                         <h1 class="page-title">Login &amp; Register</h1>
                         <ul class="breadcrumb justify-content-center">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="<?=domain;?>">Home</a></li>
                             <li class="current"><span>Login Register</span></li>
                         </ul>
                     </div>
@@ -32,10 +32,10 @@
                         <div class="col-md-6 mb-sm--30">
                             <div class="login-box">
                                 <h4 class="mb--35 mb-sm--20">Login</h4>
-                                <form class="form form--login">
+                                <form action="<?=domain;?>/login/authenticate" method="post" class="form form--login">
                                     <div class="form__group mb--20">
                                         <label class="form__label form__label--2" for="username_email">Username or email address <span class="required">*</span></label>
-                                        <input type="text" class="form__input form__input--3" id="username_email" name="username_email">
+                                        <input type="text" class="form__input form__input--3" id="username_email" name="user">
                                     </div>
                                     <div class="form__group mb--20">
                                        <label class="form__label form__label--2" for="password">Password <span class="required">*</span></label>
@@ -45,14 +45,14 @@
                                         <div class="form__group">
                                             <input type="submit" value="Log in" class="btn btn-submit btn-style-1">
                                         </div>
-                                        <div class="form__group">
+                                    <!--     <div class="form__group">
                                             <label class="form__label checkbox-label" for="store_session">
                                                 <input type="checkbox" name="store_session" id="store_session">
                                                 <span>Remember me</span>
                                             </label>
-                                        </div>
+                                        </div> -->
                                     </div>
-                                    <a class="forgot-pass" href="#">Lost your password?</a>
+                                    <a class="forgot-pass" href="<?=domain;?>/forgot-password">Forgot Password?</a>
                                 </form>
                             </div>
                         </div>

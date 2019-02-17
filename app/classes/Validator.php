@@ -13,8 +13,7 @@ class Validator
 	
 	public function check($data, $items)
 	{
-echo "<pre>";
-
+		
 		foreach ($items as $item => $rules) {
 
 			foreach ($rules as $rule => $rule_value) {

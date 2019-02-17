@@ -8,6 +8,8 @@
 class shopController extends controller
 {
 
+	public	$shipping_rate = '1500.00';
+
 	public $billing_detail_rules = [
 
 		   			'billing_firstname'  => [
@@ -306,6 +308,15 @@ class shopController extends controller
 
 			
 }
+
+
+
+	public function retrieve_shipping_settings()
+	{
+		header("Content-type: application/json");
+		echo CmsPages::where('page_unique_name', 'shipping_details')->first()->page_content;
+
+	}
 
 
 	public function find($course_id)

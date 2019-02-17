@@ -8,22 +8,15 @@
 
 	''=>'home',
 	'home'=>'home',
-	'newsfeed'=>'home',
-
-
-
-
-
-	#websocket controller
-	'websocket' =>'WebSocketContrdoller',
-
-
 
 
 	#api routers
 	'products_api' 		=>'ProductsApiController',
 	'categories_api' 	=>'CategoriesApiController',
 	'cms_api' 			=>'CmsApiController',
+
+	#users
+	'user' 			=>'UserController',
 
 
 
@@ -35,6 +28,7 @@
 	'about' 	=>'AboutController',
 	'gallery' 	=>'Galleryontroller',
 	'blog'  	=> 'BlogController',
+	'forgot-password'  	=> 'forgotPasswordController',
 
 
 
