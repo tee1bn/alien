@@ -74,7 +74,7 @@
                                 <!-- Single Blog End Here -->
 
                                 <!-- Social Sharing Icons Start Here -->
-                                <div class="post-share sticky-social">
+<!--                                 <div class="post-share sticky-social">
                                     <ul class="social social-big social-round social-sharing bg-gray-2 vertical">
                                         <li class="social__item">
                                             <a href="facebook.com" class="social__link facebook">
@@ -98,7 +98,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- Social Sharing Icons End Here -->
+ -->                                <!-- Social Sharing Icons End Here -->
 
                                 <!-- Post Navigation Start Here -->
                               <!--   <nav class="post-navigation">
