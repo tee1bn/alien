@@ -67,7 +67,7 @@
                   </div>
 
                      <div class="form-group">
-                       <textarea class="form-control" name="description"  id="" required="required"  placeholder="Item description"><?=Input::old('description');?></textarea>
+                       <textarea class="form-control" name="description"  id="editor22" required="required"  placeholder="Item description"><?=Input::old('description');?></textarea>
                       </div>
 
                   <div class="form-group">
@@ -89,11 +89,6 @@
               </div>
             </div>
 
-
-
-            <script>
-              ClassicEditor.create( document.querySelector( '#editor' ) );
-            </script>
 
 
 
@@ -233,9 +228,23 @@
 
 
 
+   <!-- ckeditor -->
+        <script src="<?=asset;?>/includes/js/bootstrap3-wysihtml5.all.min.js"> </script>
+        <script src="<?=asset;?>/includes/js/bootstrap3-wysihtml5.min.css"> </script>
+        <script src="<?=asset;?>/includes/js/ckeditor.js"> </script>
 
 
 
+
+<script>
+  $(function () {
+    // Replace the <textarea id="editor22"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('editor22')
+    //bootstrap WYSIHTML5 - text editor
+    $('.textarea').wysihtml5()
+  })
+</script>
 
 
 

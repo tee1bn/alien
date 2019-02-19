@@ -39,14 +39,51 @@ class Orders extends Eloquent
 								'shipping_email',
 								'shipping_apartment',
 
+								'shipping_fee',
+								'paid_at',
+
 								];
 	
 	protected $table = 'orders';
 
 
+	public function getshippingfeeAttribute($value)
+	{
+
+		return json_decode($value, true) ;
+	}
+
+
+	public function getpaymentAttribute()
+	{
+		if ($this->paid_at) {
+
+			return '<span class="label label-success">Paid</span>';
+		}
+
+			return '<span class="label label-danger">Unpaid</span>';
+
+	}
+
+	public function getshippingcostAttribute()
+	{
+
+		return (int) $this->shipping_fee['price'] ;
+	}
+
+
+
 	public function getdateAttribute()
 	{
 		return date("M d, Y", strtotime($this->created_at)) ;
+	}
+
+
+
+
+	public function getoveralltotalAttribute()
+	{
+		return $this->total_price() + $this->shippingcost;
 	}
 
 
@@ -86,7 +123,7 @@ public function total_price()
 	$orders =  $this->order_detail();
 	foreach ($orders as $order) {
 
-		$total_price[] = $order['price'];
+		$total_price[] = $order['price'] *$order['qty'];
 
 	}
 

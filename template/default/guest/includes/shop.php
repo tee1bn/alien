@@ -213,10 +213,10 @@
                                                                 <i class="dl-icon-cart29"></i>
                                                             </a>
 
-                                                            <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
+                                                          <!--   <a class="add_wishlist action-btn" href="wishlist.html" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
                                                                 <i class="dl-icon-heart4"></i>
                                                             </a>
-
+ -->
                                                         </div>
                                                     </div>
                                                     <span class="product-badge new" ng-if="$item.ribbon">{{$item.ribbon}}</span>    

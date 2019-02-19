@@ -76,6 +76,8 @@ class shopController extends controller
 		$new_order = Orders::create([
 								'user_id'		=> $this->auth()->id,
 								'buyer_order'		=> json_encode($cart['$items']),
+								'additional_note'		=> ($cart['$buyer_detail']['billing']['order_notes']),
+								'shipping_fee'		=> json_encode($cart['$selected_shipping']),
 			]);
 
 		$new_order->update($cart['$buyer_detail']['billing']);

@@ -37,7 +37,7 @@ class AdminOrdersController extends controller
 		try {
 			
 		Orders::find($order_id)->update(['status'=> 'complete']);
-			Session::putFlash('info', 'Order marked as complete successfully!');
+			Session::putFlash('success', 'Order marked as complete successfully!');
 		} catch (Exception $e) {
 
 		}

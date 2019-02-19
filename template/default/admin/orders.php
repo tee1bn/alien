@@ -48,7 +48,8 @@
                       <thead>
                           <tr>
               <th>#ref</th>
-                          <th>Buyer</th>
+                          <th>Billing</th>
+                          <!-- <th>Shipping</th> -->
                           <th>Total (item X qty) </th>
                           <th>Total(<?=$currency;?>)</th>
                           <th>Status</th>
@@ -71,15 +72,16 @@ $i=1; foreach (Orders::all() as $order) :
                           <td>#<?=$order->id;?></td>
                           <td style="text-transform: capitalize;">
 
-  <label  class='label label-xs label-primary'>
-                                  <?=$order->buyer_name;?>
+                             <label  class='label label-xs label-primary'>
+                                  <?=$order->billing_lastname;?>
+                                  <?=$order->billing_firstname;?>
                               </label><br>
 
                                 <label  class='label label-xs label-primary'>
-                                  <?=$order->email;?>
+                                  <?=$order->billing_email;?>
                               </label>         <br>              
                                 <label  class='label label-xs label-primary'>
-                                  <?=$order->phone;?>
+                                  <?=$order->billing_phone;?>
                               </label>
                              </td>
                               

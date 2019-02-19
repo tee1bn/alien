@@ -1,56 +1,33 @@
- 
-      <?php include 'header_nav.php' ;?>
-      <?php include 'datatable.php' ;?>
 
-        <!-- page content -->
-        <div class="right_col" role="main">
-          <div class="">
-            <div class="page-title">
-              <div class="title_left">
-                <h3>Order Page</h3>
-              </div>
+<?php
 
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div class="clearfix"></div>
+    $page_title           = "Orders ";
+    $page_description     = "";
+    $page_menu            = "Orders";
 
-           
-          <div class="row">
-              <div class="col-md-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Order 
-                     <!-- <small>Sample user invoice design</small> -->
-                   </h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                     
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
 
+ include 'includes/header.php' ;?>
+
+
+<style type="text/css">
+    .panel-collapse{
+        border: 1px solid #00000012;
+        padding: 10px;
+        margin-top: 30px;
+    }
+</style>
+                                <div class="user-dashboard-tab__content tab-content">
+
+
+                                <div class="">
                     <section class="content invoice">
-                      <!-- title row -->
                       <div class="row">
                         <div class="col-xs-12 invoice-header">
                           <h1>
-                                          <i class="fa fa-globe"></i> Order.
-                                          <small class="pull-right">Date: <?=$order->created_at;?></small>
+                                          <!-- <i class="fa fa-globe"></i> Order. -->
                                       </h1>
+                            <span class=" badge badge-lg badge-primary pull-right">Date: <?=$order->created_at;?></span>
                         </div>
                         <!-- /.col -->
                       </div>
@@ -113,15 +90,15 @@
 
                       <!-- Table row -->
                       <div class="row">
-                        <div class="col-xs-12 table">
-                          <table class="table table-striped">
+                        <div class="col-xs-12 table table-responsive">
+                          <table class="table table-striped table-bordered">
                             <thead>
                               <tr>
-                                <th>Product</th>
-                                <th style="width: 59%">Description</th>
-                                <th>Qty</th>
-                                <th>Unit price</th>
-                                <th>Subtotal</th>
+                                <th style="width: 15%">Product</th>
+                                <th style="width: 60%">Description</th>
+                                <th style="width: 5%">Qty</th>
+                                <th style="width: 10%">Unit price</th>
+                                <th style="width: 10%">Subtotal</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -146,7 +123,7 @@
 
                       <div class="row">
                         <!-- accepted payments column -->
-                        <div class="col-xs-6">
+                        <div class="col-md-6">
                           <p class="lead">Additional Note:</p>
                          <!--  <img src="images/visa.png" alt="Visa">
                           <img src="images/mastercard.png" alt="Mastercard">
@@ -157,7 +134,7 @@
                           </p>
                         </div>
                         <!-- /.col -->
-                        <div class="col-xs-6">
+                        <div class="col-md-6" >
                           <p class="lead">Amount </p>
                           <div class="table-responsive">
                             <table class="table">
@@ -192,106 +169,18 @@
                         <div class="col-xs-12">
                           <!-- <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Print</button> -->
                           <!-- <button class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment</button> -->
-                          <?php if ($order->status !== 'complete'):?>
-                          <a   onclick="$confirm_dialog = new ConfirmationDialog('<?=domain;?>/admin-orders/mark_as_complete/<?=$order->id;?>')" 
-                           class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-check"></i> Mark as Complete </a>
-                    <?php endif;?>
                         </div>
                       </div>
                     </section>
-                  </div>
+                                    </div>
+                             </div>
+                    </div>
                 </div>
-              </div>
             </div>
-
-
-
-
-
-
-   <!--           <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Plain Page</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                      Add content to the page ...
-                  </div>
-                </div>
-              </div>
-            </div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          </div>
         </div>
-        <!-- /page content -->
-
-           <?php include 'footer.php' ;?> 
+        <!-- Main Content Wrapper Start -->
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <?php
+    include realpath(__DIR__.'/../includes/footer.php');?>

@@ -26,7 +26,7 @@
                                             <a href="shop-sidebar.html">Go Shop</a>
                                         </div>
  -->                                        <div class="table-content table-responsive">
-                                            <table class="table text-center">
+                                            <table class="table text-center table-striped">
                                                 <thead>
                                                     <tr>
                                                         <th>Order</th>
@@ -43,7 +43,8 @@
                                                         <td>#<?=$order->id;?></td>
                                                         <td class="wide-column"><?=$order->date;?></td>
                                                         <td><?=$order->status;?></td>
-                                                        <td class="wide-column">$49.00 for 1 item</td>
+                                                        <td class="wide-column"><?=$currency;?> 
+                                                        <?=$this->money_format($order->overalltotal);?></td>
                                                         <td><a href="<?=$order->view_link;?>" class="btn btn-medium btn-style-1">View</a></td>
                                                     </tr>
                                                 <?php endforeach ;?>

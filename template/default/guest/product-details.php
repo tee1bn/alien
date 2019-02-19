@@ -316,9 +316,8 @@
                                             <a href="shop-sidebar.html">women</a>
                                         </span> -->
                                     </div>
-                                    <div class="product-share-box">
+<!--                                     <div class="product-share-box">
                                         <span class="font-size-12">Share With</span>
-                                        <!-- Social Icons Start Here -->
                                         <ul class="social social-small">
                                             <li class="social__item">
                                                 <a href="facebook.com" class="social__link">
@@ -341,8 +340,7 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                        <!-- Social Icons End Here -->
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -399,9 +397,9 @@
                                                             onclick="add_item(<?=$related_product->id;?>)" title="Add to Cart">
                                                                 <i class="dl-icon-cart29"></i>
                                                             </a>
-                                                            <a class="add_wishlist action-btn" href="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
+                                                          <!--   <a class="add_wishlist action-btn" href="" data-toggle="tooltip" data-placement="top" title="Add to Wishlist">
                                                                 <i class="dl-icon-heart4"></i>
-                                                            </a>
+                                                            </a> -->
                                                           
                                                         </div>
                                                     </div>

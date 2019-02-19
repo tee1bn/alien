@@ -34,6 +34,12 @@ class UserController extends controller
 
 	}
 
+	public function order_detail($order_id)
+	{
+		$this->view('guest/auth/order-detail', ['order'=> Orders::find($order_id)]);
+
+	}
+
 
 	public function orders()
 	{
