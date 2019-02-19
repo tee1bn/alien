@@ -17,6 +17,7 @@
 
 	#users
 	'user' 			=>'UserController',
+	'user-profile' 			=>'UserProfileController',
 
 
 

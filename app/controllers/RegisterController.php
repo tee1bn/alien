@@ -208,8 +208,7 @@ public function generate_phone_code_for($user_id)
 	{
 		echo "<pre>";
 
-if (Input::exists('user_registration') ) {
-		print_r(Input::all());
+if (Input::exists('user_registration') || true) {
 
 	$this->validator()->check(Input::all() , array(
 
@@ -220,46 +219,25 @@ if (Input::exists('user_registration') ) {
 				'min'=> '2',
 					],
 
-'lastname' =>[
+			'lastname' =>[
 
 				'required'=> true,
 				'max'=> '32',
 				'min'=> '2',
 					],
 
-
-			'i_am' =>[
-
-				'required'=> true,
-				'min_value'=> '1',
-				'max_value'=> '4',
-					],
-
-			'birthday' =>[
-
-				'required'=> true,
-				'min'=> 2,
-				'max'=> 20,
-					],
-	
 		'email' => [
 						'required'=> true,
 						'email'=> true,
 						'unique'=> 'User',
 					],
 
-		'city' => [
-						'required'=> true,
-						'max'=> 255,
-					],
-		
 		'password' => [
 
 								'required'=> true,
 								'min'=> 3,
 								'max'=> 32,
 					]
-
 		));
 
  if($this->validator->passed()){
@@ -274,20 +252,17 @@ if (Input::exists('user_registration') ) {
  	$new_user  					=  User::create($user_details);
  	if($new_user){
 
- 		Session::putFlash('Info', "Registration Successful!.");
+ 		Session::putFlash('success', "Registration Successful!.");
  		$this->directly_authenticate($new_user->id);
+
+			Redirect::to("user/my-account");
  	}
 
- 		Redirect::to("tell-us-more/index/{$new_user->username}");
  }else{
 
- 	Session::putFlash('Info', "Please try again ");
+ 	Session::putFlash('danger', $this->inputErrors());
 
-print_r($this->validator->errors());
-	Redirect::to('');
-
-
-
+	// print_r($this->validator->errors());
 
  }
 
@@ -298,7 +273,7 @@ print_r($this->validator->errors());
 
 
  	
-	// Redirect::to('home/test');
+	Redirect::to('login');
 
 }
 

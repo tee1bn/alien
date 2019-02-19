@@ -3,6 +3,11 @@
 
     $page_title = "Checkout ";
     $page_description = "";
+
+
+    $billing_details = $this->auth()->billing_details;
+    $shipping_details = $this->auth()->shipping_details;
+
     include 'includes/header.php';?>
 
 
@@ -62,23 +67,37 @@
                                         <div class="form__group col-md-6 mb-sm--30">
                                             <label for="billing_fname" class="form__label form__label--2">First Name 
                                              <span class="required">*</span></label>
-                                            <input type="text" required="" ng-model="$shop.$cart.$buyer_detail.billing.billing_firstname" id="billing_firstname" class="form__input form__input--2">
+                                            <input type="text" required="" 
+                                            ng-model="$shop.$cart.$buyer_detail.billing.billing_firstname"
+                                            ng-init="$shop.$cart.$buyer_detail.billing.billing_firstname='<?=$billing_details->billing_firstname;?>'"
+
+                                             id="billing_firstname" class="form__input form__input--2">
                                         </div>
                                         <div class="form__group col-md-6">
                                             <label for="billing_lname" class="form__label form__label--2">Last Name  <span class="required">*</span></label>
-                                            <input type="text" required="" ng-model="$shop.$cart.$buyer_detail.billing.billing_lastname" id="billing_lastname" class="form__input form__input--2">
+                                            <input type="text" required=""
+                                             ng-model="$shop.$cart.$buyer_detail.billing.billing_lastname" 
+                                            ng-init="$shop.$cart.$buyer_detail.billing.billing_lastname='<?=$billing_details->billing_lastname;?>'"
+
+                                             id="billing_lastname" class="form__input form__input--2">
                                         </div>
                                     </div>
                                     <div class="form-row mb--30">
                                         <div class="form__group col-12">
                                             <label for="billing_company" class="form__label form__label--2">Company Name (Optional)</label>
-                                            <input type="text" ng-model="$shop.$cart.$buyer_detail.billing.billing_company" id="billing_company" class="form__input form__input--2">
+                                            <input type="text" 
+                                            ng-model="$shop.$cart.$buyer_detail.billing.billing_company" 
+                                            ng-init="$shop.$cart.$buyer_detail.billing.billing_company='<?=$billing_details->billing_company;?>'"
+                                            id="billing_company" class="form__input form__input--2">
                                         </div>
                                     </div>
                                     <div class="form-row mb--30">
                                         <div class="form__group col-12">
                                             <label for="billing_country" class="form__label form__label--2">Country <span class="required">*</span></label>
-                                            <select id="billing_country" required="" ng-model="$shop.$cart.$buyer_detail.billing.billing_country" class="form__input form__input--2 nice-select">
+                                            <select id="billing_country" required="" 
+                                            ng-model="$shop.$cart.$buyer_detail.billing.billing_country"
+                                            ng-init="$shop.$cart.$buyer_detail.billing.billing_country='<?=$billing_details->billing_country;?>'"
+                                             class="form__input form__input--2 nice-select">
                                                 <option value="">Select a country…</option>
                                                 <option value="Nigeria">Nigeria</option>
                                             </select>
@@ -88,33 +107,51 @@
                                         <div class="form__group col-12">
                                             <label for="billing_streetAddress" class="form__label form__label--2">Street Address <span class="required">*</span></label>
 
-                                            <input type="text" ng-model="$shop.$cart.$buyer_detail.billing.billing_street_address" id="billing_streetAddress" class="form__input form__input--2 mb--30" placeholder="House number and street name">
+                                            <input type="text"
+                                             ng-model="$shop.$cart.$buyer_detail.billing.billing_street_address"
+                                            ng-init="$shop.$cart.$buyer_detail.billing.billing_street_address='<?=$billing_details->billing_street_address;?>'"
+                                              id="billing_streetAddress" class="form__input form__input--2 mb--30" placeholder="House number and street name">
 
-                                            <input type="text" ng-model="$shop.$cart.$buyer_detail.billing.billing_apartment" id="billing_apartment" class="form__input form__input--2" placeholder="Apartment, suite, unit etc. (optional)">
+                                            <input type="text" 
+                                            ng-model="$shop.$cart.$buyer_detail.billing.billing_apartment" 
+                                            ng-init="$shop.$cart.$buyer_detail.billing.billing_apartment='<?=$billing_details->billing_apartment;?>'"
+                                            id="billing_apartment" class="form__input form__input--2" placeholder="Apartment, suite, unit etc. (optional)">
                                         </div>
                                     </div>
                                     <div class="form-row mb--30">
                                         <div class="form__group col-12">
                                             <label for="billing_city" class="form__label form__label--2">Town / City <span class="required">*</span></label>
-                                            <input type="text" ng-model="$shop.$cart.$buyer_detail.billing.billing_city" id="billing_city" class="form__input form__input--2">
+                                            <input type="text" 
+                                            ng-model="$shop.$cart.$buyer_detail.billing.billing_city"
+                                            ng-init="$shop.$cart.$buyer_detail.billing.billing_city='<?=$billing_details->billing_city;?>'"
+                                             id="billing_city" class="form__input form__input--2">
                                         </div>
                                     </div>
                                     <div class="form-row mb--30">
                                         <div class="form__group col-12">
                                             <label for="billing_state" class="form__label form__label--2">State / County <span class="required">*</span></label>
-                                            <input type="text" ng-model="$shop.$cart.$buyer_detail.billing.billing_state" id="billing_state" class="form__input form__input--2">
+                                            <input type="text" 
+                                            ng-model="$shop.$cart.$buyer_detail.billing.billing_state" 
+                                            ng-init="$shop.$cart.$buyer_detail.billing.billing_state='<?=$billing_details->billing_state;?>'"
+                                            id="billing_state" class="form__input form__input--2">
                                         </div>
                                     </div>
                                     <div class="form-row mb--30">
                                         <div class="form__group col-12">
                                             <label for="billing_phone" class="form__label form__label--2">Phone <span class="required">*</span></label>
-                                            <input type="text" ng-model="$shop.$cart.$buyer_detail.billing.billing_phone" id="billing_phone" class="form__input form__input--2">
+                                            <input type="text"
+                                             ng-model="$shop.$cart.$buyer_detail.billing.billing_phone" 
+                                            ng-init="$shop.$cart.$buyer_detail.billing.billing_phone='<?=$billing_details->billing_phone;?>'"
+                                             id="billing_phone" class="form__input form__input--2">
                                         </div>
                                     </div>
                                     <div class="form-row mb--30">
                                         <div class="form__group col-12">
                                             <label for="billing_email" class="form__label form__label--2">Email Address  <span class="required">*</span></label>
-                                            <input type="email" ng-model="$shop.$cart.$buyer_detail.billing.billing_email" id="billing_email" class="form__input form__input--2">
+                                            <input type="email"
+                                             ng-model="$shop.$cart.$buyer_detail.billing.billing_email" 
+                                            ng-init="$shop.$cart.$buyer_detail.billing.billing_email='<?=$billing_details->billing_email;?>'"
+                                             id="billing_email" class="form__input form__input--2">
                                         </div>
                                     </div>
                                     <div class="form-row">
@@ -173,23 +210,34 @@
                                                         <label for="shipping_firstname" class="form__label form__label--2">First Name  <span class="required">*</span></label>
                                                         <input type="text" 
                                                         ng-model="$shop.$cart.$buyer_detail.shipping.shipping_firstname" 
+                                            ng-init="$shop.$cart.$buyer_detail.shipping.shipping_firstname='<?=$shipping_details->shipping_firstname;?>'"
                                                          id="shipping_firstname" class="form__input form__input--2">
                                                     </div>
                                                     <div class="form__group col-md-6">
                                                         <label for="shipping_lname" class="form__label form__label--2">Last Name  <span class="required">*</span></label>
-                                                        <input type="text" ng-model="$shop.$cart.$buyer_detail.shipping.shipping_lastname" id="shipping_lastname" class="form__input form__input--2">
+                                                        <input type="text"
+                                                         ng-model="$shop.$cart.$buyer_detail.shipping.shipping_lastname" 
+                                            ng-init="$shop.$cart.$buyer_detail.shipping.shipping_lastname='<?=$shipping_details->shipping_lastname;?>'"
+                                                         id="shipping_lastname" class="form__input form__input--2">
                                                     </div>
                                                 </div>
                                                 <div class="form-row mb--30">
                                                     <div class="form__group col-12">
                                                         <label for="shipping_company" class="form__label form__label--2">Company Name (Optional)</label>
-                                                        <input type="text"  ng-model="$shop.$cart.$buyer_detail.shipping.shipping_company" id="shipping_company" class="form__input form__input--2">
+                                                        <input type="text"  
+                                                        ng-model="$shop.$cart.$buyer_detail.shipping.shipping_company"
+                                            ng-init="$shop.$cart.$buyer_detail.shipping.shipping_company='<?=$shipping_details->shipping_company;?>'"
+
+                                                         id="shipping_company" class="form__input form__input--2">
                                                     </div>
                                                 </div>
                                                 <div class="form-row mb--30">
                                                     <div class="form__group col-12">
                                                         <label for="shipping_country" class="form__label form__label--2">Country <span class="required">*</span></label>
-                                                        <select id="shipping_country"  ng-model="$shop.$cart.$buyer_detail.shipping.shipping_country" class="form__input form__input--2 nice-select">
+                                                        <select id="shipping_country"
+                                                          ng-model="$shop.$cart.$buyer_detail.shipping.shipping_country" 
+                                                        ng-init="$shop.$cart.$buyer_detail.shipping.shipping_country='<?=$shipping_details->shipping_country;?>'"
+                                                          class="form__input form__input--2 nice-select">
                                                             <option value="">Select a country…</option>
                                                             <option value="Nigeria">Nigeria</option>    
                                                      
@@ -200,35 +248,51 @@
                                                     <div class="form__group col-12">
                                                         <label for="shipping_street_address" class="form__label form__label--2">Street Address <span class="required">*</span></label>
 
-                                                        <input type="text"  ng-model="$shop.$cart.$buyer_detail.shipping.shipping_street_address" 
+                                                        <input type="text" 
+                                                         ng-model="$shop.$cart.$buyer_detail.shipping.shipping_street_address" 
+                                                        ng-init="$shop.$cart.$buyer_detail.shipping.shipping_street_address='<?=$shipping_details->shipping_street_address;?>'"
                                                         id="shipping_street_address" class="form__input form__input--2 mb--30" placeholder="House number and street name">
 
-                                                        <input type="text"  ng-model="$shop.$cart.$buyer_detail.shipping.shipping_apartment" id="shipping_apartment" class="form__input form__input--2" placeholder="Apartment, suite, unit etc. (optional)">
+                                                        <input type="text"  
+                                                        ng-model="$shop.$cart.$buyer_detail.shipping.shipping_apartment" 
+                                                        ng-init="$shop.$cart.$buyer_detail.shipping.shipping_apartment='<?=$shipping_details->shipping_apartment;?>'"
+
+                                                        id="shipping_apartment" class="form__input form__input--2" placeholder="Apartment, suite, unit etc. (optional)">
                                                     </div>
                                                 </div>
                                                 <div class="form-row mb--30">
                                                     <div class="form__group col-12">
                                                         <label for="shipping_city" class="form__label form__label--2">Town / City <span class="required">*</span></label>
-                                                        <input type="text" ng-model="$shop.$cart.$buyer_detail.shipping.shipping_city" id="shipping_city" class="form__input form__input--2">
+                                                        <input type="text" 
+                                                        ng-model="$shop.$cart.$buyer_detail.shipping.shipping_city" 
+                                                        ng-init="$shop.$cart.$buyer_detail.shipping.shipping_city='<?=$shipping_details->shipping_city;?>'"
+                                                        id="shipping_city" class="form__input form__input--2">
                                                     </div>
                                                 </div>
                                                 <div class="form-row mb--30">
                                                     <div class="form__group col-12">
                                                         <label for="shipping_state" class="form__label form__label--2">State / County <span class="required">*</span></label>
-                                                        <input type="text"  ng-model="$shop.$cart.$buyer_detail.shipping.shipping_state" id="shipping_state" class="form__input form__input--2">
+                                                        <input type="text"
+                                                          ng-model="$shop.$cart.$buyer_detail.shipping.shipping_state" 
+                                                        ng-init="$shop.$cart.$buyer_detail.shipping.shipping_state='<?=$shipping_details->shipping_state;?>'"
+                                                          id="shipping_state" class="form__input form__input--2">
                                                     </div>
                                                 </div>
                                                 <div class="form-row mb--30">
                                                     <div class="form__group col-12">
                                                         <label for="shipping_phone" class="form__label form__label--2">Phone <span class="required">*</span></label>
-                                                        <input type="text" ng-model="$shop.$cart.$buyer_detail.shipping.shipping_phone"
+                                                        <input type="text" 
+                                                        ng-model="$shop.$cart.$buyer_detail.shipping.shipping_phone"
+                                                        ng-init="$shop.$cart.$buyer_detail.shipping.shipping_phone='<?=$shipping_details->shipping_phone;?>'"
                                                          id="shipping_phone" class="form__input form__input--2">
                                                     </div>
                                                 </div>
                                                 <div class="form-row mb--30">
                                                     <div class="form__group col-12">
                                                         <label for="shipping_email" class="form__label form__label--2">Email Address  <span class="required">*</span></label>
-                                                        <input type="email"  ng-model="$shop.$cart.$buyer_detail.shipping.shipping_email"
+                                                        <input type="email" 
+                                                         ng-model="$shop.$cart.$buyer_detail.shipping.shipping_email"
+                                                        ng-init="$shop.$cart.$buyer_detail.shipping.shipping_email='<?=$shipping_details->shipping_email;?>'"
                                                          id="shipping_email" class="form__input form__input--2">
                                                     </div>
                                                 </div>

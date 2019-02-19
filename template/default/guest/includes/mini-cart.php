@@ -18,7 +18,8 @@
                                     <i class="fa fa-times"></i>
                                 </a>
                                 <div class="mini-cart__product__image">
-                                    <img src="<?=asset;?>/assets/img/products/prod-17-1-70x91.jpg" alt="products">
+                                    <img src="<?=domain;?>/{{$item.images.images[0].main_image}}" 
+                                    style="height: 50px;object-fit: cover;" alt="products">
                                 </div>
                                 <div class="mini-cart__product__content">
                                     <a class="mini-cart__product__title" href="{{$item.url_link}}">{{$item.name}} </a>

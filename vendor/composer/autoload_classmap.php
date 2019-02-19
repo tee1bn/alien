@@ -25,6 +25,8 @@ return array(
     'Token' => $baseDir . '/app/classes/Token.php',
     'Upload' => $baseDir . '/app/classes/Upload.php',
     'User' => $baseDir . '/app/models/User.php',
+    'UserBilling' => $baseDir . '/app/models/UserBilling.php',
+    'UserShipping' => $baseDir . '/app/models/UserShipping.php',
     'Validator' => $baseDir . '/app/classes/Validator.php',
     'app' => $baseDir . '/app/core/app.php',
     'controller' => $baseDir . '/app/core/controller.php',

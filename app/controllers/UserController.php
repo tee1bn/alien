@@ -24,7 +24,35 @@ class UserController extends controller
 
 	public function my_account()
 	{
-		$this->view('guest/auth/my-account');
+		$this->view('guest/auth/dashboard');
+
+	}
+
+	public function dashboard()
+	{
+		$this->view('guest/auth/dashboard');
+
+	}
+
+
+	public function orders()
+	{
+		$this->view('guest/auth/orders');
+
+	}
+
+
+	public function account_details()
+	{
+		$this->view('guest/auth/account_details');
+
+	}
+
+
+
+	public function addresses()
+	{
+		$this->view('guest/auth/addresses');
 
 	}
 

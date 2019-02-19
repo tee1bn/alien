@@ -191,6 +191,8 @@ class ComposerStaticInit81eb7d45cb86396167b941f75b6bed30
         'Token' => __DIR__ . '/../..' . '/app/classes/Token.php',
         'Upload' => __DIR__ . '/../..' . '/app/classes/Upload.php',
         'User' => __DIR__ . '/../..' . '/app/models/User.php',
+        'UserBilling' => __DIR__ . '/../..' . '/app/models/UserBilling.php',
+        'UserShipping' => __DIR__ . '/../..' . '/app/models/UserShipping.php',
         'Validator' => __DIR__ . '/../..' . '/app/classes/Validator.php',
         'app' => __DIR__ . '/../..' . '/app/core/app.php',
         'controller' => __DIR__ . '/../..' . '/app/core/controller.php',

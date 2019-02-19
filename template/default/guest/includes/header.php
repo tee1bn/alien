@@ -79,10 +79,8 @@
     <div class="wrapper">
         <div id="header-mini-cart" ng-controller ="CartNotificationController">
 
+            <?php include 'navigation.php';;?>
 
-
-
-<?php include 'navigation.php';;?>
             <!-- Header Area Start -->
             <header class="header header-fullwidth header-style-1">
                 <div class="header-inner fixed-header">

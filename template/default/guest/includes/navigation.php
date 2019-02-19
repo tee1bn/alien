@@ -1,7 +1,5 @@
 <?php
 
-
-
     $auth_navigation = [
                             [   
                                 'link' => domain."/login", 
@@ -24,10 +22,10 @@
                             ],
 
 
-                            [   
+                        /*    [   
                                 'link' => domain."", 
                                 'nav' => "Wishlist"
-                            ],
+                            ],*/
 
                         ];
 

@@ -135,12 +135,15 @@ class LoginController extends controller
 
 	public function logout($user=''){
 
-		session_destroy();
 		if($user == 'admin'){
 
+			unset($_SESSION[$this->admin_user()]);
 					// Redirect::to('login/adminLogin');
 					$this->adminLogindfghjkioiuy3hj8();
 	
+		}else{
+
+			unset($_SESSION[$this->auth_user()]);
 		}
 
 

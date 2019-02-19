@@ -16,10 +16,38 @@ class Orders extends Eloquent
 								'buyer_order',
 								'billing_details',
 								'shipping_details',
-								'status'
+								'status',
+								'billing_firstname',
+								'billing_lastname',
+								'billing_company',
+								'billing_country',
+								'billing_street_address',
+								'billing_city',
+								'billing_state',
+								'billing_phone',
+								'billing_email',
+								'billing_apartment',
+								
+								'shipping_firstname',
+								'shipping_lastname',
+								'shipping_company',
+								'shipping_country',
+								'shipping_street_address',
+								'shipping_city',
+								'shipping_state',
+								'shipping_phone',
+								'shipping_email',
+								'shipping_apartment',
+
 								];
 	
 	protected $table = 'orders';
+
+
+	public function getdateAttribute()
+	{
+		return date("M d, Y", strtotime($this->created_at)) ;
+	}
 
 
 

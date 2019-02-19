@@ -214,7 +214,9 @@
                                     data-paddingbottom="[0,0,0,0]"
                                     data-paddingleft="[0,0,0,0]"
 
-                                    style="z-index: 12;"><img src="<?=asset;?>/assets/img/slider/home-06/m6-s1-1.png" alt="" data-ww="['408px','408px','294px','204px']" data-hh="['880px','880px','634px','439px']" data-no-retina> </div>
+                                    style="z-index: 12;">
+                                    <!-- <img src="<?=asset;?>/assets/img/slider/home-06/m6-s1-1.png" alt="" data-ww="['408px','408px','294px','204px']" data-hh="['880px','880px','634px','439px']" data-no-retina>  -->
+                                </div>
                             </li>
 
                         <?php $i++;$rs++; endforeach ;?>

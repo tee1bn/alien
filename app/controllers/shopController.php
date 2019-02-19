@@ -10,63 +10,6 @@ class shopController extends controller
 
 	public	$shipping_rate = '1500.00';
 
-	public $billing_detail_rules = [
-
-		   			'billing_firstname'  => [
-		   							'required'=>true,
-		   									] ,
-                    'billing_lastname'  => [
-		   							'required'=>true,
-		   									] ,
-                    'billing_country'  => [
-		   							'required'=>true,
-		   									] , 
-
-                    'billing_street_address'  =>[
-		   							'required'=>true,
-		   									] ,
-                    'billing_city'  => [
-		   							'required'=>true,
-		   									] ,
-                    'billing_state'  => [
-		   							'required'=>true,
-		   									] ,
-                    'billing_phone'  => [
-		   							'required'=>true,
-		   									]  ,
-                    'billing_email'  => [
-		   							'required'=>true,
-		   									] ,
-	];
-
-	public $shipping_detail_rules = [
-
-		   			'shipping_firstname'  => [
-		   							'required'=>true,
-		   									] ,
-                    'shipping_lastname'  => [
-		   							'required'=>true,
-		   									] ,
-                    'shipping_country'  => [
-		   							'required'=>true,
-		   									] , 
-
-                    'shipping_street_address'  =>[
-		   							'required'=>true,
-		   									] ,
-                    'shipping_city'  => [
-		   							'required'=>true,
-		   									] ,
-                    'shipping_state'  => [
-		   							'required'=>true,
-		   									] ,
-                    'shipping_phone'  => [
-		   							'required'=>true,
-		   									]  ,
-                    'shipping_email'  => [
-		   							'required'=>true,
-		   									] ,
-	];
 
 	public function __construct(){
 
@@ -120,18 +63,24 @@ class shopController extends controller
 		$billing_validator	= new Validator;
 		$shipping_validator	= new Validator;
 		
-	$billing_validator->check($cart['$buyer_detail']['billing'], $this->billing_detail_rules);
+	$billing_validator->check($cart['$buyer_detail']['billing'], UserBilling::$billing_detail_rules );
 		$error_notes =  $this->inputErrors();
-	$shipping_validator->check($cart['$buyer_detail']['shipping'], $this->shipping_detail_rules);
+	$shipping_validator->check($cart['$buyer_detail']['shipping'], UserShipping::$shipping_detail_rules );
 		// $error_notes .=  $this->inputErrors();
+
+
 
 	 if($billing_validator->passed() || $shipping_validator->passed() ){
 
 
 		$new_order = Orders::create([
 								'user_id'		=> $this->auth()->id,
-								'buyer_order'		=> json_encode($cart),
+								'buyer_order'		=> json_encode($cart['$items']),
 			]);
+
+		$new_order->update($cart['$buyer_detail']['billing']);
+		$new_order->update($cart['$buyer_detail']['shipping']);
+
 
 			Session::putFlash('success', "Order Created Successfully");
 

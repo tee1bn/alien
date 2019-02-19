@@ -80,7 +80,7 @@
                                     ?>
                                 <li class="social__item">
                                     <a href="<?=$handle['handle'];?>" class="social__link">
-                                    <i class="fa fa-<?=$handle['social_media'];?>"></i>
+                                    <i class="fa fa-<?=$handle['social_media'];?> fa-2x"></i>
                                     </a>
                                 </li>                                            
 
