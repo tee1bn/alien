@@ -230,7 +230,32 @@
 
                             <?php include 'includes/shop.php';?>
 
-
+                                <section class="newsletter-area bg--gray pt--30 pt-md--25 pb--40 pb-md--30">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-md-10">
+                            <div class="newsletter-box text-center">
+                                <h2 class="heading-secondary mb--20">Join Our Newsletter</h2>
+                                <p class="heading-color font-size-16 font-bold lts-2 mb--30">
+                                Subscribe to the HUB Footwear mailing list to receive updates, 
+                            special offers and other HUB news.</p>
+                            <button class="btn btn primary" > BECOME AN ALIEN MEMBER</button>
+                                <!-- <form action="https://company.us19.list-manage.com/subscribe/post?u=2f2631cacbe4767192d339ef2&amp;id=24db23e68a" class="newsletter-form mc-form" method="post" target="_blank">
+                                    <input type="email" name="newsletter_email" id="newsletter_email" placeholder="Enter your email address.." required="required" class="newsletter-form__input">
+                                    <button type="submit" class="newsletter-form__submit">Subscribe</button>
+                                </form> -->
+                                <!-- mailchimp-alerts Start -->
+                                <div class="mailchimp-alerts">
+                                    <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                                    <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+                                    <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                                </div>
+                                <!-- mailchimp-alerts end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
 
                     <!-- Blog area Start Here -->

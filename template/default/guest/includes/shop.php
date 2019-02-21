@@ -1,5 +1,5 @@
         <div ng-controller="ShopController" id="content" class="main-content-wrapper">
-            <?php include 'includes/product_quick_view.php';?>
+            <?php include 'product_quick_view.php';?>
             <div class="shop-page-wrapper">
                 <div class="container-fluid">
                     

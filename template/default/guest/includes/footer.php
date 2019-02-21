@@ -16,7 +16,7 @@
                 <div class="row mb--15 mb-sm--20">
                     <div class="col-xl-2 col-md-4 mb-lg--30">
                         <div class="footer-widget">
-                            <h3 class="widget-title widget-title--2">Company</h3>
+                            <h3 class="widget-title">Company</h3>
                             <ul class="widget-menu widget-menu--2">
                                 <li><a href="<?=domain;?>/">Home</a></li>
                                 <li><a href="<?=domain;?>/about">About Us</a></li>
@@ -27,7 +27,7 @@
                     </div>
                     <div class="col-xl-2 col-md-4 mb-lg--30">
                         <div class="footer-widget">
-                            <h3 class="widget-title widget-title--2">USEFUL LINKS</h3>
+                            <h3 class="widget-title ">USEFUL LINKS</h3>
                             <ul class="widget-menu widget-menu--2">
                                 <li><a href="<?=domain;?>/shop">Shop</a></li>
                                 <li><a href="<?=domain;?>/about">About Us</a></li>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="col-xl-2 col-md-4 mb-lg--30">
                         <div class="footer-widget">
-                           <!--  <h3 class="widget-title widget-title--2">SHOPPING</h3>
+                           <!--  <h3 class="widget-title ">SHOPPING</h3>
                             <ul class="widget-menu widget-menu--2">
                                 <li><a href="shop-instagram.html">Look Book</a></li>
                                 <li><a href="shop-sidebar.html">Shop Sidebar</a></li>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-xl-5 offset-xl-1 col-lg-6 offset-lg-3 col-md-8 offset-md-2">
                         <div class="footer-widget">
-                            <h3 class="widget-title widget-title--2 widget-title--icon">Subscribe now and get latest deals</h3>
+                            <h3 class="widget-title  widget-title--icon">Enter your e-mail address to receive updates, special offers and more.</h3>
                             <form action="" class="newsletter-form newsletter-form--3 mc-form" method="post" target="_blank">
                                 <input type="email" name="newsletter-email" id="newsletter-email" class="newsletter-form__input" placeholder="Enter Your Email Address..">
                                 <button type="button" onclick="add_to_new_letters(document.getElementById('newsletter-email'))"  class="newsletter-form__submit">
@@ -66,6 +66,35 @@
                         </div>
                     </div>
                 </div>
+
+
+
+        <!-- Newsletter Popup Start -->
+<!--         <div class="ai-newsletter-popup" id="subscribe-popup">
+            <div class="ai-newsletter-popup-modal">
+                <a class="custom-close popup-close">
+                    <i class="dl-icon-close"></i>
+                </a>
+                <div class="ai-newsletter-popup-content">
+                    <div class="ai-newsletter-popup-body">
+                        <h5>BECOME PART OF THE ALIEN FAMILY</h5>
+                        <form action="https://company.us19.list-manage.com/subscribe/post?u=2f2631cacbe4767192d339ef2&amp;id=24db23e68a" class="popup-newsletter-form mc-form mb--30" target="_blank">
+                            <input type="email" name="popup-newsletter_email" id="popup-newsletter_email" class="popup-newsletter-form__input" placeholder="Enter Your Email Address ....">
+                            <button type="submit" class="btn btn-small btn-style-1 subscribe-btn">Submit</button>
+                        </form>
+                  
+                        <label for="popup-hide" class="dont-show-popup">
+                            <input type="checkbox" name="popup-hide" id="popup-hide">
+                            Do not show popup anymore
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>  -->
+
+
+
+
                 <div class="row align-items-center pt--10 pb--30">
                     <div class="col-md-4">
                         <!-- Social Icons Start Here -->
