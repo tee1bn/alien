@@ -14,18 +14,18 @@
                                     <div class="row align-items-center">
                                         <div class="col-md-6 text-md-left text-center mb-sm--20">
                                             <div class="shop-toolbar__left">
-                                                <p class="product-pages">Showing 1–{{$shop.$items.length}} of 42 results</p>
+                                                <p class="product-pages">Showing {{$shop.$items.length}} results</p>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="shop-toolbar__right">
                                                 <a href="#" class="product-filter-btn shop-toolbar__btn">
-                                                    <span>Filters</span>
+                                                    <span>Search</span>
                                                     <i></i>
                                                 </a>
-                                                <div class="product-ordering">
+<!--                                                 <div class="product-ordering">
                                                     <a href="#" class="product-ordering__btn shop-toolbar__btn">
-                                                        <span>Short By</span>
+                                                        <span>Sort By</span>
                                                         <i></i>
                                                     </a>
                                                     <ul class="product-ordering__list">
@@ -36,19 +36,20 @@
                                                         <li><a href="#">Sort by price: high to low</a></li>
                                                     </ul>
                                                 </div>
-                                            </div>
+ -->                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="advanced-product-filters">
                                     <div class="product-filter">
                                         <div class="row">
-                                            <div class="col-md-3">
+                                            <input type="" id="searchText" class="form__input form__input--2" ng-model="searchText" placeholder="Search Shop">
+<!--                                             <div class="col-md-3">
                                                 <div class="product-widget product-widget--price">
                                                     <h3 class="widget-title">Price</h3>
                                                     <ul class="product-widget__list">
                                                         <li>
-                                                            <a href="shop-sidebar.html">
+                                                            <a href="javascript:void;">
                                                                 <span class="ammount">$20.00</span>
                                                                 <span> - </span>
                                                                 <span class="ammount">$40.00</span>
@@ -182,7 +183,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                        </div>
+ -->                                        </div>
                                         <a href="#" class="btn-close"><i class="dl-icon-close"></i></a>
                                     </div>
                                 </div>

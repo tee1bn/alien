@@ -56,6 +56,8 @@
     </script>
     <script src="<?=asset;?>/assets/angulars/shop.js"></script>
 
+        <!-- mail chimp -->
+        <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/41c69bef7fcecb0a1f093b73e/9077ec3c24a280e954265673a.js");</script>
 </head>
 
 <body>

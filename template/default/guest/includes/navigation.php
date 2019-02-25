@@ -47,7 +47,13 @@
                                 'nav' => "About Us",
                                 'active' => "about"
                             ],
-
+/*
+                            [   
+                                'link' => domain."/gallery", 
+                                'nav' => "Gallery",
+                                'active' => "gallery"
+                            ],
+*/
                             [   
                                 'link' => domain."/contact", 
                                 'nav' => "Contact Us",

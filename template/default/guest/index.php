@@ -229,6 +229,28 @@
 
 
                             <?php include 'includes/shop.php';?>
+                            <section class="top-collection-area ptb--80 pt-md--55 pb-md--60">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="text-block">
+                                <h2 class="heading-secondary mb--40 mb-md--20">Top Collections</h2>
+                                <p class="font-2 heading-color font-size-16 mb--40 mb-md--25">Integer ut ligula quis lectus fringilla elementum porttitor sed est. Duis fringilla efficitur ligula sed lobortis. Sed tempus faucibus mi, quis fringilla mauris lacinia sed.</p>
+                                <a href="<?=domain;?>/shop" class="heading-button mb-sm--30">Shop Now</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <figure class="image-box image-box-w-video-btn">
+                                <a  class="video-popup">
+                                    <img src="<?=asset;?>/assets/img/banner/m01-img1.jpg" alt="banner">
+                                    <!-- <span class="video-btn"></span> -->
+                                    <a href="instagram/dotun" class="btn btn-default" style="position: absolute;right: 50%;top: 75%;" >FOLLOW US</a>
+                                </a>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
                                 <section class="newsletter-area bg--gray pt--30 pt-md--25 pb--40 pb-md--30">
                 <div class="container">
