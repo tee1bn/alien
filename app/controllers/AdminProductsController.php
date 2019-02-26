@@ -144,6 +144,7 @@ class AdminProductsController extends controller
 		 		$product = Products::create([
 		 		'name' => Input::get('name'),
 		 		'description' => Input::get('description'),
+		 		'old_price' => Input::get('old_price'),
 		 		'price' => Input::get('price'),
 		 		'category_id' => Input::get('category'),
 				'front_image'=> json_encode($product_images)

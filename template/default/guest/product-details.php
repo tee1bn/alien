@@ -150,7 +150,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <span class="product-badge new"><?=$product->ribbon;?></span>
+                                    <?php if ($product->old_price > $product->price ):?>
+                                     <span class="product-badge new" >-<?=$product->percentdiscount;?>%</span>  
+                                    <?php endif;?>
                             </div>
                         </div>
                         <div class="col-md-6 product-main-details mt--40 mt-md--10 mt-sm--30">
@@ -377,13 +379,20 @@
                                                 <figure class="product-image">
                                                     <div class="product-image--holder">
                                                         <a href="<?=$related_product->url_link();?>">
+                                                        <style>
+                                                            .product-imagess{
+                                                                width: 300px !important;
+                                                                height: 398px !important;
+                                                                object-fit:cover !important ;
+                                                            }
+                                                        </style>
 
                                                             <img src="<?=domain;?>/<?=$related_product->mainimage['main_image'];?>" 
-                                                            alt="Product Image" class="primary-image">
+                                                            alt="Product Image" class="product-imagess primary-image">
 
 
                                                             <img src="<?=domain;?>/<?=$related_product->secondaryimage['main_image'];?>" 
-                                                            alt="Product Image" class="secondary-image">
+                                                            alt="Product Image" class="product-imagess secondary-image">
                                                         </a>
                                                     </div>
                                                     <div class="airi-product-action">
@@ -403,7 +412,9 @@
                                                           
                                                         </div>
                                                     </div>
-                                                    <span class="product-badge sale"><?=$related_product->ribbon;?></span>
+                                                        <?php if ($related_product->old_price > $related_product->price ):?>
+                                                         <span class="product-badge new" >-<?=$related_product->percentdiscount;?>%</span>  
+                                                        <?php endif;?>
                                                 </figure>
                                                 <div class="product-info text-center">
                                                     <h3 class="product-title">

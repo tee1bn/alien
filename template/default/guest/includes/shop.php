@@ -197,10 +197,18 @@
                                             <div class="product-inner">
                                                 <figure class="product-image">
                                                     <div class="product-image--holder">
+                                                        <style>
+                                                            .product-imagess{
+                                                                width: 307px !important;
+                                                                height: 398px !important;
+                                                                object-fit:cover !important ;
+                                                            }
+                                                        </style>
                                                         <a href="{{$item.url_link}}">
-                                                            <img src="<?=domain;?>/{{$item.images.images[0].main_image}}" alt="Product Image" class="primary-image">
-                                                            <img  ng-hide="$item.images.images[0].main_image==''" 
-                                                            src="<?=domain;?>/{{$item.images.images[0].main_image}}" alt="Product Image" class="secondary-image">
+                                                            <img  src="<?=domain;?>/{{$item.images.images[0].main_image}}" alt="Product Image" class="product-imagess primary-image">
+                                                            
+                                                            <img   ng-hide="$item.secondaryimage.main_image==''" 
+                                                            src="<?=domain;?>/{{$item.secondaryimage.main_image}}" alt="Product Image" class="product-imagess secondary-image">
                                                         </a>
                                                     </div>
                                                     <div class="airi-product-action">
@@ -220,7 +228,7 @@
  -->
                                                         </div>
                                                     </div>
-                                                    <span class="product-badge new" ng-if="$item.ribbon">{{$item.ribbon}}</span>    
+                                                    <span class="product-badge new" ng-if="$item.old_price">-{{$item.percentdiscount}}%</span>    
                                                 </figure>
                                                 <div class="product-info text-center">
                                                     <h3 class="product-title">

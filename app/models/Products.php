@@ -20,6 +20,14 @@ class Products extends Eloquent
 	protected $table = 'products';
 
 
+	public function getpercentdiscountAttribute()
+	{
+		if (($this->old_price==null) ||($this->old_price <= $this->price) ) {
+			return 0;
+				}		
+
+		return  (int) (($this->old_price - $this->price) * (100 / $this->old_price));
+	}
 
 
 	public function update_product($inputs, $files)
@@ -218,7 +226,7 @@ class Products extends Eloquent
 
 	public function getsecondaryimageAttribute()
 	{
-		if ($this->images['images'][1] !=null) {
+		if (($this->images['images'][1] !=null ) && ( file_exists($this->images['images'][1]['main_image']))) {
 			return $this->images['images'][1];
 		}
 			return $this->mainimage;
@@ -226,13 +234,15 @@ class Products extends Eloquent
 
 
 
+
+/*
 	public function getoldpriceAttribute()
 	{	
 		if ($this->old_price != '') {
 			return  Config::currency().' '.number_format($this->old_price,2);		
 		}
 	}
-
+*/
 
 
 

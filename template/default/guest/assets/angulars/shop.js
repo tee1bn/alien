@@ -259,10 +259,10 @@
 	              	$this.$items_page++;
 	              	$this.retrieve_cart_in_session();
 	              	$this.update_angular_scope();
-				/*
+				
 		              console.log(data);
 		              console.log($this);
-				*/					
+									
 			
 	            },
 	            error: function (data) {

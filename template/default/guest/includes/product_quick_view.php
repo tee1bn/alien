@@ -24,7 +24,8 @@
                                         <img src="<?=domain;?>/{{$shop.$quickview.images.images[0].main_image}}" alt="Product Image" class="primary-image" style="height: 600px;width: 100%;">
                                     </a>
                                 </div>
-                                <span class="product-badge sale" ng-if="$shop.$quickview.ribbon">{{$shop.$quickview.ribbon}}</span>
+                                <!-- <span class="product-badge sale" ng-if="$shop.$quickview.ribbon">{{$shop.$quickview.ribbon}}</span> -->
+                                 <span class="product-badge new" ng-if="$shop.$quickview.old_price">-{{$shop.$quickview.percentdiscount}}%</span>  
                             </div>
                       
                         </div>

@@ -48,9 +48,12 @@
                   </div>
 
                 <div class="form-group">
-                   <input type="" name="price" class="form-control" required="required" value="<?=Input::old('price');?>" placeholder="Item price">
+                   <input type="" name="price" class="form-control" required="required" value="<?=Input::old('price');?>" placeholder="Item current price">
                  </div>
 
+              <div class="form-group">
+                   <input type="" name="old_price" class="form-control" required="required" value="<?=Input::old('old_price');?>" placeholder="Item Old Price i.e regular price">
+                 </div>
                 <div class="form-group">
                   <select name="category" class="form-control" required="required">
                     <option value="">select category</option>
@@ -67,7 +70,7 @@
                   </div>
 
                      <div class="form-group">
-                       <textarea class="form-control" name="description"  id="editor22" required="required"  placeholder="Item description"><?=Input::old('description');?></textarea>
+                       <textarea class="form-control" name="description"  id="" required="required"  placeholder="Item description"><?=Input::old('description');?></textarea>
                       </div>
 
                   <div class="form-group">

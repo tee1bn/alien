@@ -249,6 +249,8 @@ class shopController extends controller
 			$course->url_link = $course->url_link();
 			$course->images = $course->images;
 			$course->mainimage = $course->mainimage;
+			$course->secondaryimage = $course->secondaryimage;
+			$course->percentdiscount = $course->percentdiscount;
 			$course->quickdescription = $course->quickdescription();
 		}
 
