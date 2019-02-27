@@ -86,7 +86,7 @@
         .delete_img{
             position: absolute;
             top: 0px;
-            right: 0px;
+            right: 16px;
             background: #f5f5f5c7;
         }
     </style>
@@ -112,15 +112,15 @@
 
             <div class="shop-page-wrapper">
                 <div class="container-fluid p-0">
-                    <div class="row no-gutters">
-                        <div ng-repeat="($index, $content) in $page_cms"  class="col-md-4">
+                    <div class="row ">
+                        <div style="height:376px;" ng-repeat="($index, $content) in $page_cms"  class="col-md-4">
                             <div  class="banner-box banner-type-3 banner-type-3-1 banner-hove">
-                                <div class="banner-inner">
+                                <div class="banner-inner" style="width: 460px;">
                                     <div class="banner-image">
-                                        <img  ng-click="open_previewer($page_cms, $index)" style="height: 358px;width: 451px; object-fit: cover;" src="<?=domain;?>/{{$content.path}}" alt="Banner">
+                                        <img  ng-click="open_previewer($page_cms, $index)" style="height: 376px;width: 460px; object-fit: cover;" src="<?=domain;?>/{{$content.path}}" alt="Banner">
                                     </div>
                                     <div class="banner-inf">
-                                        <p style="position: absolute;    bottom: 30px;    right: 16px;" class="banner-title-1 lts-13 lts-lg-4 text-uppercase" 
+                                        <p style="position: absolute;    bottom: 30px;    right: 77px;" class="banner-title-1 lts-13 lts-lg-4 text-uppercase" 
                                          <?=$this->allow_contenteditable('$content.image_label');?>>
                                      </p>
                                     <!-- 

@@ -208,10 +208,9 @@ echo" <pre>";
 		// echo "<pre>";
 		//to remove any haskey set bu angularjs
 		foreach ($content_array as $key => $value) {
-
-			unset($content_array[$key]['$$hashKey']);
-
-
+			if (isset($content_array[$key]['$$hashKey'])) {
+				unset($content_array[$key]['$$hashKey']);
+			}
 		}
 
 		print_r(json_encode($content_array));

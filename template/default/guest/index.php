@@ -253,7 +253,11 @@
                                                 <a  class="video-popup">
                                                     <img style="height: 570px; width: 560px; object-fit: cover;" src="<?=domain;?>/{{$page_cms[0].image}}" alt="banner">
                                                     <!-- <span class="video-btn"></span> -->
-                                                    <a href="instagram/dotun" class="btn btn-default" style="position: absolute;right: 50%;top: 75%;" >FOLLOW US</a>
+
+                                <input class="--oga form__input" ng-model="$page_cms[0].btn_link" placeholder="google-map code url">
+                                                    <a href="{{$page_cms[0].btn_link}}" class="btn btn-default" style="position: absolute;right: 50%;top: 75%;" <?=$this->allow_contenteditable('$page_cms[0].btn_text');?>>
+                                                        
+                                                    </a>
                                                 </a>
                                             </figure>
                                         </div>

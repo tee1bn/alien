@@ -130,6 +130,9 @@ $(document).ready(function(){
                                     <a href="mailto://{{$page_cms.email}}"
                                      <?=$this->allow_contenteditable('$page_cms.email');?>></a>
                                 </div>
+
+
+
                             </div>
                             <!-- Contact info widget end here -->
                             <!-- Social Icons Start Here -->
@@ -154,11 +157,21 @@ $(document).ready(function(){
                         </div>
                     </div>
                 </div>
+
+                <?php
+                        $page_content =  json_decode(CmsPages::where('page_unique_name',  'contact_page')->first()->page_content, true);
+
+
+                ;?>
+
                 <div class="container-fluid p-0">
                     <div class="row no-gutters">
                         <div class="col-12">
                             <div id="google-map" style="width: 87%;margin: auto;overflow: hidden;height: 325px;" >
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d63433.66725739805!2d3.307590163478357!3d6.444836881711777!3m2!1i1024!2i768!4f13.1!2m1!1sshoprite+nigeria!5e0!3m2!1sen!2sng!4v1550211567328" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                <input class="--oga form__input" ng-model="$page_cms.google_map_embed_url" placeholder="google-map code url">
+
+                                <iframe src="<?=$page_content['google_map_embed_url'];?>" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d63433.66725739805!2d3.307590163478357!3d6.444836881711777!3m2!1i1024!2i768!4f13.1!2m1!1sshoprite+nigeria!5e0!3m2!1sen!2sng!4v1550211567328" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
                             </div>
                         </div>
                     </div>

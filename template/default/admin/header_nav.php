@@ -45,14 +45,14 @@
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="<?=domain;?>/admin-profile"> Profile</a></li>
-                    <li>
+                   <!--  <li>
                       <a href="<?=domain;?>/admin-settings">
                         <span class="badge bg-red pull-right">50%</span>
                         <span>Settings</span>
                       </a>
                     </li>
-                    <li><a href="javascript:;">Help</a></li>
-                    <li><a href="<?php echo domain ;?>/login/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="javascript:;">Help</a></li> -->
+                    <li><a href="<?php echo domain ;?>/login/logout/admin"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
 
