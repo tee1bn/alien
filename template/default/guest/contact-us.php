@@ -46,6 +46,7 @@ $(document).ready(function(){
 
         <!-- Breadcrumb area Start -->
 
+
         <div class="breadcrumb-area bg--white-6 pt--60 pb--70 pt-lg--40 pb-lg--50 pt-md--30 pb-md--40">
             <div class="container-fluid">
                 <div class="row">
@@ -65,6 +66,7 @@ $(document).ready(function(){
         <!-- Main Content Wrapper Start -->
         <span ng-controller="ShopController" ></span>
         <div id="content" ng-controller="ContactPageController"  class="main-content-wrapper">
+        <button class="btn btn-primary pull-right --oga"  ng-click='update_page_cms()'>Save<?=$this->add_ajax_is_loading_spinner();?></button>
             <div class="page-content-inner">
                 <div class="container">
                     <div class="row pt--75 pt-md--50 pt-sm--30 pb--80 pb-md--60 pb-sm--35">

@@ -42,6 +42,21 @@
     <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style>
+            
+
+        <?php if ($this->admin()):?>
+            .--oga{
+                display: block;
+            }
+        <?php else:?>
+            .--oga{
+                display: none;
+            }
+
+        <?php endif;?>
+
+    </style>
 
     <!-- jQuery JS -->
     <script src="<?=asset;?>/assets/js/vendor/jquery.min.js"></script>
@@ -85,7 +100,7 @@
 
             <!-- Header Area Start -->
             <header class="header header-fullwidth header-style-1">
-                <div class="header-inner fixed-header">
+                <div class="header-inner fixed-header" style="padding: 0px; background:;">
                     <div class="container-fluid">
                         <div class="row align-items-center">
                             <div class="col-xl-5 col-lg-6">
@@ -110,16 +125,18 @@
                             </div>
                             <div class="col-lg-2 col-md-3 col-4 text-lg-center">
                                 <!-- Logo Start Here -->
-                                <a href="<?=domain;?>" class="logo-box">
+                                <a href="<?=domain;?>" class="logo-box" style="height: 100px;" >
                                    
                                     <figure class="logo--normal"> 
                                         <!-- <img src="<?=asset;?>/assets/img/logo/logo.svg" alt="Logo"/>    -->
+                                        <img src="<?=asset;?>/assets/img/logo/logo-a.png" alt="Logo" style="height: 130px;">  
+
                                     </figure>
                                     <figure class="logo--transparency">
-                                        <!-- <img src="<?=asset;?>/assets/img/logo/logo-white.png" alt="Logo"/>   -->
+                                        <img src="<?=asset;?>/assets/img/logo/logo-a.png" alt="Logo"/>  
                                     </figure>
                                     <h2>
-                                        <?=project_name;?>
+                                        <!-- <?=project_name;?> -->
                                     </h2>
 
                                 </a>

@@ -55,6 +55,11 @@
                  </div>
 
                 <div class="form-group">
+                 Regular Price:
+                   <input type="" name="old_price" class="form-control" required="required" value="<?=$item->old_price;?>" placeholder="Item old/regular price">
+                 </div>
+
+                <div class="form-group">
                   Category:
                   <select name="category" class="form-control" required="required">
                     <option value="">select category</option>

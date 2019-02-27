@@ -229,56 +229,66 @@
 
 
                             <?php include 'includes/shop.php';?>
+
+            <script src="<?=asset;?>/assets/angulars/cms_home_page.js"></script>
+                        <div ng-controller="HomePageController">
+                            <button class="btn btn-primary pull-right --oga"  ng-click='update_page_cms()'>Save<?=$this->add_ajax_is_loading_spinner();?></button>
                             <section class="top-collection-area ptb--80 pt-md--55 pb-md--60">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <div class="text-block">
-                                <h2 class="heading-secondary mb--40 mb-md--20">Top Collections</h2>
-                                <p class="font-2 heading-color font-size-16 mb--40 mb-md--25">Integer ut ligula quis lectus fringilla elementum porttitor sed est. Duis fringilla efficitur ligula sed lobortis. Sed tempus faucibus mi, quis fringilla mauris lacinia sed.</p>
-                                <a href="<?=domain;?>/shop" class="heading-button mb-sm--30">Shop Now</a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <figure class="image-box image-box-w-video-btn">
-                                <a  class="video-popup">
-                                    <img src="<?=asset;?>/assets/img/banner/m01-img1.jpg" alt="banner">
-                                    <!-- <span class="video-btn"></span> -->
-                                    <a href="instagram/dotun" class="btn btn-default" style="position: absolute;right: 50%;top: 75%;" >FOLLOW US</a>
-                                </a>
-                            </figure>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-                                <section class="newsletter-area bg--gray pt--30 pt-md--25 pb--40 pb-md--30">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8 col-md-10">
-                            <div class="newsletter-box text-center">
-                                <h2 class="heading-secondary mb--20">Join Our Newsletter</h2>
-                                <p class="heading-color font-size-16 font-bold lts-2 mb--30">
-                                Subscribe to the HUB Footwear mailing list to receive updates, 
-                            special offers and other HUB news.</p>
-                            <button class="btn btn primary" > BECOME AN ALIEN MEMBER</button>
-                                <!-- <form action="https://company.us19.list-manage.com/subscribe/post?u=2f2631cacbe4767192d339ef2&amp;id=24db23e68a" class="newsletter-form mc-form" method="post" target="_blank">
-                                    <input type="email" name="newsletter_email" id="newsletter_email" placeholder="Enter your email address.." required="required" class="newsletter-form__input">
-                                    <button type="submit" class="newsletter-form__submit">Subscribe</button>
-                                </form> -->
-                                <!-- mailchimp-alerts Start -->
-                                <div class="mailchimp-alerts">
-                                    <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
-                                    <div class="mailchimp-success"></div><!-- mailchimp-success end -->
-                                    <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                        <input type="file" id="file_upload_input1" style="display: none;"  onchange="angular.element(this).scope().acknowledge_file_attachment(this, 'upload_files_for_home');" name="ceo">
+                                <div class="container">
+                    
+                    <button onclick="document.getElementById('file_upload_input1').click()" class="btn btn-primary --oga pull-right">Change Image
+                    (570x560 px )</button>
+                                    <div class="row align-items-center">
+                                        <div class="col-md-6">
+                                            <div class="text-block">
+                                                <h2 class="heading-secondary mb--40 mb-md--20" <?=$this->allow_contenteditable('$page_cms[0].name');?>>></h2>
+                                                <p class="font-2 heading-color font-size-16 mb--40 mb-md--25" <?=$this->allow_contenteditable('$page_cms[0].textcontent');?>>></p>
+                                                <!-- <a href="<?=domain;?>/shop" class="heading-button mb-sm--30">Shop Now</a> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <figure class="image-box image-box-w-video-btn">
+                                                <a  class="video-popup">
+                                                    <img style="height: 570px; width: 560px; object-fit: cover;" src="<?=domain;?>/{{$page_cms[0].image}}" alt="banner">
+                                                    <!-- <span class="video-btn"></span> -->
+                                                    <a href="instagram/dotun" class="btn btn-default" style="position: absolute;right: 50%;top: 75%;" >FOLLOW US</a>
+                                                </a>
+                                            </figure>
+                                        </div>
+                                    </div>
                                 </div>
-                                <!-- mailchimp-alerts end -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                            </section>
 
+                            <section class="newsletter-area bg--gray pt--30 pt-md--25 pb--40 pb-md--30">
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-8 col-md-10">
+                                            <div class="newsletter-box text-center">
+                                                <h2 class="heading-secondary mb--20" <?=$this->allow_contenteditable('$page_cms[1].name');?>> </h2>
+                                                <p class="heading-color font-size-16 font-bold lts-2 mb--30"
+                                                <?=$this->allow_contenteditable('$page_cms[1].textcontent');?>> 
+                                            </p>
+                                            <button class="btn btn primary" > BECOME AN ALIEN MEMBER</button>
+                                                <!-- <form action="https://company.us19.list-manage.com/subscribe/post?u=2f2631cacbe4767192d339ef2&amp;id=24db23e68a" class="newsletter-form mc-form" method="post" target="_blank">
+                                                    <input type="email" name="newsletter_email" id="newsletter_email" placeholder="Enter your email address.." required="required" class="newsletter-form__input">
+                                                    <button type="submit" class="newsletter-form__submit">Subscribe</button>
+                                                </form> -->
+                                                <!-- mailchimp-alerts Start -->
+                                                <div class="mailchimp-alerts">
+                                                    <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                                                    <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+                                                    <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                                                </div>
+                                                <!-- mailchimp-alerts end -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                        </div>
 
                     <!-- Blog area Start Here -->
             <div class="blog-area ptb--80 ptb-sm--60">

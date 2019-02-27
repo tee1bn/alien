@@ -15,6 +15,80 @@ class CmsApiController extends controller
 
 
 
+	public function upload_files_for_home()
+	{
+
+		// print_r($_FILES);
+
+		$directory = 'uploads/images/icons';
+		$min_width = 400;
+		$min_height = 400;
+
+			$handle = new Upload($_FILES['files0']);
+			$handle->file_safe_name = true;
+			$handle->Process($directory);
+
+			$path =   $directory.'/'.$handle->file_dst_name ;		
+		
+
+		$galley_cms 		=  CmsPages::where('page_unique_name',  'home_page')->first();
+		$existing_content  	= json_decode($galley_cms->page_content, true);
+		$old_file  = new Upload($existing_content[0]['image']);
+
+		$existing_content[0]['image'] = $path ;
+
+
+		$old_file->clean();
+		echo" <pre>";
+		// print_r($existing_content);
+
+
+		$new_update = json_encode($existing_content);
+		// print_r($new_update);
+
+		CmsPages::where('page_unique_name',  'home_page')->first()
+				->update(['page_content' => $new_update]);
+	}
+
+	
+	public function upload_files_for_about_us()
+	{
+
+		// print_r($_FILES);
+
+		$directory = 'uploads/images/icons';
+		$min_width = 400;
+		$min_height = 400;
+
+			$handle = new Upload($_FILES['files0']);
+			$handle->file_safe_name = true;
+			$handle->Process($directory);
+
+			$path =   $directory.'/'.$handle->file_dst_name ;		
+		
+
+		$galley_cms 		=  CmsPages::where('page_unique_name',  'about_page')->first();
+		$existing_content  	= json_decode($galley_cms->page_content, true);
+		$old_file  = new Upload($existing_content[0]['image']);
+
+		$existing_content[0]['image'] = $path ;
+
+
+		$old_file->clean();
+		echo" <pre>";
+		// print_r($existing_content);
+
+
+		$new_update = json_encode($existing_content);
+		// print_r($new_update);
+
+		CmsPages::where('page_unique_name',  'about_page')->first()
+				->update(['page_content' => $new_update]);
+	}
+
+
+
+
 	public function upload_files_for_ceo()
 	{
 
@@ -56,7 +130,7 @@ echo" <pre>";
 	{
 
 
-echo "in here";
+		echo "in here";
 		// print_r($_POST);
 		// print_r($_FILES);
 		$directory = 'uploads/cms/gallery';
@@ -83,7 +157,12 @@ echo "in here";
 /*
 		print_r($new_records);	
 		print_r($existing_content);*/
-			foreach ($new_records as $new_record) {
+
+			foreach ($existing_content as $key => $new_record) {
+				// unset($existing_content[$key]['$$hashKeyy']);
+			}
+			foreach ($new_records as $key => $new_record) {
+				// unset($new_records[$key]['$$hashKeyy']);
 				 array_unshift($existing_content, $new_record);
 			}
 
@@ -99,11 +178,12 @@ echo "in here";
 	public function update_page_cms($page_unique_name)
 	{
 
-print_r($_POST['content']);
+		print_r($_POST['content']);
 
 
 		$page_content = CmsPages::where('page_unique_name',  $page_unique_name)->first();
 		$page_content->update(['page_content'=> (Input::get('content'))]);
+		Session::putFlash('success','Updated Successfully');
 	}
 
 
@@ -129,7 +209,7 @@ print_r($_POST['content']);
 		//to remove any haskey set bu angularjs
 		foreach ($content_array as $key => $value) {
 
-			// unset($content_array[$key]['$$hashKey']);
+			unset($content_array[$key]['$$hashKey']);
 
 
 		}

@@ -29,6 +29,7 @@
         <!-- Main Content Wrapper Start -->
         <span  ng-controller="ShopController" ></span>
         <div id="content" ng-controller="AboutPageController" class="main-content-wrapper">
+        <button class="btn btn-primary pull-right --oga"  ng-click='update_page_cms()'>Save<?=$this->add_ajax_is_loading_spinner();?></button>
         <style type="text/css">
             .about-bg-1{
                     background: url(<?=domain;?>/{{$page_cms[0].image}}) no-repeat scroll ;
@@ -48,6 +49,12 @@
                     <div class="row pt--80 pt-md--60 pt-sm--40">
                         <div class="col-12">
                             <div class="about-text about-bg-1">
+
+                    <button onclick="document.getElementById('file_upload_input1').click()" class="btn btn-primary --oga">Change
+                    (800x800 px )</button>
+
+                        <input type="file" id="file_upload_input1" style="display: none;"  onchange="angular.element(this).scope().acknowledge_file_attachment(this, 'upload_files_for_about_us');" name="ceo">
+
                                 <div class="row">
                                     <div class="col-xl-5 offset-xl-7 col-md-6 offset-md-6 pt--90 pt-md--80 pb--100 pl-sm--35">
                                        <!--  <figure class="mb--40 mb-md--30 max-w-45">
@@ -65,8 +72,8 @@
                     <div class="row pt--80 pt-md--60 pt-sm--35 pb--40 pb-md--30 pb-sm--15">
                         <div class="col-lg-7 col-md-6 mb-sm--30">
                             <div class="about-text">
-                                <h3 class="heading-tertiary heading-color mb--15"   <?=$this->allow_contenteditable('$page_cms[1].name');?>></h3>
-                                <p class="color--light-3 mb--25 mb-md--20" <?=$this->allow_contenteditable('$page_cms[1].textcontent');?>></p>
+                                <h3 class="heading-tertiary heading-color mb--15"   <?=$this->allow_contenteditable('$page_cms[2].name');?>></h3>
+                                <p class="color--light-3 mb--25 mb-md--20" <?=$this->allow_contenteditable('$page_cms[2].textcontent');?>></p>
                             <!--     <figure>
                                     <img src="<?=asset;?>/assets/img/about/about-signature.png" alt="signature">
                                 </figure> -->
@@ -74,7 +81,12 @@
                         </div>
                         <div class="col-lg-5 col-md-6">
                             <figure>
-                                <img src="<?=domain;?>/{{$page_cms[1].image}}" alt="about">
+                                <img style="height: 460px; width: 450px !important; object-fit: cover;" src="<?=domain;?>/{{$page_cms[2].image}}" alt="about">
+
+                    <button onclick="document.getElementById('file_upload_input').click()" class="btn btn-primary --oga">Change</button>
+
+                        <input type="file" id="file_upload_input" style="display: none;"  onchange="angular.element(this).scope().acknowledge_file_attachment(this, 'upload_files_for_ceo');" name="ceo">
+
                             </figure>
                         </div>
                     </div>

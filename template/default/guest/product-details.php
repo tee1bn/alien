@@ -181,7 +181,7 @@
                                     <span class="money"> <?=$currency;?> <?=$this->money_format($product->price);?></span>
 
                                     <span class="old-price">
-                                     <span class="money">  <?=($product->oldprice);?></span>
+                                     <span class="money">  <?=($product->regularprice);?></span>
                                     </span>
                                 </div>
                                 <div class="clearfix"></div>

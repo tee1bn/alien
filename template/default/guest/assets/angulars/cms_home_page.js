@@ -1,7 +1,7 @@
 
 
 
-app.controller('AboutPageController', function($scope, $http) {
+app.controller('HomePageController', function($scope, $http) {
 
 	$scope.here = 'okkkk';
 	$scope.$page_cms = [];
@@ -54,7 +54,7 @@ app.controller('AboutPageController', function($scope, $http) {
 
     $.ajax({
             type: "POST",
-            url: $base_url+"/cms_api/update_page_cms/about_page",
+            url: $base_url+"/cms_api/update_page_cms/home_page",
            cache: false,
             contentType: false,
             processData: false,
@@ -77,7 +77,7 @@ app.controller('AboutPageController', function($scope, $http) {
 
 	$scope.fetch_page_content = function () {
 
-			$http.get($base_url+'/cms_api/fetch_page_content/about_page')
+			$http.get($base_url+'/cms_api/fetch_page_content/home_page')
 			    .then(function(response) {
 
 				    $scope.$page_cms = response.data;

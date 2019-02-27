@@ -66,7 +66,7 @@ class Products extends Eloquent
 									'category' 	=> $inputs['category_id'],
 									'description' => $inputs['description'],
 									'ribbon' => $inputs['ribbon'],
-									'old_price' => $inputs['regular_price'],
+									'old_price' => $inputs['old_price'],
 					 				]);
 			 			$this->update_product_images($files, $inputs['images_to_be_deleted']);
 
@@ -235,14 +235,14 @@ class Products extends Eloquent
 
 
 
-/*
-	public function getoldpriceAttribute()
+
+	public function getregularpriceAttribute()
 	{	
 		if ($this->old_price != '') {
 			return  Config::currency().' '.number_format($this->old_price,2);		
 		}
 	}
-*/
+
 
 
 

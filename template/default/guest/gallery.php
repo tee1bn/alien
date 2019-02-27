@@ -104,17 +104,23 @@
 
         <!-- Main Content Wrapper Start -->
         <div id="content" ng-controller="GalleryPageController"   class="main-content-wrapper">
+            <button class="btn btn-primary pull-right --oga"  ng-click='update_page_cms()'>Save</button>
+
+            <button class="btn btn-primary --oga" onclick="document.getElementById('file_upload_input').click();">Add Images</button>
+
+        <input multiple="" type="file" style="display: none;" id="file_upload_input" onchange="angular.element(this).scope().acknowledge_file_attachment();" name="">
+
             <div class="shop-page-wrapper">
                 <div class="container-fluid p-0">
                     <div class="row no-gutters">
                         <div ng-repeat="($index, $content) in $page_cms"  class="col-md-4">
-                            <div class="banner-box banner-type-3 banner-type-3-1 banner-hover-1">
+                            <div  class="banner-box banner-type-3 banner-type-3-1 banner-hove">
                                 <div class="banner-inner">
                                     <div class="banner-image">
-                                        <img style="height: 358px;width: 446px;" src="<?=domain;?>/{{$content.path}}" alt="Banner">
+                                        <img  ng-click="open_previewer($page_cms, $index)" style="height: 358px;width: 451px; object-fit: cover;" src="<?=domain;?>/{{$content.path}}" alt="Banner">
                                     </div>
-                                    <div class="banner-info">
-                                        <p class="banner-title-1 lts-13 lts-lg-4 text-uppercase" 
+                                    <div class="banner-inf">
+                                        <p style="position: absolute;    bottom: 30px;    right: 16px;" class="banner-title-1 lts-13 lts-lg-4 text-uppercase" 
                                          <?=$this->allow_contenteditable('$content.image_label');?>>
                                      </p>
                                     <!-- 
@@ -123,14 +129,81 @@
                                         </h2>
                                      -->
                                     </div>
-                                    <a class="banner-link banner-overlay">Shop Now</a>
+                                    <a style="position: relative;z-index: -9999999999999;" class=" banner-link banner-overlay">Shop Now</a>
+                                <i class="fa fa-close fa-3x delete_img --oga" ng-click="delete_image($index)"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                        <button type="button" class="close " id="modal-closer" data-dismiss="modal">&times;</button>
+                        <i class="fa fa-chevron-left img-nexter-left  img-nexter fa-3x" ng-click="$file_previewer.back()"></i>
+                        <i class="fa fa-chevron-right img-nexter-right img-nexter  fa-3x" ng-click="$file_previewer.next()"></i>
+                  <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content gallery-modal-body">
+                      <div class="modal-body" style="    padding: 20% 0;">
+                            <p>
+                            <img src="<?=domain;?>/{{$file_previewer.$current_file.path}}" class="gallery-img-modal">
+                                {{$file_previewer.$current_file.image_label}}
+                            </p>
+
+                      </div>
+                     
+                    </div>
+
+                  </div>
+                </div>
+                <style>
+                        #myModal{
+                        z-index: 999999;
+                       background-color: rgb(0, 0, 0, 0.9) !important;
+                        }
+                        .gallery-modal-body{
+
+                            background: none ;
+                            text-align: center;
+                        }
+
+                        #modal-closer {
+                            background: white;
+                            padding: 10px;
+                            border-radius: 172px;
+                        }
+
+
+
+                        .img-nexter:hover{
+                            color: white;
+                            cursor: pointer;
+                        }
+
+                        .img-nexter{
+                            position: absolute;
+                            top: 50%;    
+                            z-index: 99999999;
+                        }
+                        .img-nexter-left{
+                            left: 0px;
+                        }
+
+                        .img-nexter-right{
+                            right: 0px;
+                        }
+
+
+                </style>    
+
+
+<!-- image viewer modal ends -->
+
         </div>
+
+
         <!-- Main Content Wrapper Start -->
 
 

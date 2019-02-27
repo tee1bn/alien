@@ -107,6 +107,7 @@ $data = 'content='+(JSON.stringify($scope.$page_cms));
             data: $data,
             success: function(data) {
                         console.log(data);
+                        notify();
                         
             },
             error: function (data) {

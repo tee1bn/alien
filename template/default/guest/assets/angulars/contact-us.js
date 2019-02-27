@@ -25,6 +25,7 @@ app.controller('ContactPageController', function($scope, $http) {
             success: function(data) {
               console.log(data);
               // $scope.fetch_page_content();
+              notify();
             },
             error: function (data) {
                  //alert("fail"+data);
