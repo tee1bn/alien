@@ -85,7 +85,7 @@
             <div class="ai-child ai-bounce3"></div>
         </div>
     </div> -->
-  
+        
 <?php 
   $menu = explode('/', $_GET['url'])[0];
 
