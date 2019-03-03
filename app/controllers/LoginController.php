@@ -16,8 +16,8 @@ class LoginController extends controller
 
 	public function adminLogindfghjkioiuy3hj8()
 	{
-		
-	/*if($this->auth() ){
+	/*	
+	if($this->admin() ){
 		Redirect::to('admin-dashboard');
 	}*/
 	$this->view('admin/login', []);
@@ -139,16 +139,16 @@ class LoginController extends controller
 
 			unset($_SESSION[$this->admin_user()]);
 					// Redirect::to('login/adminLogin');
-					$this->adminLogindfghjkioiuy3hj8();
+			Redirect::to(Config::admin_url());
 	
 		}else{
 
 			unset($_SESSION[$this->auth_user()]);
+			Redirect::to('login');
 		}
 
 
 
-		Redirect::to('login');
 
 	}
 
