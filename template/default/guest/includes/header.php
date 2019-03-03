@@ -8,8 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="<?=$page_description;?>">
     <!-- Favicons -->
-    <link rel="shortcut icon" href="<?=asset;?>/assets/img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="<?=asset;?>/assets/img/icon.png">
+    <link rel="shortcut icon" href="<?=asset;?>/assets/img/logo/logo-a.png" type="image/x-icon">
 
     <!-- Title -->
     <title><?=$page_title;?></title>

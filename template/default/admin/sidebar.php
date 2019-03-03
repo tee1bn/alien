@@ -161,6 +161,7 @@
           </ul>
           </li>
         
+<li><a href="<?=domain ;?>/admin/shipping_settings"><i class="fa fa-cog"></i>Shipping Settings</a>
 <li><a href="<?=domain ;?>/admin-settings"><i class="fa fa-cog"></i> Settings</a>
                     
                   </li>

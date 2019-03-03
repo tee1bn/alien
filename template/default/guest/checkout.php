@@ -9,6 +9,8 @@
     $shipping_details = $this->auth()->shipping_details;
 
     include 'includes/header.php';?>
+      <script src="https://js.paystack.co/v1/inline.js"></script>
+
 
 
 
@@ -337,21 +339,22 @@
                                                 <td class="text-right">{{($shop.$cart.$total) |  currency:'<?=currency;?>'}} </td>
                                             </tr>
                                             <tr class="shipping">
+
                                                 <th>Shipping</th>
                                                 <td class="text-right">
 
-                                                    <span>Flat Rate
-                                                    {{$shop.$cart.$selected_shipping.price |  currency:'<?=currency;?>'}}
-                                                         
+                                                    <span>
+                                                        {{$shop.$cart.$selected_shipping.price |  currency:'<?=currency;?>'}}
+
                                                      </span><br>
-                                                    {{$shop.$cart.$selected_shipping.location}}
+                                                      {{$shop.$cart.$selected_shipping.location}}
 
                                                 </td>
                                             </tr>
                                             <tr class="order-total">
                                                 <th>Order Total</th>
                                                 <td class="text-right"><span class="order-total-ammount">
-                                            {{$shop.$cart.$total |  currency:'<?=currency;?>'}}
+                                            {{$shop.$cart.$overall_total |  currency:'<?=currency;?>'}}
                                                 </span></td>
                                             </tr>
                                         </tfoot>
@@ -393,11 +396,6 @@
  -->                                        <div class="payment-group mt--20">
                                             <p class="mb--15">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
                                             <button type="button" ng-click="$shop.$cart.place_order()"  class="btn btn-fullwidth btn-style-1">Pay Now</button>
-
-<form action="#">
-  <script src="https://js.paystack.co/v1/inline.js"></script>
-  <button type="button" name="pay_now" id="pay-now" title="Pay now"  onclick="saveOrderThenPayWithPaystack()">Pay now</button>
-</form>
 
                                         </div>
                                                                 

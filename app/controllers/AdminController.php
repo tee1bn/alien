@@ -13,7 +13,11 @@ class AdminController extends controller
 
 	}
 	
-	
+	public function shipping_settings()
+	{
+		
+		$this->view('admin/shipping_settings');
+	}	
 
 
 	public function blog_posts()

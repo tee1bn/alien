@@ -8,9 +8,6 @@
 class shopController extends controller
 {
 
-	public	$shipping_rate = '1500.00';
-
-
 	public function __construct(){
 
 	}
@@ -99,11 +96,7 @@ class shopController extends controller
 			$new_order->paystack_total = $new_order->paystack_total();
 			echo json_encode($new_order->toArray() , 4);
 
-			// $this->empty_cart_in_session();
-
- 			/*$this->send_order_confirmation_email($order->id);
- 				$this->send_order_notification_email($order->id);
-			*/
+		
 
 	 }else{
 
@@ -112,19 +105,17 @@ class shopController extends controller
 	 }
 
 		// print_r($cart);
-	 return;
-
-
-
-
-
-
-
-
-	return;
- 	
+	 return; 	
 	}
 
+	public function complete_and_finish_order_process($order_id)
+	{		
+			$order = Orders::find($order_id);
+			$order->mark_paid();
+ 			$this->send_order_confirmation_email($order->id);
+ 			$this->send_order_notification_email($order->id);
+	        // $this->empty_cart_in_session();
+	}
 
 
 	public function delete_stored_order($order_id)
@@ -135,52 +126,62 @@ class shopController extends controller
 
 
 
-	public function verify_paystack_payment()
+	public function verify_paystack_payment($reference, $order_id)
 	{
 
-		// Confirm that reference has not already gotten value
-		// This would have happened most times if you handle the charge.success event.
-		// If it has already gotten value by your records, you may call 
-		// perform_success()
+				$result = array();
+				//The parameter after verify/ is the transaction reference to be verified
+				$url = "https://api.paystack.co/transaction/verify/$reference";
 
-		// Get this from https://github.com/yabacon/paystack-class
-		// require 'Paystack.php'; 
-		// if using https://github.com/yabacon/paystack-php
-		// require 'paystack/autoload.php';
+				$ch = curl_init();
+				curl_setopt($ch, CURLOPT_URL, $url);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt(
+				  $ch, CURLOPT_HTTPHEADER, [
+				    'Authorization: Bearer sk_test_ba8e834ff7a1002b56b25e7f3a5dbc57b6ab3974']
+				);
+				$request = curl_exec($ch);
+				curl_close($ch);
 
-		$paystack = new Paystack('sk_test_ba8e834ff7a1002b56b25e7f3a5dbc57b6ab3974');
-		// the code below throws an exception if there was a problem completing the request, 
-		// else returns an object created from the json response
-		$trx = $paystack->transaction->verify(
-			[
-			 'reference'=>$_GET['reference']
-			]
-		);
-		// status should be true if there was a successful call
-		if(!$trx->status){
-		    exit($trx->message);
-		}
-		// full sample verify response is here: https://developers.paystack.co/docs/verifying-transactions
-		if('success' == $trx->data->status){
-			// use trx info including metadata and session info to confirm that cartid
-		  // matches the one for which we accepted payment
-		  give_value($reference, $trx);
-		  perform_success();
-		}
+				if ($request) {
+				    $result = json_decode($request, true);
+				    // print_r($result);
+				    if($result){
+				      if($result['data']){
+				        //something came in
+				        if($result['data']['status'] == 'success'){
 
-		// functions
-		function give_value($reference, $trx){
-		  // Be sure to log the reference as having gotten value
-		  // write code to give value
-		}
+				          // the transaction was successful, you can deliver value
+				          /* 
+				          @ also remember that if this was a card transaction, you can store the 
+				          @ card authorization to enable you charge the customer subsequently. 
+				          @ The card authorization is in: 
+				          @ $result['data']['authorization']['authorization_code'];
+				          @ PS: Store the authorization with this email address used for this transaction. 
+				          @ The authorization will only work with this particular email.
+				          @ If the user changes his email on your system, it will be unusable
+				          */
+				          echo "Transaction was successful";
 
-		function perform_success(){
-		  // inline
-		  echo json_encode(['verified'=>true]);
-		  // standard
-		  header('Location: /success.php');
-			exit();
-		}
+				          $this->complete_and_finish_order_process($order_id);
+				          Session::putFlash('success','Order Created Successfully');
+				        }else{
+				          // the transaction was not successful, do not deliver value'
+				          // print_r($result);  //uncomment this line to inspect the result, to check why it failed.
+				          echo "Transaction was not successful: Last gateway response was: ".$result['data']['gateway_response'];
+				        }
+				      }else{
+				        echo $result['message'];
+				      }
+
+				    }else{
+				      //print_r($result);
+				      die("Something went wrong while trying to convert the request variable to json. Uncomment the print_r command to see what is in the result variable.");
+				    }
+				  }else{
+				    //var_dump($request);
+				    die("Something went wrong while executing curl. Uncomment the var_dump line above this line to see what the issue is. Please check your CURL command to make sure everything is ok");
+				  }
 	}
 
 	public function product_detail($product_id=null)
@@ -221,17 +222,23 @@ class shopController extends controller
 
 		// echo "<pre>";
 		header("content-type:application/json");
-			$cart = $_SESSION['cart'];
+			$cart = json_decode($_SESSION['cart'], true);
 
-			foreach ($cart as  $item) {
+			foreach ($cart['$items'] as $key =>  $item) {
 
-				 $item_array =  json_decode($item, true);
-				unset($item_array['$$hashKey']);
-				$items[] = $item_array;
+				 // $item_array =  json_decode($item, true);
+				unset($cart['$items'][$key]['$$hashKey']);
+				$items[] = $item;
 			}
 
-		print_r(json_encode($items));
+			// $cart['$items'] = $items;
 	
+
+				// print_r($items);
+				// print_r($cart);
+
+
+		print_r(json_encode($cart));
 
 	}
 
@@ -239,8 +246,8 @@ class shopController extends controller
 	public function update_cart()
 	{
 
-		print_r($_POST);
-		$_SESSION['cart'] = ($_POST['items']);
+		// print_r($_POST);
+		$_SESSION['cart'] = ($_POST['cart']);
 
 	}
 

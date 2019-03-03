@@ -126,7 +126,7 @@
                             </thead>
                             <tbody>
 
-                              <?php foreach ($order->order_detail() as $item):?>
+                            <?php foreach ($order->order_detail() as $item):?>
                               <tr>
                                 <td><a href="javascript:void;"><?=$item['name'];?>...</a></td>
                                 <td><?=substr($item['description'], 0 ,200);?></td>

@@ -116,22 +116,26 @@
                                                 <tr>
                                                     <th>Shipping</th>
                                                     <td>
-                                                        <span>Flat Rate
-
+                                                        <span>
+                                                            {{$shop.$cart.$selected_shipping.location}}
                                                         {{$shop.$cart.$selected_shipping.price |  currency:'<?=currency;?>'}}
                                                      </span>
-                                                     <!-- <br>{{$shop.$cart.$selected_shipping.location}} -->
-<!-- 
+                                                     <!-- <br>{{$shop.$cart.$shipping_details}} -->
+
                                                         <div class="shipping-calculator-wrap">
                                                             <a href="#shipping_calculator" class="expand-btn">Calculate Shipping</a>
                                                             <form id="shipping_calculator" class="form shipping-calculator-form hide-in-default">
                                                                 <div class="form__group mb--10">
-                                                                    <select id="calc_shipping_country" name="calc_shipping_country" class="nice-select">
+                                                                    <select id="" ng-model="selected_shipping" class="nice-selec">
+                                                                    <option value="">Select </option>
+                                                                    <option ng-repeat="($index ,$shipping) in $shop.$cart.$shipping_details" style="text-transform: capitalize;" value="{{$shipping.location}}">
+                                                                        {{$shipping.location}}
 
-                                                                    <option ng-repeat="($index ,$shipping) in $shop.$cart.$shipping_details">
-                                                                    {{$shipping.lo}}</option>
+                                                                        {{$shipping.price |  currency:'<?=currency;?>'}}
+                                                                    </option>
                                                                     </select>
                                                                 </div>
+<!--                                                                
                                                                 <div class="form__group mb--10">
                                                                     <select id="calc_shipping_district" name="calc_shipping_district" class="nice-select">
                                                                         <option value="">Select a District…</option>
@@ -147,11 +151,12 @@
                                                                     <input type="text" name="calc_shipping_zip" id="calc_shipping_zip" placeholder="Postcode / Zip">
                                                                 </div>
 
-                                                                <div class="form__group">
-                                                                    <input type="submit" value="Update Totals">
+ -->                                                              
+                                                                  <div class="form__group">
+                                                                <input ng-click="$shop.$cart.set_shipping_cost(selected_shipping)" type="submit" value="Update Totals">
                                                                 </div>
                                                             </form>
-                                                        </div> -->
+                                                        </div>
                                                     </td>  
                                                 </tr>
                                                 <tr class="order-total">
@@ -160,7 +165,7 @@
                                                         <span class="product-price-wrapper">
                                                             <span class="money">
 
-                                                                {{($shop.$cart.$total ) |  currency:'<?=currency;?>'}}</span>
+                                                                {{($shop.$cart.$overall_total ) |  currency:'<?=currency;?>'}}</span>
                                                         </span>
                                                     </td>
                                                 </tr>

@@ -1,4 +1,3 @@
-<?php $currency='$';?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 
@@ -192,14 +191,14 @@
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td class="esd-block-text es-p10b" align="center">
-                                                                                        <h2>New Order Received!</h2>
+                                                                                        <h2>New Order!</h2>
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <?php if ($order->additional_note != ''):?>
                                                                                     <td class="esd-block-text es-p15t es-p20b" align="left">
                                                                                         <p style="font-size: 16px; color: #777777;">
-                                                                                            <b>Your Note:</b><br><?=$order->additional_note;?>
+                                                                                            <b>Added Note:</b><br><?=$order->additional_note;?>
                                                                                         </p>
                                                                                     </td>
                                                                                 <?php endif;?>
@@ -269,16 +268,18 @@
                                                                                         <table style="width: 500px;" class="cke_show_border" cellspacing="1" cellpadding="1" border="0" align="left">
                                                                                             <tbody>
 
-                                                                                                <?php foreach ($order->order_detail() as $item):?>
+                               <?php foreach ($order->order_detail() as $item):?>
                               <tr>
-                                <td><?=$item['product']['name'];?></td>
-                                <td><?=$item['qty'];?> x</td>
-                                <td><?=$currency;?><?=$this->money_format($item['product']['price']);?></td>
+                                <td><a href="javascript:void;"><?=$item['name'];?></a></td>
+                                <td><?=$item['qty'];?> x </td>
+                                <td><?=$currency;?> <?=$this->money_format($item['price']);?></td>
 
-                                <td><?=$currency;?><?=$this->money_format($item['price']);?></td>
+                                <td><?=$currency;?> <?=$this->money_format($item['price'] * $item['qty'] );?></td>
                               </tr>
                             <?php endforeach ;?>
-                                                                                                
+
+
+                                                                  
                                                                                               
                                                                                             </tbody>
                                                                                         </table>
@@ -304,14 +305,25 @@
                                                                                     <td class="esd-block-text es-p15t es-p15b es-p10r es-p10l" align="left">
                                                                                         <table style="width: 500px;" class="cke_show_border" cellspacing="1" cellpadding="1" border="0" align="left">
                                                                                             <tbody>
+                                                                                               
+
                                                                                                 <tr>
-                                                                                                    <td width="80%">
-                                                                                                        <h4>TOTAL</h4>
-                                                                                                    </td>
-                                                                                                    <td width="20%">
-                                                                                                        <h4><?=$currency;?><?=$this->money_format($order->total_price());?></h4>
-                                                                                                    </td>
-                                                                                                </tr>
+                                  <td style="width:80%">Subtotal:</td>
+                                  <td><?=$currency;?> <?=$this->money_format($order->total_price());?></td>
+                                </tr><!-- 
+                                <tr>
+                                  <td>Tax (9.3%)</td>
+                                  <td>$10.34</td>
+                                </tr> -->
+                                <tr>
+                                  <td>Shipping:</td>
+                                  <td><?=$currency;?> <?=$this->money_format($order->shippingcost);?>
+                                  <span><?=$order->shipping_fee['location'];?></span> </td>
+                                </tr>
+                                <tr>
+                                  <td>Total:</td>
+                                  <td><?=$currency;?> <?=$this->money_format($order->overalltotal);?></td>
+                                </tr>
                                                                                             </tbody>
                                                                                         </table>
                                                                                     </td>
@@ -342,10 +354,17 @@
                                      
                                                                                     <td class="esd-block-text es-p10b" align="left">
                                                                                            <p>
-                                                                                          <strong><?=$order->buyer_name;?></strong>
-                                                                                          <br><?=$order->address;?>
-                                                                                          <br>Phone: <?=$order->phone;?>
-                                                                                          <br>Email: <?=$order->email;?>
+                                                                                            <address>
+                                          <strong><?=$order->shipping_lastname;?> <?=$order->shipping_lastname;?></strong>
+                                          <br>Company: <?=$order->shipping_company;?>
+                                          <br>Street: <?=$order->shipping_street_address;?>
+                                          <br>Apartment: <?=$order->shipping_apartment;?>
+                                          <br>State: <?=$order->shipping_state;?>
+                                          <br>City: <?=$order->shipping_city;?>
+                                          <br>Country: <?=$order->shipping_country;?>
+                                          <br>Phone: <?=$order->shipping_phone;?>
+                                          <br>Email: <?=$order->shipping_email;?>
+                                      </address>
                                                                                       </p>
                                                                                     </td>
                                                                                 </tr>
@@ -399,12 +418,12 @@
                             <tbody>
                                 <tr>
                                     <td class="esd-stripe" esd-custom-block-id="7797" align="center">
-                                       <!--  <table class="es-content-body" style="background-color: rgb(27, 155, 163);" width="600" cellspacing="0" cellpadding="0" bgcolor="#1b9ba3" align="center">
+                                        <table class="es-content-body" style="background-color: rgb(27, 155, 163);" width="600" cellspacing="0" cellpadding="0" bgcolor="#1b9ba3" align="center">
                                             <tbody>
                                                 <tr>
                                                     <td class="esd-structure es-p35t es-p35b es-p35r es-p35l" align="left">
                                                         <table width="100%" cellspacing="0" cellpadding="0">
-                                                            <tbody>
+<!--                                                             <tbody>
                                                                 <tr>
                                                                     <td class="esd-container-frame" width="530" valign="top" align="center">
                                                                         <table width="100%" cellspacing="0" cellpadding="0">
@@ -422,11 +441,11 @@
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
-                                                        </table>
+      -->                                                   </table>
                                                     </td>
                                                 </tr>
                                             </tbody>
-                                        </table> -->
+                                        </table>
                                     </td>
                                 </tr>
                             </tbody>
@@ -1150,3 +1169,6 @@ a.es-button {
 </style>
 
 </html>
+<div style="display: none;">
+    
+

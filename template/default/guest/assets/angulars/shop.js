@@ -29,19 +29,39 @@
       callback: function(response){
       	console.log(response);
         // post to server to verify transaction before giving value
-        var verifying = $.get( $base_url+"/shop/verify_paystack_payment?"+ response.reference);
+        var verifying = $.get( $base_url+"/shop/verify_paystack_payment/"+response.reference+"/"+this.defaults.metadata.orderid);
 
         
-        verifying.done(function( data ) { /* give value saved in data */ });
+        verifying.done(function( data ) { 
+        	/* give value saved in data */ 
+        		console.log(data);
+        		// complete_finish_order_process(this.defaults.metadata.orderid);
+        });
       },
       onClose: function(){
       	delete_stored_order(this.defaults.metadata.orderid);
-        alert('Click "Pay now" to retry payment.');
+        // alert('Click "Pay now" to retry payment.');
       }
     });
     handler.openIframe();
   }
 
+
+
+  	complete_finish_order_process = function ($order_id) {
+	  						$.ajax({
+						            type: "POST",
+						            url: $base_url+'/shop/complete_finish_order_process/'+$order_id,
+						            cache: false,
+						            data: null,
+						            success: function(data) {
+						            	console.log();
+						            },
+						            error: function (data) {
+						                 //alert("fail"+data);
+						            }
+						    });
+						}
 
 
   	delete_stored_order = function ($order_id) {
@@ -81,7 +101,7 @@
 	            data: null,
 	            success: function(data) {
 	            	$this.$shipping_details = data;
-					$this.set_shipping_cost('default');
+					// $this.set_shipping_cost('default');
 
 	            },
 	            error: function (data) {
@@ -98,9 +118,10 @@
 				if ($shipping.location == $location) {
 					this.$selected_shipping = $shipping;
 				}
-
 			}
-			console.log(this.$shipping_details);
+
+
+			this.update_server();
 		}
 
 
@@ -194,9 +215,11 @@
 					}
 
 
-					 this.$total = parseInt($total) + parseInt(this.$selected_shipping.price);
+					 this.$total = parseInt($total);
+					 this.$overall_total = parseInt($total) + parseInt( ((this.$selected_shipping|| {}).price)|| 0);
 			}
 			
+
 
 
 			this.update_server = function () {
@@ -209,7 +232,10 @@
 				$form = new FormData ();
 				for(x in this.$items){
 					$item = this.$items[x];
-					$form.append('items[]', JSON.stringify($item));
+
+
+					$form.append('cart', JSON.stringify(this));
+					// $form.append('selected_shipping', this.$selected_shipping);
 					};
 		
 		 $.ajax({
@@ -356,11 +382,15 @@
 	            success: function(data) {
 
 
-				    // console.log(data);
-				    	 for(x in data){
-				    	var $item = data[x];
+				    // console.log(data.$items);
+
+				    for(x in data.$items){
+				    	var $item = data.$items[x];
 				    	$this.$cart.$items.push($item);
 				    }
+
+				    	$this.$cart.set_shipping_cost(data.$selected_shipping.location);
+
 				    	$this.$cart.update_server();
 				    	$this.update_angular_scope();
 

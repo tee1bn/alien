@@ -47,6 +47,12 @@ class Orders extends Eloquent
 	protected $table = 'orders';
 
 
+	public function mark_paid()
+	{
+		$this->update(['paid_at', date("Y-m-d H:i:s")]);
+
+	}
+
 	public function getshippingfeeAttribute($value)
 	{
 
