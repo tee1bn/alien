@@ -117,18 +117,45 @@ class Orders extends Eloquent
 
 
 
-public function total_price()
-{
+	public function total_price()
+	{
 
-	$orders =  $this->order_detail();
-	foreach ($orders as $order) {
+		$orders =  $this->order_detail();
+		foreach ($orders as $order) {
 
-		$total_price[] = $order['price'] *$order['qty'];
+			$total_price[] = $order['price'] *$order['qty'];
 
+		}
+
+		$total =  array_sum($total_price) ;
+
+		return $total;
 	}
 
-	return array_sum($total_price);
-}
+
+	public function paystack_total()
+	{
+		return (100 * $this->overalltotal);
+	}
+
+
+
+
+	public function delete_order(array $ids)
+	{
+		foreach ($ids as $key => $id) {
+			$order = self::find($id);
+				if ($order != null) {
+
+					try{
+					 $order->delete();
+					}catch(Exeception $e){
+
+					}
+				}
+			}
+			return true;
+	}
 
 
 

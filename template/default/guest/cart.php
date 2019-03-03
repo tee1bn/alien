@@ -117,6 +117,7 @@
                                                     <th>Shipping</th>
                                                     <td>
                                                         <span>Flat Rate
+
                                                         {{$shop.$cart.$selected_shipping.price |  currency:'<?=currency;?>'}}
                                                      </span>
                                                      <!-- <br>{{$shop.$cart.$selected_shipping.location}} -->
@@ -158,7 +159,8 @@
                                                     <td>
                                                         <span class="product-price-wrapper">
                                                             <span class="money">
-                                                                {{($shop.$cart.$total + <?=$shipping_rate;?>) |  currency:'<?=currency;?>'}}</span>
+
+                                                                {{($shop.$cart.$total ) |  currency:'<?=currency;?>'}}</span>
                                                         </span>
                                                     </td>
                                                 </tr>

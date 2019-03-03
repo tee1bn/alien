@@ -3,7 +3,8 @@
     $auth_navigation = [
                             [   
                                 'link' => domain."/login", 
-                                'nav' => "Login"
+                                'nav' => "Login",
+                                'hide' => ($this->auth())
                             ],
 
                             [   
@@ -22,10 +23,11 @@
                             ],
 
 
-                        /*    [   
-                                'link' => domain."", 
-                                'nav' => "Wishlist"
-                            ],*/
+                            [   
+                                'link' => domain."/login/logout", 
+                                'nav' => "Logout",
+                                'hide' => (!$this->auth())
+                            ],
 
                         ];
 

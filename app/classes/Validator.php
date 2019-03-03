@@ -22,8 +22,16 @@ class Validator
 					//rule definitions of
 
 					$value = trim($data["$item"]);
+/*
 
-					if ($rule === 'required' && empty($value)) {
+						if ((!array_key_exists($item, $data)) && ($rule === 'required')) {
+								$this->addError($item, "$item is required");
+								continue;
+						}
+*/
+
+
+					if ($rule === 'required' &&  (strlen($value)==0   ) ) {
 						
 				$this->addError($item, "$item is required");
 								}else if(! empty($value)){

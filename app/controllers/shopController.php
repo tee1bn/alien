@@ -15,6 +15,9 @@ class shopController extends controller
 
 	}
 
+
+
+
 	public function open_order_confirmation($order_id='')
 	{
 			echo $this->buildView('emails/order_confirmation', ['order'=> Orders::find($order_id)]);
@@ -47,8 +50,8 @@ class shopController extends controller
 	public function place_order()
 	{
 
-		echo "<pre>";
-		print_r($_POST['cart']);
+		// echo "<pre>";
+		// print_r($_POST['cart']);
 
 		$cart =  json_decode($_POST['cart'], true);
 		foreach ($cart['$items'] as $key => $item) {
@@ -59,39 +62,56 @@ class shopController extends controller
 		;
 		$cart['$buyer_detail']['shipping'];
 
+		// print_r($cart['$buyer_detail']['billing']);
+
 
 		$billing_validator	= new Validator;
 		$shipping_validator	= new Validator;
 		
-	$billing_validator->check($cart['$buyer_detail']['billing'], UserBilling::$billing_detail_rules );
+		$billing_validator->check($cart['$buyer_detail']['billing'], UserBilling::$billing_detail_rules );
 		$error_notes =  $this->inputErrors();
-	$shipping_validator->check($cart['$buyer_detail']['shipping'], UserShipping::$shipping_detail_rules );
-		// $error_notes .=  $this->inputErrors();
+		unset($_SESSION['inputs-errors']); //remove captured errors for first validation
+
+		$shipping_validator->check($cart['$buyer_detail']['shipping'], UserShipping::$shipping_detail_rules );
+		$error_notes .=  $this->inputErrors();
+
+		//validate cart
+		// print_r($cart['$items']);
 
 
+		 if($billing_validator->passed() && $shipping_validator->passed() && (Products::validate_cart($cart['$items']))){
 
-	 if($billing_validator->passed() || $shipping_validator->passed() ){
-
-
-		$new_order = Orders::create([
+				$new_order = Orders::create([
 								'user_id'		=> $this->auth()->id,
 								'buyer_order'		=> json_encode($cart['$items']),
 								'additional_note'		=> ($cart['$buyer_detail']['billing']['order_notes']),
 								'shipping_fee'		=> json_encode($cart['$selected_shipping']),
 			]);
 
-		$new_order->update($cart['$buyer_detail']['billing']);
-		$new_order->update($cart['$buyer_detail']['shipping']);
+			$new_order->update($cart['$buyer_detail']['billing']);
+			$new_order->update($cart['$buyer_detail']['shipping']);
 
 
-			Session::putFlash('success', "Order Created Successfully");
+			// Session::putFlash('success', "Order Created Successfully");
+
+			header("Content-type:application/json");
+			$new_order->total_amount = $new_order->total_price();
+			$new_order->paystack_total = $new_order->paystack_total();
+			echo json_encode($new_order->toArray() , 4);
+
+			// $this->empty_cart_in_session();
+
+ 			/*$this->send_order_confirmation_email($order->id);
+ 				$this->send_order_notification_email($order->id);
+			*/
 
 	 }else{
 
 		Session::putFlash('danger', "{$error_notes}");
+		echo "error"; //corrupts the json and prevents paystack from loading 
 	 }
 
-		print_r($cart);
+		// print_r($cart);
 	 return;
 
 
@@ -101,24 +121,67 @@ class shopController extends controller
 
 
 
-
-
-
-		Session::putFlash('success', "Order placed successfully! ");
-
-
-
-
 	return;
- 	$this->empty_cart_in_session();
-
- 	/*$this->send_order_confirmation_email($order->id);
- 	$this->send_order_notification_email($order->id);
-*/
+ 	
 	}
 
 
 
+	public function delete_stored_order($order_id)
+	{
+			Orders::delete_order([$order_id]);
+			echo "deletededeed";
+	}
+
+
+
+	public function verify_paystack_payment()
+	{
+
+		// Confirm that reference has not already gotten value
+		// This would have happened most times if you handle the charge.success event.
+		// If it has already gotten value by your records, you may call 
+		// perform_success()
+
+		// Get this from https://github.com/yabacon/paystack-class
+		// require 'Paystack.php'; 
+		// if using https://github.com/yabacon/paystack-php
+		// require 'paystack/autoload.php';
+
+		$paystack = new Paystack('sk_test_ba8e834ff7a1002b56b25e7f3a5dbc57b6ab3974');
+		// the code below throws an exception if there was a problem completing the request, 
+		// else returns an object created from the json response
+		$trx = $paystack->transaction->verify(
+			[
+			 'reference'=>$_GET['reference']
+			]
+		);
+		// status should be true if there was a successful call
+		if(!$trx->status){
+		    exit($trx->message);
+		}
+		// full sample verify response is here: https://developers.paystack.co/docs/verifying-transactions
+		if('success' == $trx->data->status){
+			// use trx info including metadata and session info to confirm that cartid
+		  // matches the one for which we accepted payment
+		  give_value($reference, $trx);
+		  perform_success();
+		}
+
+		// functions
+		function give_value($reference, $trx){
+		  // Be sure to log the reference as having gotten value
+		  // write code to give value
+		}
+
+		function perform_success(){
+		  // inline
+		  echo json_encode(['verified'=>true]);
+		  // standard
+		  header('Location: /success.php');
+			exit();
+		}
+	}
 
 	public function product_detail($product_id=null)
 	{

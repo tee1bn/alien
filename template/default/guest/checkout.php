@@ -351,7 +351,7 @@
                                             <tr class="order-total">
                                                 <th>Order Total</th>
                                                 <td class="text-right"><span class="order-total-ammount">
-                                            {{($shop.$cart.$total + <?=$this->shipping_rate;?>) |  currency:'<?=currency;?>'}}
+                                            {{$shop.$cart.$total |  currency:'<?=currency;?>'}}
                                                 </span></td>
                                             </tr>
                                         </tfoot>
@@ -359,7 +359,7 @@
                                 </div>
                                 <div class="checkout-payment">
                                     <form action="#" class="payment-form">
-                                        <div class="payment-group mb--10">
+<!--                                         <div class="payment-group mb--10">
                                             <div class="payment-radio">
                                                 <input type="radio" value="bank" name="payment-method" id="bank" checked>
                                                 <label class="payment-label" for="cheque">Direct Bank Transfer</label>
@@ -390,9 +390,14 @@
                                                 <p>Pay with cash upon delivery.</p>
                                             </div>
                                         </div>
-                                        <div class="payment-group mt--20">
+ -->                                        <div class="payment-group mt--20">
                                             <p class="mb--15">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
-                                            <button type="button" ng-click="$shop.$cart.place_order()"  class="btn btn-fullwidth btn-style-1">Place Order</button>
+                                            <button type="button" ng-click="$shop.$cart.place_order()"  class="btn btn-fullwidth btn-style-1">Pay Now</button>
+
+<form action="#">
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <button type="button" name="pay_now" id="pay-now" title="Pay now"  onclick="saveOrderThenPayWithPaystack()">Pay now</button>
+</form>
 
                                         </div>
                                                                 

@@ -13,6 +13,38 @@ class home extends controller
 
 	}
 
+	public function test_val($value='')
+	{
+
+		echo "<prE>";
+
+		$rule = [
+
+			'firstname' => [
+					'required'=> true,
+					'min'=> 90,
+					],
+
+			'lastnames' => [
+					'min'=> 90,
+					// 'required'=> true,
+					],
+				];
+
+
+		$data = [	'firstname'=> "Jibola", 'lastnames' => "Ope"			];
+
+				$validator	= new Validator;
+		
+			$validator->check($data, $rule );
+
+
+			print_r($validator->errors());
+
+
+
+	}
+
 
 	public function test($value='')
 	{	

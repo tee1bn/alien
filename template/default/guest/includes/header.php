@@ -162,7 +162,19 @@
                                         </a>
                                         <?php endif;?>
                                         <ul class="user-info-menu">
-                                            <?php foreach ($auth_navigation as $key => $nav):?>
+                                            <?php if ($this->auth()):?>
+                                            <li>
+                                               <a> <b><?=$this->auth()->lastname;?> <?=$this->auth()->firstname;?></b></a>
+                                            </li>
+                                            <?php endif;?>
+
+
+                                            
+                                            <?php foreach ($auth_navigation as $key => $nav):
+                                                if ($nav['hide'])  {
+                                                    continue;
+                                                }
+                                                ?>
                                             <li>
                                                 <a href="<?=$nav['link'];?>"><?=$nav['nav'];?></a>
                                             </li>

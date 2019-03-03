@@ -1,3 +1,68 @@
+	
+
+  function payWithPaystack(data){
+    var handler = PaystackPop.setup({
+      // This assumes you already created a constant named
+      // PAYSTACK_PUBLIC_KEY with your public key from the
+      // Paystack dashboard. You can as well just paste it
+      // instead of creating the constant
+      key: 'pk_test_117354d854df97e8f2451be553d3cf529d9c34fc',
+      email: data.billing_email,
+      amount: data.paystack_total,
+      currency: "NGN",
+      metadata: {
+        cartid: data.id,
+        orderid: data.id,
+        custom_fields: [
+          {
+            display_name: "Customer",
+            variable_name: "customer",
+            value:  data.billing_lastname+" "+data.billing_firstname
+          },
+          {
+            display_name: "Order ID",
+            variable_name: "order_id",
+            value: "#"+data.id
+          }
+        ]
+      },
+      callback: function(response){
+      	console.log(response);
+        // post to server to verify transaction before giving value
+        var verifying = $.get( $base_url+"/shop/verify_paystack_payment?"+ response.reference);
+
+        
+        verifying.done(function( data ) { /* give value saved in data */ });
+      },
+      onClose: function(){
+      	delete_stored_order(this.defaults.metadata.orderid);
+        alert('Click "Pay now" to retry payment.');
+      }
+    });
+    handler.openIframe();
+  }
+
+
+
+  	delete_stored_order = function ($order_id) {
+	  						$.ajax({
+						            type: "POST",
+						            url: $base_url+'/shop/delete_stored_order/'+$order_id,
+						            cache: false,
+						            data: null,
+						            success: function(data) {
+						            	console.log();
+						            },
+						            error: function (data) {
+						                 //alert("fail"+data);
+						            }
+						    });
+						}
+
+
+
+
+
 
 	function Cart(){
 		this.$items = [];
@@ -96,9 +161,14 @@
                     data: $form,
                     success: function(data) {
                       console.log(data);
-
-
                       window.notify();
+
+                      if (typeof(data) == 'object') {
+
+                      	payWithPaystack(data);
+                      }
+
+
                     },
                     error: function (data) {
                          //alert("fail"+data);
@@ -124,7 +194,7 @@
 					}
 
 
-					 this.$total = $total;
+					 this.$total = parseInt($total) + parseInt(this.$selected_shipping.price);
 			}
 			
 

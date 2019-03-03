@@ -20,6 +20,28 @@ class Products extends Eloquent
 	protected $table = 'products';
 
 
+	public static function validate_cart($cart_items)
+	{
+		$errors = [];
+		$totals = [];
+		foreach ($cart_items as $key => $item) {
+			 $real_product =  self::find($item['id']);
+				$totals[] = $real_product->price * $item['qty'];
+				if (
+				 	($real_product->price != $item['price'])
+				 	) {
+				 	$errors['price'] = "incorrect";
+
+				 	return false;
+				}
+
+				return true;
+		}
+
+
+
+	}
+
 	public function getpercentdiscountAttribute()
 	{
 		if (($this->old_price==null) ||($this->old_price <= $this->price) ) {
