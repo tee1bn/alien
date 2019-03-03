@@ -281,18 +281,20 @@ class shopController extends controller
 
 		$mailer = 	new Mailer();
 		$mailer->sendMail($notification_email['notification_email'], $subject, $email_body );
+		ob_end_clean();
 	}
 
 
 	public function send_order_confirmation_email($order_id)
 	{
 		$order =  Orders::find($order_id);
-		$to = $order->email;
+		$to = $order->billing_email;
 		$subject = Config::project_name().' ORDER CONFIRMATION';
 		 $email_body = $this->buildView('emails/order_confirmation', ['order'=>$order]);
 
 		$mailer = 	new Mailer();
 		$mailer->sendMail($to, $subject, $email_body );
+		ob_end_clean();
 	}
 
 

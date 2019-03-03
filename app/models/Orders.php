@@ -49,7 +49,7 @@ class Orders extends Eloquent
 
 	public function mark_paid()
 	{
-		$this->update(['paid_at', date("Y-m-d H:i:s")]);
+		$this->update(['paid_at'=> date("Y-m-d H:i:s")]);
 
 	}
 
