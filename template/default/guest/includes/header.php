@@ -1,4 +1,4 @@
-    
+
         
 <!doctype html>
 <html class="no-js" lang="zxx" ng-app = "app" ng-cloak>
@@ -40,6 +40,88 @@
     <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+
+    <style>
+.fixed-header .container-fluid{
+        background-image: linear-gradient(to bottom right, #20253d, #48587f);
+ }
+.header-mobile{
+        background-image: linear-gradient(to bottom right, #20253d, #48587f);
+ }
+/*
+ body{
+    
+        background-image: linear-gradient(to bottom right, #20253d, #48587f);
+        color: #e2e2e2 !important;
+    }*/
+ header .mainmenu__link, .header-toolbar i{
+    color:#e2e2e2 !important;
+ }   
+ .mini-cart-count{
+    background: #4879be !important;
+ }
+
+footer i {
+    color:aliceblue; 
+}
+ .modal-body .col-md-6{
+    
+        background-image: linear-gradient(to bottom right, #20253d, #48587f);
+ }
+
+
+  .btn{
+        background-image: linear-gradient(to bottom right, #20253d, #48587f);
+    }
+  
+
+        
+    .page-title{
+    color:#e2e2e2 !important;
+    }
+        
+        
+      .product-summary .product-title ,
+      .product-summary .money, 
+      .product-summary .product-price-old, 
+     {
+     color:#e2e2e2 !important;
+    }
+        
+    .post-content p ,.entry-content,.product-summary p ,.product-short-description {
+     color:#2f3856c4  !important;
+    }
+.breadcrumb{
+    display: none;
+}
+/*
+ .breadcrumb-area .container-fluid{
+    background: #181d2d;
+    }
+
+ .breadcrumb li a ,.breadcrumb li span{
+    color:#e2e2e2 !important;
+ }
+
+ .breadcrumb-area{
+    
+    background: #181d2d;
+ }
+*/
+ .footer{
+    background: #181d2d;
+ }
+/*
+ .product-imagess{
+
+    border: 3px solid #5b7aaa !important;
+ }
+ .product-title{
+    color:#e2e2e2 !important;
+ }*/
+</style>    
+
 
     <style>
             
@@ -210,13 +292,10 @@
                     <div class="row align-items-center">
                         <div class="col-4">
                             <a href="<?=domain;?>" class="logo-box">
-<!--                                 <figure class="logo--normal">
-                                    <img src="<?=asset;?>/assets/img/logo/logo.svg" alt="Logo">
+                                <figure class="logo--normal">
+                                    <img src="<?=asset;?>/assets/img/logo/logo-al.png" alt="Logo" style="height: 50px;" >
                                 </figure>
- -->                                     <h2>
-                                        <?=project_name;?>
-                                    </h2>
-
+                                 
                             </a>
                         </div>
                         <div class="col-8">
@@ -232,7 +311,11 @@
                                         </a>
                                         <?php endif;?>
                                     <ul class="user-info-menu">
-                                          <?php foreach ($auth_navigation as $key => $nav):?>
+                                          <?php foreach ($auth_navigation as $key => $nav):
+                                             if ($nav['hide'])  {
+                                                    continue;
+                                                }
+                                                ?>
                                             <li>
                                                 <a href="<?=$nav['link'];?>"><?=$nav['nav'];?></a>
                                             </li>

@@ -114,7 +114,7 @@ class shopController extends controller
 			$order->mark_paid();
  			$this->send_order_confirmation_email($order->id);
  			$this->send_order_notification_email($order->id);
-	        // $this->empty_cart_in_session();
+	        $this->empty_cart_in_session();
 	}
 
 

@@ -101,7 +101,7 @@
 	            data: null,
 	            success: function(data) {
 	            	$this.$shipping_details = data;
-					// $this.set_shipping_cost('default');
+					// $this.set_shipping_cost('none');
 
 	            },
 	            error: function (data) {
@@ -109,7 +109,6 @@
 	            }
 	        });
 		}
-		this.retrieve_shipping_settings();
 
 		this.set_shipping_cost  = function ($location) {
 
@@ -230,11 +229,9 @@
 				$scope.$cart = this;
 			
 				$form = new FormData ();
+					$form.append('cart', JSON.stringify(this));
 				for(x in this.$items){
 					$item = this.$items[x];
-
-
-					$form.append('cart', JSON.stringify(this));
 					// $form.append('selected_shipping', this.$selected_shipping);
 					};
 		
@@ -382,17 +379,21 @@
 	            success: function(data) {
 
 
-				    // console.log(data.$items);
+				    console.log(data);
+				    // try{
 
 				    for(x in data.$items){
 				    	var $item = data.$items[x];
 				    	$this.$cart.$items.push($item);
 				    }
+		    			$this.$cart.retrieve_shipping_settings();
 
-				    	$this.$cart.set_shipping_cost(data.$selected_shipping.location);
+				    try{
+				    	// $this.$cart.set_shipping_cost(data.$selected_shipping.location);
+				    }catch(e){}
 
-				    	$this.$cart.update_server();
 				    	$this.update_angular_scope();
+				    	$this.$cart.calculate_total();
 
 				
 	            },

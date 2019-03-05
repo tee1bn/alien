@@ -14,6 +14,18 @@
                     </div>
                 </div>
                 <div class="row mb--15 mb-sm--20">
+
+                    <div class="col-xl-2 col-md-4 mb-lg--30">
+                        <div class="footer-widget">
+                            <div class="textwidget">
+                                <a href="<?=domain;?>" class="footer-logo">
+                                    <img style="height: 160px;" src="<?=asset;?>/assets/img/logo/logo-al.png" alt="Logo">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <div class="col-xl-2 col-md-4 mb-lg--30">
                         <div class="footer-widget">
                             <h3 class="widget-title">Company</h3>
@@ -36,33 +48,40 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-xl-2 col-md-4 mb-lg--30">
-                        <div class="footer-widget">
-                           <!--  <h3 class="widget-title ">SHOPPING</h3>
-                            <ul class="widget-menu widget-menu--2">
-                                <li><a href="shop-instagram.html">Look Book</a></li>
-                                <li><a href="shop-sidebar.html">Shop Sidebar</a></li>
-                                <li><a href="shop-fullwidth.html">Shop Fullwidth</a></li>
-                                <li><a href="shop-no-gutter.html">Man & Woman</a></li>
-                            </ul> -->
-                        </div>
-                    </div>
+
+
+
                     <div class="col-xl-5 offset-xl-1 col-lg-6 offset-lg-3 col-md-8 offset-md-2">
                         <div class="footer-widget">
-                            <h3 class="widget-title  widget-title--icon">Enter your e-mail address to receive updates, special offers and more.</h3>
-                            <form action="" class="newsletter-form newsletter-form--3 mc-form" method="post" target="_blank">
+
+                            <h3 class="widget-title  widget-title--">We are Social, Follow Us
+                             <!-- your e-mail address to receive updates, special offers and more. -->
+                         </h3>
+                            <!-- <form action="" class="newsletter-form newsletter-form--3 mc-form" method="post" target="_blank">
                                 <input type="email" name="newsletter-email" id="newsletter-email" class="newsletter-form__input" placeholder="Enter Your Email Address..">
                                 <button type="button" onclick="add_to_new_letters(document.getElementById('newsletter-email'))"  class="newsletter-form__submit">
                                     <i class="dl-icon-right"></i>
                                 </button>
                             </form>
-                            <!-- mailchimp-alerts Start -->
-                            <div class="mailchimp-alerts">
-                                <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
-                                <div class="mailchimp-success"></div><!-- mailchimp-success end -->
-                                <div class="mailchimp-error"></div><!-- mailchimp-error end -->
-                            </div>
-                            <!-- mailchimp-alerts end -->
+                          -->
+                            <ul class="social social-small">
+
+
+
+                    <?php
+                                $social_handles = CmsPages::where('page_unique_name',  'social_media_handles')->first()->page_content;
+                                $handles = json_decode($social_handles, true);
+                                foreach ($handles as $handle):
+                                    ?>
+                                <li class="social__item">
+                                    <a href="<?=$handle['handle'];?>" class="social__link">
+                                    <i class="fa fa-<?=$handle['social_media'];?> fa-2x"></i>
+                                    </a>
+                                </li>                                            
+
+                    <?php endforeach ;?>
+
+                        </ul>
                         </div>
                     </div>
                 </div>
@@ -95,31 +114,18 @@
 
 
 
-                <div class="row align-items-center pt--10 pb--30">
+                <div class="row align-items-center" style="background: #222740;">
+                <!-- <div class="row align-items-center pt--10 pb--30"> -->
                     <div class="col-md-4">
                         <!-- Social Icons Start Here -->
+                        <p class="copyright-text">&copy; <?=date("Y");?> All rights reserved <?//=project_name;?>. </p>
                         <ul class="social social-small">
-
-
-
-                    <?php
-                                $social_handles = CmsPages::where('page_unique_name',  'social_media_handles')->first()->page_content;
-                                $handles = json_decode($social_handles, true);
-                                foreach ($handles as $handle):
-                                    ?>
-                                <li class="social__item">
-                                    <a href="<?=$handle['handle'];?>" class="social__link">
-                                    <i class="fa fa-<?=$handle['social_media'];?> fa-2x"></i>
-                                    </a>
-                                </li>                                            
-
-                    <?php endforeach ;?>
 
                         </ul>
                         <!-- Social Icons End Here -->
                     </div>
                     <div class="col-md-4 text-md-center">
-                        <p class="copyright-text">&copy; <?=date("Y");?> All rights reserved <?//=project_name;?>. </p>
+                        <!-- <p class="copyright-text">&copy; <?=date("Y");?> All rights reserved <?//=project_name;?>. </p> -->
                     </div>
                     <div class="col-md-4 text-md-right">
                         <!-- <img src="<?=asset;?>/assets/img/others/payments-2.png" alt="Payment"> -->
