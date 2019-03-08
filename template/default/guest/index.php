@@ -170,7 +170,9 @@
                                     data-paddingbottom="[0,0,0,0]"
                                     data-paddingleft="[0,0,0,0]"
 
-                                    style="z-index: 5;"><img src="<?=asset;?>/assets/img/slider/home-06/m6-s1-2.png" alt="" data-ww="['257px','257px','144px','144px']" data-hh="['769px','769px','430px','430px']" data-no-retina> </div>
+                                    style="z-index: 5;">
+                                    <!-- <img src="<?=asset;?>/assets/img/slider/home-06/m6-s1-2.png" alt="" data-ww="['257px','257px','144px','144px']" data-hh="['769px','769px','430px','430px']" data-no-retina> -->
+                                     </div>
 
                                 <!-- LAYER NR. 7 -->
                                 <div class="tp-caption   tp-resizeme" 
@@ -192,7 +194,9 @@
                                     data-paddingbottom="[0,0,0,0]"
                                     data-paddingleft="[0,0,0,0]"
 
-                                    style="z-index: 6;"><img src="<?=asset;?>/assets/img/slider/home-06/m6-s1-3.png" alt="" data-ww="['611px','611px','353px','353px']" data-hh="['204px','204px','118px','118px']" data-no-retina> </div>
+                                    style="z-index: 6;">
+                                    <!-- <img src="<?=asset;?>/assets/img/slider/home-06/m6-s1-3.png" alt="" data-ww="['611px','611px','353px','353px']" data-hh="['204px','204px','118px','118px']" data-no-retina>  -->
+                                    </div>
 
                                 <!-- LAYER NR. 8 -->
                                 <div class="tp-caption   tp-resizeme" 

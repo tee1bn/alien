@@ -90,31 +90,10 @@ footer i {
 .breadcrumb{
     display: none;
 }
-/*
- .breadcrumb-area .container-fluid{
-    background: #181d2d;
-    }
-
- .breadcrumb li a ,.breadcrumb li span{
-    color:#e2e2e2 !important;
- }
-
- .breadcrumb-area{
-    
-    background: #181d2d;
- }
-*/
  .footer{
     background: #181d2d;
  }
-/*
- .product-imagess{
-
-    border: 3px solid #5b7aaa !important;
- }
- .product-title{
-    color:#e2e2e2 !important;
- }*/
+ 
 </style>    
 
 
