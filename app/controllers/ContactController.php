@@ -38,6 +38,7 @@ class ContactController extends controller
 										],
 								'contact_message'=>[
 									'required'=>true,
+									'min'=>10,
 										],
 								]);
 

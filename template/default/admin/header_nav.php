@@ -156,17 +156,8 @@
 <script>
   let $base_url = "<?=domain;?>";
 </script>
-<!-- 
-<?php if(Session::hasFlash()) :?>
-<div id="notification_tab" class="alert alert-info alert-dismissible">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close" style="color: red;"> &times; </a>
-    <?php// foreach (Session::flash() as $key => $message):?>
-  <span>
-    <?=$message['message'];?>
-</span><br>
 
 
-<?php// endforeach ;?>
-</div>
+ <script src="https://cdn.ckeditor.com/4.11.3/standard/ckeditor.js"></script>
 
-<?php endif ;?> -->
+

@@ -43,6 +43,7 @@ class BlogController extends controller
 			$this->validator()->check(Input::all() , array(
 														'title'=> [
 															'required'=> true,
+															'unique'=> 'Post',
 															],
 														'category'=> [
 															'required'=> true,
@@ -70,6 +71,10 @@ class BlogController extends controller
 
 					Session::putFlash('info', "Please check the images and try again!");
 				}
+			}else{
+
+					Session::putFlash('info', $this->inputErrors());
+
 			}
 		}
 		

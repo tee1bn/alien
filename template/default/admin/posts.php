@@ -179,7 +179,7 @@
 
 
   <div class="col-md-12 input-group">
-    <textarea class="form-control  has-feedback-left" id="inputSuccess2" name="content" style="height: 200px;" placeholder="Content of post" required=""></textarea>
+    <textarea class="form-control  has-feedback-left" id="content" name="content" style="height: 200px;" placeholder="Content of post" required=""></textarea>
     <span class="fa fa-edit form-control-feedback left" aria-hidden="true"></span>
   </div>
 
@@ -188,8 +188,9 @@
     <input class="form-control has-feedback-left" id="inputSuccess2" type="submit" value="Publish">
   </div>
 </form>
-
-
+ <script>
+   CKEDITOR.replace( 'content' );
+</script>
 
 
 

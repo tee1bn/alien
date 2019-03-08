@@ -125,6 +125,9 @@ cursor: pointer;
   </div>
 </form>
 
+ <script>
+   CKEDITOR.replace( 'content' );
+</script>
 
 
 

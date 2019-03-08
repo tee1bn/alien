@@ -43,18 +43,22 @@
                  <form method="post" enctype="multipart/form-data" action="<?=domain;?>/admin-products/createProduct">
                   <?=$this->inputErrors();?>
                   <div class="form-group">
+                    Name:
                     <?=$this->csrf_field('add_products');?>
                    <input type="" name="name" class="form-control" required="required" value="<?=Input::old('name');?>" placeholder="Item name" >
                   </div>
 
                 <div class="form-group">
+                  Price
                    <input type="" name="price" class="form-control" required="required" value="<?=Input::old('price');?>" placeholder="Item current price">
                  </div>
 
               <div class="form-group">
+                Regular/Old Price
                    <input type="" name="old_price" class="form-control" required="required" value="<?=Input::old('old_price');?>" placeholder="Item Old Price i.e regular price">
                  </div>
                 <div class="form-group">
+                  Category
                   <select name="category" class="form-control" required="required">
                     <option value="">select category</option>
                     <?php foreach (ProductsCategory::all() as $category):?>
@@ -66,10 +70,12 @@
                  </div>
 
                 <div class="form-group">
+                  Images
                    <input type="file" multiple="" name="front_image[]" class="form-control" required="required" value="<?=Input::old('front_image');?>" placeholder="Item price">
                   </div>
 
                      <div class="form-group">
+                      Description
                        <textarea class="form-control" name="description"  id="" required="required"  placeholder="Item description"><?=Input::old('description');?></textarea>
                       </div>
 
@@ -83,6 +89,9 @@
                  </form>
 
 
+ <script>
+   CKEDITOR.replace( 'description' );
+</script>
                     </div>
 
 

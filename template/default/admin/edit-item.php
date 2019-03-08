@@ -56,7 +56,7 @@
 
                 <div class="form-group">
                  Regular Price:
-                   <input type="" name="old_price" class="form-control" required="required" value="<?=$item->old_price;?>" placeholder="Item old/regular price">
+                   <input type="" name="old_price" class="form-control"  value="<?=$item->old_price;?>" placeholder="Item old/regular price">
                  </div>
 
                 <div class="form-group">
@@ -142,6 +142,12 @@ cursor: pointer;
 
 
                  </form>
+
+
+ <script>
+   CKEDITOR.replace( 'description' );
+</script>
+
 
 
                     </div>
