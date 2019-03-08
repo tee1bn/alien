@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home2/alienfas/public_html #Add /<sub_folder> if required
+    - export DEPLOYPATH=/home2/alienfas/public_html 
     - /bin/cp -r * $DEPLOYPATH
