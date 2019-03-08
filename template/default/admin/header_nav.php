@@ -18,6 +18,7 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
+<script src="<?=domain;?>/template/default/guest/assets/angulars/angularjs.js"></script>
 
   </head>
 

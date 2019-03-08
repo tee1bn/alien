@@ -159,7 +159,7 @@
                                     <div class="form-row">
                                         <div class="form__group col-12">
                                             <div class="custom-checkbox mb--20">
-                                                <input type="checkbox" ng-click="$shop.$cart.prepare_shipping_address($event)"  name="shipdifferetads" id="shipdifferetads" class="form__checkbox">
+                                                <input type="checkbox" onclick="prepare_shipping_address(this)"  ng-model="$shop.$cart.$buyer_detail.billing.ship_to_diff_address" id="shipdifferetads" class="form__checkbox">
                                                 
                                                 <label for="shipdifferetads"  class="form__label form__label--2 shipping-label">Ship To A Different Address?</label>
                                             </div>
@@ -167,8 +167,20 @@
                                             <script>
                                                 prepare_shipping_address = function ($different_shipping_choice){
                                                     if ($different_shipping_choice.checked) {
-                                                        console.log('sdiif addreaa');
-                                                     /*   $("#shipping_firstname").val("");
+
+                                                        <?php if ($this->auth()) :?>
+                                                        $("#shipping_lastname").val("<?=$shipping_details->shipping_lastname;?>");
+                                                        $("#shipping_company").val("<?=$shipping_details->shipping_company;?>");
+                                                        $("#shipping_country").val("<?=$shipping_details->shipping_country;?>");
+                                                        $("#shipping_street_address").val("<?=$shipping_details->shipping_street_address;?>");
+                                                        $("#shipping_apartment").val("<?=$shipping_details->shipping_apartment;?>");
+                                                        $("#shipping_city").val("<?=$shipping_details->shipping_city;?>");
+                                                        $("#shipping_state").val("<?=$shipping_details->shipping_state;?>");
+                                                        $("#shipping_phone").val("<?=$shipping_details->shipping_phone;?>");
+                                                        $("#shipping_email").val("<?=$shipping_details->shipping_email;?>");
+                                                        <?php else :?>
+
+                                                        $("#shipping_firstname").val("");
                                                         $("#shipping_lastname").val("");
                                                         $("#shipping_company").val("");
                                                         $("#shipping_country").val("");
@@ -178,27 +190,10 @@
                                                         $("#shipping_state").val("");
                                                         $("#shipping_phone").val("");
                                                         $("#shipping_email").val("");
-*/
-                                                    }else{
-                                                        console.log('not diff addreaa');
+                                                        <?php endif;?>
 
-                                                        $("#shipping_firstname").val($("#billing_firstname").val());
-                                                        $("#shipping_lastname").val($("#billing_lastname").val());
-                                                       
-                                                       $("#shipping_company").val("okok");
-                                                       //  $("#shipping_country").val("");
-                                                       //  $("#shipping_street_address").val("");
-                                                       //  $("#shipping_apartment").val("");
-                                                       //  $("#shipping_city").val("");
-                                                       //  $("#shipping_state").val("");
-                                                       //  $("#shipping_phone").val("");
-                                                       //  $("#shipping_email").val("");
+                                                    }else{}
 
-                                                    // $scope = angular.element($("#shipping_email")).scope();
-
-
-
-                                                    }
                                                 }
                                                 
                                             </script>
@@ -362,27 +357,42 @@
                                 </div>
                                 <div class="checkout-payment">
                                     <form action="#" class="payment-form">
-<!--                                         <div class="payment-group mb--10">
+
+
+
+
+                                        <div class="payment-group mb--10">
                                             <div class="payment-radio">
-                                                <input type="radio" value="bank" name="payment-method" id="bank" checked>
+                                                <input type="radio"  data-toggle="collapse" data-target="#direct_bank_transfer" value="bank" ng-model="$shop.$cart.$others.payment_method" id="bank" checked>
                                                 <label class="payment-label" for="cheque">Direct Bank Transfer</label>
                                             </div>
-                                            <div class="payment-info" data-method="bank">
+                                            <div class="payment-info" data-method="bank" id="direct_bank_transfer">
+                                                
+                                                <?php
+                                                    $account_detail = CmsPages::fetch_page_content('account_detail');
+
+                                                ;?>
+                                                <p>
+                                                  Name:  <?=$account_detail['account_name'];?><br>
+                                                    Number: <?=$account_detail['account_number'];?><br>
+                                                    Bank: <?=$account_detail['bank'];?>
+                                                </p><br>
                                                 <p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.</p>
                                             </div>
                                         </div>
                                         <div class="payment-group mb--10">
                                             <div class="payment-radio">
-                                                <input type="radio" value="cheque" name="payment-method" id="cheque">
+                                                <input type="radio" data-toggle="collapse" data-target="#credit_card"  value="credit_card" ng-model="$shop.$cart.$others.payment_method" id="cheque">
                                                 <label class="payment-label" for="cheque">
-                                                    cheque payments
+                                                    Credit/Debit Cards
                                                 </label>
                                             </div>
-                                            <div class="payment-info cheque hide-in-default" data-method="cheque">
-                                                <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
+                                            <div class="payment-info cheque " data-method="cheque" id="credit_card">
+                                                <img src="<?=domain;?>/uploads/images/icons/paystack-wc.png" style="width: 100%;">
+                                                <!-- <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p> -->
                                             </div>
                                         </div>
-                                        <div class="payment-group mb--10">
+                                       <!--  <div class="payment-group mb--10">
                                             <div class="payment-radio">
                                                 <input type="radio" value="cash" name="payment-method" id="cash">
                                                 <label class="payment-label" for="cash">
@@ -392,10 +402,10 @@
                                             <div class="payment-info cash hide-in-default" data-method="cash">
                                                 <p>Pay with cash upon delivery.</p>
                                             </div>
-                                        </div>
- -->                                        <div class="payment-group mt--20">
+                                        </div> -->
+                                        <div class="payment-group mt--20">
                                             <p class="mb--15">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
-                                            <button type="button" ng-click="$shop.$cart.place_order()"  class="btn btn-fullwidth btn-style-1">Pay Now</button>
+                                            <button type="button" ng-click="$shop.$cart.place_order()"  class="btn btn-fullwidth btn-style-1">Place Order</button>
 
                                         </div>
                                                                 

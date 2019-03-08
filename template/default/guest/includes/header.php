@@ -43,7 +43,7 @@
 
 
     <style>
-.fixed-header .container-fluid{
+.fixed-headers .container-fluid{
         background-image: linear-gradient(to bottom right, #20253d, #48587f);
  }
 .header-mobile{
@@ -65,11 +65,6 @@
 footer i {
     color:aliceblue; 
 }
- .modal-body .col-md-6{
-    
-        background-image: linear-gradient(to bottom right, #20253d, #48587f);
- }
-
 
   .btn{
         background-image: linear-gradient(to bottom right, #20253d, #48587f);
@@ -181,7 +176,7 @@ footer i {
 
             <!-- Header Area Start -->
             <header class="header header-fullwidth header-style-1">
-                <div class="header-inner fixed-header" style="padding: 0px; background:;">
+                <div class="header-inner fixed-headers" style="padding: 0px; background:;">
                     <div class="container-fluid">
                         <div class="row align-items-center">
                             <div class="col-xl-5 col-lg-6">
@@ -287,7 +282,7 @@ footer i {
             <!-- Header Area End -->
 
             <!-- Mobile Header area Start -->
-            <header class="header-mobile">
+            <header class="header-mobile" >
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-4">

@@ -34,7 +34,7 @@
                                 <div class="row no-gutters">
                                     <div class="col-12">
                                         <div class="table-content table-responsive">
-                                            <table class="table text-center">
+                                            <table class="table text-center" style="color: black !important;">
                                                 <thead>
                                                     <tr>
                                                         <th>&nbsp;</th>
@@ -56,9 +56,10 @@
 
                                                             <img src="<?=domain;?>/{{$item.images.images[0].main_image}}"  alt="Product Thumnail" style="width: 75px; object-fit: cover;" >
                                                         </td>
-                                                        <td class="product-name text-left wide-column">
+                                                        <td class="product-name text-left wide-column" >
                                                             <h3>
-                                                                <a href="{{$item.url_link}}" style="text-transform: capitalize;">   {{$item.name}}
+                                                                <a href="{{$item.url_link}}" style="text-transform: capitalize;
+                                                                color: black;">   {{$item.name}}
                                                                 </a>
                                                             </h3>
                                                         </td>
@@ -121,7 +122,7 @@
                                                         {{$shop.$cart.$selected_shipping.price |  currency:'<?=currency;?>'}}
                                                      </span>
                                                      <!-- <br>{{$shop.$cart.$shipping_details}} -->
-
+<!-- 
                                                         <div class="shipping-calculator-wrap">
                                                             <a href="#shipping_calculator" class="expand-btn">Calculate Shipping</a>
                                                             <form id="shipping_calculator" class="form shipping-calculator-form hide-in-default">
@@ -135,7 +136,7 @@
                                                                     </option>
                                                                     </select>
                                                                 </div>
-<!--                                                                
+                                                               
                                                                 <div class="form__group mb--10">
                                                                     <select id="calc_shipping_district" name="calc_shipping_district" class="nice-select">
                                                                         <option value="">Select a District…</option>
@@ -151,12 +152,12 @@
                                                                     <input type="text" name="calc_shipping_zip" id="calc_shipping_zip" placeholder="Postcode / Zip">
                                                                 </div>
 
- -->                                                              
+                                                              
                                                                   <div class="form__group">
                                                                 <input ng-click="$shop.$cart.set_shipping_cost(selected_shipping)" type="submit" value="Update Totals">
                                                                 </div>
                                                             </form>
-                                                        </div>
+                                                        </div> -->
                                                     </td>  
                                                 </tr>
                                                 <tr class="order-total">

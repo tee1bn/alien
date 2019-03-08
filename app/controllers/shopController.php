@@ -32,6 +32,18 @@ class shopController extends controller
 	}
 
 
+	public function order_detail($order_id)
+	{	
+		$order = Orders::find($order_id);
+		if ($order == null) {
+
+			Redirect::back();
+		}
+		$this->view('guest/order_detail', ['order'=> $order]);
+
+	}
+
+
 	public function cart()
 	{
 		$shipping_rate = '1500.00';
@@ -60,6 +72,7 @@ class shopController extends controller
 		$cart['$buyer_detail']['shipping'];
 
 		// print_r($cart['$buyer_detail']['billing']);
+		// print_r($cart['$others']['payment_method']);
 
 
 		$billing_validator	= new Validator;
@@ -69,11 +82,22 @@ class shopController extends controller
 		$error_notes =  $this->inputErrors();
 		unset($_SESSION['inputs-errors']); //remove captured errors for first validation
 
-		$shipping_validator->check($cart['$buyer_detail']['shipping'], UserShipping::$shipping_detail_rules );
-		$error_notes .=  $this->inputErrors();
+			if ($cart['$buyer_detail']['billing']['ship_to_diff_address'] == 1) {
 
+				$shipping_validator->check($cart['$buyer_detail']['shipping'], UserShipping::$shipping_detail_rules );
+				$error_notes .=  $this->inputErrors();
+			}else{
+				foreach ($cart['$buyer_detail']['billing'] as $key => $value) {
+					 $new_key  = str_replace('billing', 'shipping', $key);
+					$cart['$buyer_detail']['shipping'][$new_key] = $value;
+				}
+
+			}
+
+		// print_r($cart['$buyer_detail']['shipping']);
 		//validate cart
 		// print_r($cart['$items']);
+		
 
 
 		 if($billing_validator->passed() && $shipping_validator->passed() && (Products::validate_cart($cart['$items']))){
@@ -94,7 +118,18 @@ class shopController extends controller
 			header("Content-type:application/json");
 			$new_order->total_amount = $new_order->total_price();
 			$new_order->paystack_total = $new_order->paystack_total();
-			echo json_encode($new_order->toArray() , 4);
+			// echo json_encode($new_order->toArray() , 4);
+
+
+				$paystack_keys = CmsPages::fetch_page_content('paystack_keys');
+				$public_key = $paystack_keys['public_key'];
+
+
+			echo json_encode([
+							'order' => $new_order->toArray(),
+							'payment_method' => $cart['$others']['payment_method'],
+							'public_key' => $public_key
+							]);
 
 		
 
@@ -128,6 +163,8 @@ class shopController extends controller
 
 	public function verify_paystack_payment($reference, $order_id)
 	{
+				$paystack_keys = CmsPages::fetch_page_content('paystack_keys');
+				$secret_key = $paystack_keys['secret_key'];
 
 				$result = array();
 				//The parameter after verify/ is the transaction reference to be verified
@@ -138,7 +175,7 @@ class shopController extends controller
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 				curl_setopt(
 				  $ch, CURLOPT_HTTPHEADER, [
-				    'Authorization: Bearer sk_test_ba8e834ff7a1002b56b25e7f3a5dbc57b6ab3974']
+				    "Authorization: Bearer $secret_key"]
 				);
 				$request = curl_exec($ch);
 				curl_close($ch);
@@ -164,7 +201,7 @@ class shopController extends controller
 				          echo "Transaction was successful";
 
 				          $this->complete_and_finish_order_process($order_id);
-				          Session::putFlash('success','Order Created Successfully');
+				          Session::putFlash('success','Order Saved Successfully');
 				        }else{
 				          // the transaction was not successful, do not deliver value'
 				          // print_r($result);  //uncomment this line to inspect the result, to check why it failed.

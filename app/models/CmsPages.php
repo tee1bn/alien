@@ -17,7 +17,14 @@ class CmsPages extends Eloquent
 
 
 
+	public static function fetch_page_content($page_unique_name)
+	{
 
+		$page_content = CmsPages::where('page_unique_name',  $page_unique_name)->first();
+
+		return $test_specimen_is_array = (json_decode($page_content->page_content , TRUE)) ;
+
+	}
 
 }
 

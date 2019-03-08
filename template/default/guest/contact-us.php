@@ -25,7 +25,9 @@ $(document).ready(function(){
             cache: false,
             success: function(data) {
 
-                show_notification("Message sent successfully!");
+                // show_notification("Message sent successfully!");
+                console.log(data);
+                window.notify();
 
             },
             error: function (data) {

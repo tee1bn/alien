@@ -1,12 +1,12 @@
 	
 
-  function payWithPaystack(data){
+  function payWithPaystack(data, $public_key){
     var handler = PaystackPop.setup({
       // This assumes you already created a constant named
       // PAYSTACK_PUBLIC_KEY with your public key from the
       // Paystack dashboard. You can as well just paste it
       // instead of creating the constant
-      key: 'pk_test_117354d854df97e8f2451be553d3cf529d9c34fc',
+      key: $public_key,
       email: data.billing_email,
       amount: data.paystack_total,
       currency: "NGN",
@@ -35,6 +35,7 @@
         verifying.done(function( data ) { 
         	/* give value saved in data */ 
         		console.log(data);
+        		window.notify();
         		// complete_finish_order_process(this.defaults.metadata.orderid);
         });
       },
@@ -185,7 +186,20 @@
 
                       if (typeof(data) == 'object') {
 
-                      	payWithPaystack(data);
+                      		switch(data.payment_method) {
+								    case 'credit_card':
+			                      		payWithPaystack(data.order , data.public_key);
+								        break;
+								    case 'bank':
+
+								    	window.location.href = $base_url+"/shop/order-detail/"+data.order.id;
+								        break;
+								    default:
+
+								    break;
+								}
+
+
                       }
 
 
@@ -255,46 +269,7 @@
 
 
 			}
-
-			this.prepare_shipping_address =  function ($different_shipping_choice){
-				console.log($different_shipping_choice.target.checked);
-				  if ($different_shipping_choice.target.checked) {
-                            console.log('sdiif addreaa');
-                         /*   $("#shipping_firstname").val("");
-                            $("#shipping_lastname").val("");
-                            $("#shipping_company").val("");
-                            $("#shipping_country").val("");
-                            $("#shipping_street_address").val("");
-                            $("#shipping_apartment").val("");
-                            $("#shipping_city").val("");
-                            $("#shipping_state").val("");
-                            $("#shipping_phone").val("");
-                            $("#shipping_email").val("");
-*/
-                        }else{
-                            console.log('not diff addreaa');
-                            // this.$buyer_detail.shippind.shippind_email = this.$buyer_detail.billing.billing_email ;
-                            $("#shipping_firstname").val($("#billing_firstname").val());
-                            $("#shipping_lastname").val($("#billing_lastname").val());
-                           
-                           $("#shipping_company").val("okok");
-                           //  $("#shipping_country").val("");
-                           //  $("#shipping_street_address").val("");
-                           //  $("#shipping_apartment").val("");
-                           //  $("#shipping_city").val("");
-                           //  $("#shipping_state").val("");
-                           //  $("#shipping_phone").val("");
-                           //  $("#shipping_email").val("");
-
-                        $scope = angular.element($("#shipping_email")).scope();
-                        $scope.$apply();
-
-
-
-                                                    }
-                                                
-			};
-
+			
 	}
 
 
@@ -369,7 +344,6 @@
 
 
 		this.retrieve_cart_in_session = function () {
-
 			$this = this;
 			 $.ajax({
 	            type: "POST",
@@ -378,7 +352,6 @@
 	            data: null,
 	            success: function(data) {
 
-
 				    console.log(data);
 				    // try{
 
@@ -386,16 +359,16 @@
 				    	var $item = data.$items[x];
 				    	$this.$cart.$items.push($item);
 				    }
-		    			$this.$cart.retrieve_shipping_settings();
+		    			// $this.$cart.retrieve_shipping_settings();
 
 				    try{
 				    	// $this.$cart.set_shipping_cost(data.$selected_shipping.location);
 				    }catch(e){}
 
-				    	$this.update_angular_scope();
-				    	$this.$cart.calculate_total();
+				    	console.log($this.$cart);
 
-				
+				    	$this.$cart.update_server();
+							$this.update_angular_scope();
 	            },
 	            error: function (data) {
 	                 //alert("fail"+data);
@@ -407,7 +380,9 @@
 	
 			this.update_angular_scope = function () {
 					$scope = angular.element($('#content')).scope().$apply();
-					$scope = angular.element($('#header-mini-cart')).scope().$apply();
+					$scope = angular.element($('#header-mini-cart')).scope();
+					$scope.$cart = this.$cart;
+					$scope.$apply();
 			}
 
 

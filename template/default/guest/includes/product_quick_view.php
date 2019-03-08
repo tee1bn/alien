@@ -31,24 +31,24 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="modal-box product-summary"">
+                        <div class="modal-box product-summary">
                             <div class="product-navigation mb--10">
                                 <a href="#" class="prev"><i class="dl-icon-left"></i></a>
                                 <a href="#" class="next"><i class="dl-icon-right"></i></a>
                             </div>
-                            <h3 class="product-title mb--15"  style="color: white;">{{$shop.$quickview.name}}</h3>
+                            <h3 class="product-title mb--15"  >{{$shop.$quickview.name}}</h3>
                             <span class="product-price-wrapper mb--20">
-                                <span class="money"   style="color: white;"> {{$shop.$quickview.price |  currency:'<?=currency;?>'}}</span>
+                                <span class="money"   > {{$shop.$quickview.price |  currency:'<?=currency;?>'}}</span>
                                 <span class="product-price-old">
-                                    <span class="money"  style="color: white;">{{$shop.$quickview.old_price |  currency:'<?=currency;?>'}}</span>
+                                    <span class="money"  >{{$shop.$quickview.old_price |  currency:'<?=currency;?>'}}</span>
                                 </span>
                             </span>
-                            <p class="product-short-description mb--25 mb-md--20"  style="color: white !important;">{{$shop.$quickview.quickdescription}}</p>
+                            <p class="product-short-description mb--25 mb-md--20">{{$shop.$quickview.quickdescription}}</p>
                             <div class="product-action d-flex flex-row align-items-center mb--30 mb-md--20">
                               <!--   <div class="quantity">
                                     <input type="number" class="quantity-input" name="qty" id="quick-qty" value="1" min="1">
                                 </div> -->
-                                <button ng-click="$shop.$cart.add_item($shop.$quickview)"  type="button" class="btn btn-style-1 btn-semi-large add-to-cart"  style="color: white;">
+                                <button ng-click="$shop.$cart.add_item($shop.$quickview)"  type="button" class="btn btn-style-1 btn-semi-large add-to-cart"  >
                                     Add To Cart
                                 </button>
                                 <!-- <a href="wishlist.html"><i class="dl-icon-heart2"></i></a> -->
@@ -60,7 +60,7 @@
                             <div class="product-summary-footer d-flex justify-content-between flex-sm-row flex-column flex-sm-row flex-column">
                                 <div class="product-meta">
                                     <!-- <span class="sku_wrapper font-size-12">SKU: <span class="sku">REF. LA-887</span></span> -->
-                                    <span class="posted_in font-size-12"  style="color: white;">Categories: <a href="" rel="tag" style="text-transform: capitalize;"  style="color: white;">{{$shop.$quickview.category.category}}</a></span>
+                                    <span class="posted_in font-size-12"  >Categories: <a href="" rel="tag" style="text-transform: capitalize;"  >{{$shop.$quickview.category.category}}</a></span>
                                 </div>
                                 <!-- 
                                 <div class="product-share-box">

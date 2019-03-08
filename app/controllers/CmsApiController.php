@@ -175,6 +175,32 @@ echo" <pre>";
 
 
 
+	public function update_bank_detail()
+	{
+
+		print_r($_POST['content']);
+
+
+		$page_content = CmsPages::where('page_unique_name',  'account_detail')->first();
+		$page_content->update(['page_content'=> (Input::get('content'))]);
+		Session::putFlash('success','Updated Successfully');
+	}
+
+
+
+	public function update_paystack_keys()
+	{
+
+		print_r($_POST['content']);
+
+
+		$page_content = CmsPages::where('page_unique_name',  'paystack_keys')->first();
+		$page_content->update(['page_content'=> (Input::get('content'))]);
+		Session::putFlash('success','Updated Successfully');
+	}
+
+
+
 	public function update_page_cms($page_unique_name)
 	{
 

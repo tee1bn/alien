@@ -27,12 +27,12 @@ class home extends controller
 		echo "<pre>";
 
 
-		$product =Products::find(66);
-		print_r($product->quickdescription());
-		print_r($product->images);
-		print_r($product->main_image);
+		print_r(json_encode([
+				'public_key' => 'Access Banl',
+				'secret_key' => '9875667878',
+				]));
 
-
+		print_r(CmsPages::fetch_page_content('paystack_keys'));
 	}
 
 

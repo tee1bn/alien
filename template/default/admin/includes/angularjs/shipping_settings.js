@@ -54,23 +54,106 @@ app.controller('ShippingSettingsController', function($scope, $http) {
 
     }
 
+  $scope.fetch_page_content = function () {
+
+      $http.get($base_url+'/cms_api/fetch_page_content/shipping_details')
+          .then(function(response) {
+
+            $scope.$page_cms = response.data;
+            console.log($scope.$page_cms);
+                });
+
+  } 
+  $scope.fetch_page_content() ;
 
 
-	$scope.fetch_page_content = function () {
 
-			$http.get($base_url+'/cms_api/fetch_page_content/shipping_details')
+  $scope.update_bank_detail = function () {
+    
+ $content = (JSON.stringify($scope.$bank_detail));
+
+   var $form = new FormData();
+    $form.append('content', $content);
+
+   
+    $.ajax({
+            type: "POST",
+            url: $base_url+"/cms_api/update_bank_detail",
+           cache: false,
+            contentType: false,
+            processData: false,
+            data: $form,
+            success: function(data) {
+              console.log(data);
+              // $scope.fetch_page_content();
+              window.notify();
+            },
+            error: function (data) {
+                 //alert("fail"+data);
+            }
+
+
+        });
+
+    }
+
+  $scope.fetch_bank_detail = function () {
+
+      $http.get($base_url+'/cms_api/fetch_page_content/account_detail')
+          .then(function(response) {
+
+            $scope.$bank_detail = response.data;
+            console.log($scope.$bank_detail);
+                });
+
+  } 
+  $scope.fetch_bank_detail() ;
+
+  $scope.update_paystack_keys = function () {
+    
+ $content = (JSON.stringify($scope.$paystack_keys));
+
+   var $form = new FormData();
+    $form.append('content', $content);
+
+   
+    $.ajax({
+            type: "POST",
+            url: $base_url+"/cms_api/update_paystack_keys",
+           cache: false,
+            contentType: false,
+            processData: false,
+            data: $form,
+            success: function(data) {
+              console.log(data);
+              // $scope.fetch_page_content();
+              window.notify();
+            },
+            error: function (data) {
+                 //alert("fail"+data);
+            }
+
+
+        });
+
+    }
+
+	$scope.fetch_paystack_keys = function () {
+
+			$http.get($base_url+'/cms_api/fetch_page_content/paystack_keys')
 			    .then(function(response) {
 
-				    $scope.$page_cms = response.data;
-				    console.log($scope.$page_cms);
+				    $scope.$paystack_keys = response.data;
+				    console.log($scope.$paystack_keys);
 			          });
 
-
-
 	} 
+	$scope.fetch_paystack_keys() ;
 
 
-	$scope.fetch_page_content() ;
+
+
+
 });
 
 app.directive("contenteditable", function() {
