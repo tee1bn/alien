@@ -159,5 +159,6 @@
 
 
  <script src="https://cdn.ckeditor.com/4.11.3/standard/ckeditor.js"></script>
+ <!-- <script src="<?=domain;?>/includes/ckeditor.js"></script> -->
 
 

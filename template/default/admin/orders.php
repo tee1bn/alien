@@ -95,6 +95,7 @@ $i=1; foreach (Orders::all() as $order) :
                              <label  class='label label-xs label-primary'>
                                   <?=$order->status;?>
                               </label>
+                                  <?=$order->payment;?>
                             </td>
                           <td>
                               <label  class='label label-xs label-primary'>
@@ -102,11 +103,13 @@ $i=1; foreach (Orders::all() as $order) :
                               </label>
                             </td>
                           <td>
-                            <a href="<?=domain;?>/admin-orders/open_order/<?=$order->id;?>">
+                            <a target="_blank" href="<?=domain;?>/admin-orders/open_order/<?=$order->id;?>">
                               <span  class='label label-xs label-primary'>Open
                               </span>
                            </a>
-                            <a href="<?=domain;?>/admin-orders/delete_order/<?=$order->id;?>">
+                            <a href="javascript:void;"
+                            onclick="$confirm_dialog = 
+                            new ConfirmationDialog('<?=domain;?>/admin-orders/delete_order/<?=$order->id;?>')" >
                                 <span  class='label label-xs label-danger'>Delete
                                 </span>
                              </a>

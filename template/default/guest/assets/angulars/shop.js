@@ -359,10 +359,10 @@
 				    	var $item = data.$items[x];
 				    	$this.$cart.$items.push($item);
 				    }
-		    			// $this.$cart.retrieve_shipping_settings();
+		    			$this.$cart.retrieve_shipping_settings();
 
 				    try{
-				    	// $this.$cart.set_shipping_cost(data.$selected_shipping.location);
+				    	$this.$cart.$selected_shipping = data.$selected_shipping;
 				    }catch(e){}
 
 				    	console.log($this.$cart);
