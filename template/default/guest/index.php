@@ -195,6 +195,7 @@
                                     data-paddingleft="[0,0,0,0]"
 
                                     style="z-index: 6;">
+                                   
                                     <!-- <img src="<?=asset;?>/assets/img/slider/home-06/m6-s1-3.png" alt="" data-ww="['611px','611px','353px','353px']" data-hh="['204px','204px','118px','118px']" data-no-retina>  -->
                                     </div>
 
