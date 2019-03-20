@@ -34,7 +34,7 @@ class Config
 	 */
 	public  static function domain()
 	{
-		return	self::host()."/alien";
+		return	self::host();
 
 	}
 
