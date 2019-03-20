@@ -31,12 +31,8 @@
 
                         ];
 
-    $main_navigation = [
-                            [   
-                                'link' => domain."", 
-                                'nav' => "Home",
-                                'active' => ""
-                            ],
+    $main_navigation_left = [
+                         
 
                             [   
                                 'link' => domain."/shop", 
@@ -51,6 +47,17 @@
                             ],
 
                             [   
+                                'link' => domain."/blog", 
+                                'nav' => "Blog",
+                                'active' => "blog",
+                            ],
+
+                        ];
+
+    $main_navigation_right = [
+                          
+
+                            [   
                                 'link' => domain."/gallery", 
                                 'nav' => "Gallery",
                                 'active' => "gallery"
@@ -60,12 +67,6 @@
                                 'link' => domain."/contact", 
                                 'nav' => "Contact Us",
                                 'active' => "contact"
-                            ],
-
-                            [   
-                                'link' => domain."/blog", 
-                                'nav' => "Blog",
-                                'active' => "blog",
                             ],
 
                         ];

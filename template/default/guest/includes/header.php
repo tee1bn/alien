@@ -158,12 +158,13 @@ footer i {
                 <div class="header-inner fixed-headers" style="padding: 0px; background:;">
                     <div class="container-fluid">
                         <div class="row align-items-center">
-                            <div class="col-xl-5 col-lg-6">
+                            <div class="col-xl-5 col-lg-6 text-right">
                                 <!-- Main Navigation Start Here -->
                                 <nav class="main-navigation">
+
                                     <ul class="mainmenu">
 
-                                        <?php foreach ($main_navigation as $key => $main_menu) :?>
+                                        <?php foreach ($main_navigation_left as $key => $main_menu) :?>
 
                                         <li class="mainmenu__item menu-item-has-children megamenu-holder 
                                         <?=($menu == $main_menu[active])?'active': '' ;?>">
@@ -178,28 +179,49 @@ footer i {
                                 </nav>
                                 <!-- Main Navigation End Here -->
                             </div>
-                            <div class="col-lg-2 col-md-3 col-4 text-lg-center">
-                                <!-- Logo Start Here -->
+
+                            <figure class="logo--normal"> 
+                                <img src="<?=asset;?>/assets/img/logo/logo-a.png" alt="Logo" style="height: 130px;">  
+                            </figure>
+
+                            <div class="col-xl-5 col-lg-6">
+                                <!-- Main Navigation Start Here -->
+                                <nav class="main-navigation">
+                                    
+                                    <ul class="mainmenu">
+
+                                        <?php foreach ($main_navigation_right as $key => $main_menu) :?>
+
+                                        <li class="mainmenu__item menu-item-has-children megamenu-holder 
+                                        <?=($menu == $main_menu[active])?'active': '' ;?>">
+                                            <a href="<?=$main_menu['link'];?>" class="mainmenu__link">
+                                                <span class="mm-text"><?=$main_menu['nav'];?></span>
+                                                <!-- <span class="tip"></span> -->
+                                            </a>
+                                        </li>
+                                    <?php endforeach;?>
+                                    </ul>
+
+                                </nav>
+                                <!-- Main Navigation End Here -->
+                            </div>
+<!--                             <div class="col-lg-2 col-md-3 col-4 text-lg-center">
                                 <a href="<?=domain;?>" class="logo-box" style="height: 100px;" >
                                    
                                     <figure class="logo--normal"> 
-                                        <!-- <img src="<?=asset;?>/assets/img/logo/logo.svg" alt="Logo"/>    -->
                                         <img src="<?=asset;?>/assets/img/logo/logo-a.png" alt="Logo" style="height: 130px;">  
-
                                     </figure>
                                     <figure class="logo--transparency">
                                         <img src="<?=asset;?>/assets/img/logo/logo-a.png" alt="Logo"/>  
                                     </figure>
                                     <h2>
-                                        <!-- <?=project_name;?> -->
                                     </h2>
 
                                 </a>
-                                <!-- Logo End Here -->
                             </div>
+ -->
 
-
-                            <div class="col-xl-5 col-lg-4 col-md-9 col-8">
+                            <div class="col-xl-5 col-lg-4 col-md-9 col-8" style="position: absolute;right: 0px;">
                                 <ul class="header-toolbar text-right">
                                     <li class="header-toolbar__item d-`none d-lg-block">
                                         <a href="#sideNav" class="toolbar-btn">

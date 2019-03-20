@@ -44,8 +44,16 @@ class Config
 	 */
 	public  static function host()
 	{
-		return	"http://".$_SERVER['HTTP_HOST'];
 
+
+		if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
+    		// SSL connection
+			return	"https://".$_SERVER['HTTP_HOST'];
+		}else{
+
+
+			return	"http://".$_SERVER['HTTP_HOST'];
+		}
 	}
 
 	/**

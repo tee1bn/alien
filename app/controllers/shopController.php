@@ -165,6 +165,7 @@ class shopController extends controller
 	{
 				$paystack_keys = CmsPages::fetch_page_content('paystack_keys');
 				$secret_key = $paystack_keys['secret_key'];
+				$order = Orders::find($order_id);
 
 				$result = array();
 				//The parameter after verify/ is the transaction reference to be verified
@@ -199,6 +200,11 @@ class shopController extends controller
 				          @ If the user changes his email on your system, it will be unusable
 				          */
 				          echo "Transaction was successful";
+
+				          if (($result['data']['amount'] != $order->paystack_total)) {
+				          	Session::putFlash('danger','invalid amount!');
+				          	return;
+				          }
 
 				          $this->complete_and_finish_order_process($order_id);
 				          Session::putFlash('success','Order Saved Successfully');
