@@ -181,7 +181,7 @@ footer i {
                             </div>
 
                             <figure class="logo--normal"> 
-                                <img src="<?=asset;?>/assets/img/logo/logo-a.png" alt="Logo" style="height: 130px;">  
+                               <a href="<?=domain;?>"> <img src="<?=asset;?>/assets/img/logo/logo-a.png" alt="Logo" style="height: 130px;"> </a>
                             </figure>
 
                             <div class="col-xl-5 col-lg-6">
@@ -266,12 +266,12 @@ footer i {
                                             <sup class="mini-cart-count">{{$cart.$items.length}}</sup>
                                         </a>
                                     </li>
-                                    <li class="header-toolbar__item">
+<!--                                     <li class="header-toolbar__item">
                                         <a href="#searchForm" class="search-btn toolbar-btn">
                                             <i class="dl-icon-search1"></i>
                                         </a>
                                     </li>
-                                    <li class="header-toolbar__item d-lg-none">
+ -->                                    <li class="header-toolbar__item d-lg-none">
                                         <a href="#" class="menu-btn"></a>                 
                                     </li>
                                 </ul>
