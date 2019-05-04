@@ -89,9 +89,9 @@
                  </form>
 
 
- <script>
-   CKEDITOR.replace( 'description' );
-</script>
+                       <script>
+                         CKEDITOR.replace( 'description' );
+                      </script>
                     </div>
 
 
@@ -166,7 +166,7 @@
                               <label type='label' class='label label-xs label-primary'>Edit
                               </label>
                            </a>
-                            <a  onclick="$confirm_dialog = new ConfirmationDialog('<?=$product->deletelink;?>')">
+                            <a  onclick="$confirm_dialog = new ConfirmationDialog('<?=$item->deletelink;?>')">
                                 <label type='label' class='label label-xs label-danger'>Delete
                                 </label>
                              </a>

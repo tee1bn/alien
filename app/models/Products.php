@@ -203,7 +203,11 @@ class Products extends Eloquent
 				unset($previous_images[$value]);
 			}
 		($updated_previous_images = array_values($previous_images)); //after removing some
-		
+			
+			if (array_values($previous_images) == null) {
+				$updated_previous_images =  [];
+			}
+
 
         foreach ($new_images as  $image) {
         	array_unshift($updated_previous_images, $image);
