@@ -100,28 +100,12 @@
                     <ul class="nav child_menu" >
 
           
-        <li><a> About us <span class="fa fa-chevron-down"></span></a>           
-                    <ul class="nav child_menu" >
-         
-         <li>
-          <a href="<?=domain ;?>/about/our-brand">
-           Our brand 
-         </a>                  
-         </li>
-
-         <li>
-          <a href="<?=domain ;?>/about/meet-the-ceo">
-           Meet the CEO 
-         </a>                  
-         </li>
           <li>
-          <a href="<?=domain ;?>/about/our-core-values">
-           Our core values 
-         </a>                  
-         </li>
+            <a href="<?=domain;?>/about">
+             About us 
+           </a>                  
+           </li>
 
-          </ul>
-          </li>
           <li>
             <a href="<?=domain ;?>/contact">
              Contact 
