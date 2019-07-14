@@ -72,10 +72,10 @@
 <li><a href="<?=domain ;?>/admin-orders"><i class="fa fa-list"></i> Orders</a>
                     
                   </li>
-     
+     <!-- 
 <li><a href="<?=domain ;?>/admin-newsletter"><i class="fa fa-envelope"></i> Newsletters</a>
                     
-                  </li>
+                  </li> -->
      <!--                      
 <li class="active"><a><i class="fa fa-group"></i> Communication <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu" style="display: block;">
